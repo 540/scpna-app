@@ -1,0 +1,14 @@
+{
+  "src/**/*.{ts,tsx}": [
+    "prettier --write",
+    "eslint --ext=js,jsx,ts,tsx --fix",
+  ],
+  "src/**/*.{js,json,md}": [
+    "prettier --write",
+    "eslint --fix",
+  ],
+  "{setupJestUnit.ts, setupJestIntegration.ts}": [
+    "prettier --write",
+    "eslint --ext=js,jsx,ts,tsx --fix",
+  ]
+}
