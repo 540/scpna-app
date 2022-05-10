@@ -1,5 +1,17 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "ui/*": [
+        "./src/ui/*"
+      ],
+      "core/*": [
+        "./src/core/*"
+      ],
+      "__mocks__/*": [
+        "./src/__mocks__/*"
+      ]
+    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
