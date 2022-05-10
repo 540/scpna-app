@@ -1,3 +1,63 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "plugin:testing-library/react",
+    "plugin:react-hooks/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "jest",
+    "testing-library"
+  ],
+  "rules": {
+    "react/prop-types": [0],
+    "prettier/prettier": "error",
+    "space-before-function-paren": "off",
+    "no-use-before-define": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "jest/no-try-expect": "off",
+    "jest/no-conditional-expect": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-uses-react": "off",
+    "no-redeclare": "warn",
+    "testing-library/prefer-screen-queries": "off", //https://github.com/testing-library/eslint-plugin-testing-library/blob/main/docs/rules/prefer-screen-queries.md
+    "testing-library/await-async-query": "warn",
+    /* Temporally inactive rules to be changed ultimately little by little */
+    "jest/no-mocks-import": "warn",
+    "react/display-name": "warn",
+    "react/no-did-update-set-state": "warn",
+    "no-console": "error",
+    "no-duplicate-imports": "error"
+  }
 }
