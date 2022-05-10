@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react'
+import Home from '../../pages'
 
 describe('Hello test', () => {
   it('renders hello', () => {
-    render(<div>Hello</div>)
+    render(<Home />)
 
-    expect(screen.getByText('Hello')).toBeDefined()
+    expect(screen.getByText('Hola Mundo')).toBeDefined()
   })
 })
