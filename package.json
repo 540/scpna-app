@@ -9,7 +9,8 @@
     "lint": "next lint",
     "test": "yarn test:unit && yarn test:integration",
     "test:unit": "jest -c jest.config.unit.js --passWithNoTests",
-    "test:integration": "jest -c jest.config.integration.js --passWithNoTests"
+    "test:integration": "jest -c jest.config.integration.js --passWithNoTests",
+    "start:api": "cd ./fakeapi && yarn start"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
