@@ -20,9 +20,7 @@ export const Layout = ({ children, title = 'Sensor TBM' }: Props) => {
       </Head>
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar open={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <Box spacing="base" backgroundColor="grey">
-        {children}
-      </Box>
+      <Box backgroundColor="grey">{children}</Box>
     </Box>
   )
 }

@@ -1,8 +1,9 @@
 import { Text } from 'ui/_components/atoms/Text'
-import { AppBar, IconButton, Toolbar } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
+import { AppBar, Button, IconButton, Toolbar } from '@mui/material'
 import { toColor } from 'ui/_styles'
 import { useTrans } from 'ui/_hooks/useTrans'
+import MenuIcon from '@mui/icons-material/Menu'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 
 interface Props {
   toggleSidebar: () => void
@@ -13,11 +14,16 @@ export const Navbar = ({ toggleSidebar }: Props) => {
 
   return (
     <AppBar position="sticky" sx={{ backgroundColor: toColor('white') }} elevation={0}>
-      <Toolbar>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
         <IconButton edge="start" onClick={toggleSidebar}>
           <MenuIcon />
         </IconButton>
-        <Text variant="h6">{trans('app_name')}</Text>
+        <Text size="large" bold>
+          {trans('app_name')}
+        </Text>
+        <Button sx={{ color: toColor('black'), textTransform: 'lowercase' }} startIcon={<AccountCircleIcon />}>
+          <Text>admin</Text>
+        </Button>
       </Toolbar>
     </AppBar>
   )
