@@ -5,6 +5,6 @@ describe('Hello test', () => {
   it('renders hello', () => {
     render(<HomePage />)
 
-    expect(screen.getByText('Hola Mundo')).toBeDefined()
+    expect(screen.getByText('t-app_name')).toBeDefined()
   })
 })
