@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
-import Home from '../../pages'
+import HomePage from '../../pages'
 
 describe('Hello test', () => {
   it('renders hello', () => {
-    render(<Home />)
+    render(<HomePage />)
 
     expect(screen.getByText('Hola Mundo')).toBeDefined()
   })

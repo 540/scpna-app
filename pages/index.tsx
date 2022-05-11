@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
+import { Home } from 'ui/Home'
 
-const Home: NextPage = () => {
-  return <div>Hola Mundo</div>
-}
+const HomePage: NextPage = () => <Home />
 
-export default Home
+export default HomePage
