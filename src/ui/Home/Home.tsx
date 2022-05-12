@@ -1,11 +1,12 @@
-import { Layout } from 'ui/_components'
-import { Box } from '@mui/system'
-import { toColor } from 'ui/_styles'
+import { useTrans } from 'ui/_hooks/useTrans'
+import { Text } from 'ui/_components'
 
 export const Home = () => {
+  const trans = useTrans()
+
   return (
-    <Layout>
-      <Box sx={{ height: '50px', backgroundColor: toColor('text') }} />
-    </Layout>
+    <div>
+      <Text>{trans('app_name')}</Text>
+    </div>
   )
 }
