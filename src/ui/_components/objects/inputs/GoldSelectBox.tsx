@@ -1,11 +1,31 @@
 /* eslint-disable prettier/prettier */
-import { InputLabel, MenuItem, FormControl, Select, SelectChangeEvent} from '@mui/material'
+import { InputLabel, MenuItem, FormControl, Select, SelectChangeEvent, InputBase, styled } from '@mui/material'
 import { Color } from 'ui/_styles'
+import { theme } from 'ui/_styles/theme'
 import * as React from 'react';
 
 interface Props {
   value?: string
 }
+/*
+TODO: Check styled selectbox and apply styles to it
+const BootstrapInput = styled(InputBase)(({ theme }) => ({
+  'label + &': {
+    marginTop: theme.spacing(3),
+  },
+  '& .MuiInputBase-input': {
+    color: theme.palette.secondary,
+    borderRadius: 4,
+    position: 'relative',
+    backgroundColor: theme.palette.primary,
+    border: '1px solid #ced4da',
+    fontSize: 16,
+    padding: '10px 26px 10px 12px',
+    transition: theme.transitions.create(['border-color', 'box-shadow']),
+  },
+  input={<BootstrapInput />}
+}));*/
+
 
 
 export const GoldSelectBox = ({ value = ''}: Props) => {
@@ -22,7 +42,6 @@ export const GoldSelectBox = ({ value = ''}: Props) => {
         <InputLabel id="demo-simple-select-helper-label">{value}</InputLabel>
         <Select
           value={option ?? value}
-          label={value}
           onChange={handleChange}
         >
           <MenuItem value={10}>Charla 1</MenuItem>
