@@ -1,4 +1,15 @@
+import styled from '@emotion/styled'
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
+
+// const Html = styled(OriginalHtml)`
+//   height: 100%;
+// `
+// const Head = styled(OriginalHead)`
+//   height: 100%;
+// `
+// const Body = styled.body`
+//   height: 100%;
+// `
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

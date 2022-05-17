@@ -9,6 +9,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Component {...pageProps} />
+      <style jsx global>{`
+        html,
+        body {
+          height: 100%;
+        }
+        #__next {
+          height: 100%;
+        }
+      `}</style>
     </ThemeProvider>
   )
 }
