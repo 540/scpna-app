@@ -12,7 +12,7 @@ const Div = styled.div`
 
     border-radius: 27px 27px 0 0;
 
-    padding: 40px 50px;
+    padding: 30px 50px 40px 50px;
  
     justify-content: space-around;
 `
