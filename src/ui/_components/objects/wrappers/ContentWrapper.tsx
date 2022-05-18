@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import styled from '@emotion/styled'
+import { colors } from 'ui/_styles'
 
 const Div = styled.div`
     display: flex;
@@ -10,13 +11,15 @@ const Div = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    background-color: purple;
+    background-color: ${colors.primary};
 `
 
 const ContentWrapper = ({ children }: {children: JSX.Element | JSX.Element[]}): JSX.Element => {
-    return (<Div>
+    return (
+    <Div>
         {children}
-    </Div>)
+    </Div>
+    )
 }
 
 export {ContentWrapper}
