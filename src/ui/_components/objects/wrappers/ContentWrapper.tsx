@@ -1,8 +1,6 @@
 /* eslint-disable prettier/prettier */
 import styled from '@emotion/styled'
 
-import { colors } from '../../../_styles'
-
 const Div = styled.div`
     display: flex;
     flex-direction: column;
@@ -12,7 +10,7 @@ const Div = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    background-color: ${colors.primary};
+    background-color: purple;
 `
 
 const ContentWrapper = ({ children }: {children: JSX.Element | JSX.Element[]}): JSX.Element => {
