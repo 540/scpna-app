@@ -7,9 +7,13 @@ const Div = styled.div`
     display: flex;
     flex: 1;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
     background-color: ${colors.background};
-    padding: 4%;
+
+    border-radius: 27px 27px 0 0;
+
+    padding: 4px;
+ 
     justify-content: space-around;
 `
 
