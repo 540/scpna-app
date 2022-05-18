@@ -6,7 +6,8 @@ import {
   GoldSelectBox,
   FormWrapper,
   ContentWrapper,
-  HeaderWrapper
+  HeaderWrapper,
+  GoldButton
 } from 'ui/_components'
 import { AppBar } from '@mui/material'
 
@@ -27,6 +28,7 @@ export const Home = () => {
         <CommonGoldInput value="email" />
         <BigGoldInput value="pregunta" />
         <GoldSelectBox title="Charla" options={charlas}/>
+        <GoldButton value="Enviar" />
       </FormWrapper>
     </ContentWrapper>
   )
