@@ -2,14 +2,14 @@
 import styled from '@emotion/styled'
 import { Text } from 'ui/_components'
 
-import { colors } from '../../../_styles'
+import { colors } from '../../../../_styles'
 
 const HeaderDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  height: 20%;
+  min-height: 20%;
   width: 100%;
 
   background-color: blue;

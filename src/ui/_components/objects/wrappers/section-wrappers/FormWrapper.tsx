@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import styled from '@emotion/styled'
 
-import { colors } from '../../../_styles'
+import { colors } from '../../../../_styles'
 
 const Div = styled.div`
     display: flex;
@@ -12,7 +12,7 @@ const Div = styled.div`
 
     border-radius: 27px 27px 0 0;
 
-    padding: 4px;
+    padding: 40px 50px;
  
     justify-content: space-around;
 `
