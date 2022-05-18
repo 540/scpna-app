@@ -13,6 +13,12 @@ import { AppBar } from '@mui/material'
 export const Home = () => {
   const trans = useTrans()
 
+  const charlas = [
+    {value: 'c1', text: 'Charla 1'},
+    {value: 'c2', text: 'Charla 2'},
+    {value: 'c3', text: 'Charla 3'}
+];
+
   return (
     <ContentWrapper>
       <HeaderWrapper />
@@ -20,7 +26,7 @@ export const Home = () => {
         <CommonGoldInput value="nombre" />
         <CommonGoldInput value="email" />
         <BigGoldInput value="pregunta" />
-        <GoldSelectBox value="Charla" />
+        <GoldSelectBox title="Charla" options={charlas}/>
       </FormWrapper>
     </ContentWrapper>
   )
