@@ -10,13 +10,22 @@ interface Props {
   variant?: Variant
   size?: FontSize
   bold?: boolean
+  fontFamily?: string
 }
 
-export const Text = ({ children, bold, size = 'medium', variant = 'body1', color = 'text' }: Props) => (
+export const Text = ({
+  children,
+  bold,
+  size = 'medium',
+  variant = 'body1',
+  color = 'text',
+  fontFamily = ''
+}: Props) => (
   <Typography
     sx={{ color: toColor(color), fontWeight: bold ? 'bold' : 'normal' }}
     fontSize={toFontSize(size)}
     variant={variant}
+    fontFamily={fontFamily || 'Roboto'}
   >
     {children}
   </Typography>

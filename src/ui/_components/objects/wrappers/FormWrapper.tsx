@@ -9,8 +9,7 @@ const Div = styled.div`
     flex-direction: column;
     width: 100%;
     background-color: ${colors.background};
-    border-width: 1px;
-    border-style: solid;
+
     border-radius: 27px 27px 0 0;
 
     padding: 4px;

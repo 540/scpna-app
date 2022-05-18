@@ -15,7 +15,7 @@ const Div = styled.div`
 const SectionTitleWrapper = ( {children : title} : {children: JSX.Element} ): JSX.Element => {
     return (
     <Div>
-        <Text color='black' size='big' bold>
+        <Text color='black' size='big' variant='subtitle1' fontFamily='Basic' bold>
             {title}
         </Text>
     </Div>
