@@ -29,8 +29,8 @@ export const Text = ({
     sx={{
       color: toColor(color),
       fontWeight: bold ? 'bold' : 'normal',
-      'letter-spacing': toFontSpacing(fontSpacing),
-      'line-height': toFontHeight(fontHeight)
+      letterSpacing: toFontSpacing(fontSpacing),
+      lineHeight: toFontHeight(fontHeight)
     }}
     fontSize={toFontSize(size)}
     variant={variant}
