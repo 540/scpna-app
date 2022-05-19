@@ -8,6 +8,7 @@ import {
   ContentWrapper,
   HeaderWrapper,
   GoldButton,
+  DefaultFormElementWrapper,
   SectionTitleWrapper,
   DefaultButton
 } from 'ui/_components'
@@ -30,8 +31,9 @@ export const Home = () => {
         <CommonGoldInput value="nombre" />
         <CommonGoldInput value="email" />
         <BigGoldInput value="pregunta" />
-        <GoldSelectBox title="Charla" options={charlas}/>
-        <GoldButton value="Enviar" />
+        <DefaultFormElementWrapper>
+          <GoldSelectBox title="Charla" options={charlas}/>
+        </DefaultFormElementWrapper>
         <DefaultButton>Click me!</DefaultButton>
       </FormWrapper>
     </ContentWrapper>

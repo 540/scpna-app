@@ -12,8 +12,9 @@ interface Props {
 
 const StyledSelect = styled(Select)`
    color: ${colors.background};
-   background-color: ${colors.primary}
-
+   background-color: ${colors.primary};
+   padding-right: 30px;
+   height: 80%;
 `
 
 export const GoldSelectBox = ({ title = 'Selecciona', options = [{value: 'op1', text: 'Opción 1'}]}: Props) => {

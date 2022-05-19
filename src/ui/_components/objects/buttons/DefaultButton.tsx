@@ -6,8 +6,10 @@ import {DefaultFormElementWrapper} from '../../index'
 const DefaultButtonStyle = styled(Button)`
   display: inline-block;
   width: fit-content;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-radius: 27px;
 `
 
