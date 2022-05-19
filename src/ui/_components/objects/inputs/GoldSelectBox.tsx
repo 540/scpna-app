@@ -1,35 +1,35 @@
 /* eslint-disable prettier/prettier */
-import { InputLabel, MenuItem, FormControl, Select, SelectChangeEvent, InputBase, styled } from '@mui/material'
-import { Color } from 'ui/_styles'
-import { theme } from 'ui/_styles/theme'
+import { MenuItem, Select, SelectChangeEvent} from '@mui/material'
+import styled from '@emotion/styled'
+import { colors } from 'ui/_styles'
 import * as React from 'react';
 import { DefaultFormElementWrapper } from '../../index'
 
 interface Props {
-  value?: string
+  title?: string,
+  options?: Array<any>
 }
 
-export const GoldSelectBox = ({ value = ''}: Props) => {
-  //TODO: Handle useState hook for obtaining the value from the selectbox
+const StyledSelect = styled(Select)`
+   color: ${colors.background};
+   background-color: ${colors.primary}
+
+`
+
+export const GoldSelectBox = ({ title = 'Selecciona', options = [{value: 'op1', text: 'Opción 1'}]}: Props) => {
   const [option, setOption] = React.useState('');
+  const setLabel = option != '' ? option : 0;
 
   const handleChange = (event: SelectChangeEvent) => {
     setOption(event.target.value);
   };
-  //TODO: Handle render of options given in component props
+
   return (
-    <DefaultFormElementWrapper>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">{value}</InputLabel>
-        <Select
-          value={option ?? value}
-          onChange={handleChange} className="change-bg"
-        >
-          <MenuItem value={10}>Charla 1</MenuItem>
-          <MenuItem value={20}>Charla 2</MenuItem>
-          <MenuItem value={30}>Charla 3</MenuItem>
-        </Select>
-      </FormControl>
-    </DefaultFormElementWrapper>
+    <StyledSelect value={setLabel}  onChange={(event) => handleChange(event as SelectChangeEvent)} >
+        <MenuItem value={0} disabled>{title}</MenuItem>
+        {options.map(item => {
+          return (<MenuItem key={item.value} value={item.value}>{item.text}</MenuItem>);
+        })}
+    </StyledSelect>
   );
 }
