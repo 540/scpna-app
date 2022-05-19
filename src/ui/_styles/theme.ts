@@ -26,12 +26,5 @@ export const theme = createTheme({
         }
       }
     }
-    // MuiInputLabel: {
-    //   styleOverrides: {
-    //     formControl: {
-    //       color: colors.white
-    //     }
-    //   }
-    // }
   }
 })

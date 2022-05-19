@@ -7,7 +7,6 @@ const Div = styled.div`
 
     width: 100%;
 
-    min-height: 70px;
     align-items: center;
     justify-content: center;
 `
@@ -15,7 +14,7 @@ const Div = styled.div`
 const SectionTitleWrapper = ( {children : title} : {children: JSX.Element} ): JSX.Element => {
     return (
     <Div>
-        <Text color='black' size='big' variant='subtitle1' fontFamily='Basic' bold>
+        <Text color='black' size='big' variant='subtitle1' fontFamily='Inter' fontSpacing='negativeSmall' fontHeight='inherit' bold>
             {title}
         </Text>
     </Div>

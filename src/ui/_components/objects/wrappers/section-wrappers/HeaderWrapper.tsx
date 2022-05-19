@@ -12,7 +12,6 @@ const HeaderDiv = styled.div`
   min-height: 20%;
   width: 100%;
 
-  background-color: blue;
   border-radius: 0 0 27px 27px;
 
   background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero.jpg');
