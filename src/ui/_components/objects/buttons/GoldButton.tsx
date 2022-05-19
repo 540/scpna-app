@@ -1,23 +1,21 @@
 /* eslint-disable prettier/prettier */
 import { Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
-import { colors } from 'ui/_styles'
 import styled from '@emotion/styled'
 
 interface Props {
     value?: string
 }
 
-const StyledButton = styled(Button)({
-    ".MuiButton-root": {
-      color: colors.secondary,
-      backgroundColor: colors.primary
-    },
-    ".MuiButton-text": {
-        color: colors.secondary,
-    }
-});
+const StyledButton = styled(Button)`
+    width: fit-content;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+`
 
 export const GoldButton = ({ value = '' }: Props) => (
-    <StyledButton variant="contained" size="small" endIcon={<SendIcon />}>{value}</StyledButton>
+    <StyledButton variant="contained"  size="small" endIcon={<SendIcon />}>{value}</StyledButton>
 )
