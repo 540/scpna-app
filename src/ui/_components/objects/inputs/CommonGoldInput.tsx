@@ -3,8 +3,9 @@ import { TextField } from '@mui/material'
 import InputProps from './inputProps'
 import { DefaultFormElementWrapper } from '../../index'
 
-export const BigGoldInput= ({ value = '' }: InputProps) => (
+
+export const CommonGoldInput = ({ value = '' }: InputProps) => (
   <DefaultFormElementWrapper>
-    <TextField label={value} variant="outlined" multiline rows={4} InputLabelProps={{style: {color: 'white'}}}/>
+    <TextField label={value} variant="outlined" InputLabelProps={{style: {color: 'white'}}} />
   </DefaultFormElementWrapper>
 )

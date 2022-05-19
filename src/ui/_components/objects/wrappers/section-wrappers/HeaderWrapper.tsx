@@ -2,17 +2,16 @@
 import styled from '@emotion/styled'
 import { Text } from 'ui/_components'
 
-import { colors } from '../../../_styles'
+import { colors } from '../../../../_styles'
 
 const HeaderDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  height: 20%;
+  min-height: 20%;
   width: 100%;
 
-  background-color: blue;
   border-radius: 0 0 27px 27px;
 
   background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero.jpg');
