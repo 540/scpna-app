@@ -3,6 +3,7 @@ import { MenuItem, Select, SelectChangeEvent} from '@mui/material'
 import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
 import * as React from 'react';
+import { DefaultFormElementWrapper } from '../../index'
 
 interface Props {
   title?: string,

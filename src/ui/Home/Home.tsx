@@ -7,7 +7,9 @@ import {
   FormWrapper,
   ContentWrapper,
   HeaderWrapper,
-  GoldButton
+  GoldButton,
+  SectionTitleWrapper,
+  DefaultButton
 } from 'ui/_components'
 import { AppBar } from '@mui/material'
 
@@ -23,12 +25,14 @@ export const Home = () => {
   return (
     <ContentWrapper>
       <HeaderWrapper />
+      <SectionTitleWrapper>{trans('talks_section_title')}</SectionTitleWrapper>
       <FormWrapper>
         <CommonGoldInput value="nombre" />
         <CommonGoldInput value="email" />
         <BigGoldInput value="pregunta" />
         <GoldSelectBox title="Charla" options={charlas}/>
         <GoldButton value="Enviar" />
+        <DefaultButton>Click me!</DefaultButton>
       </FormWrapper>
     </ContentWrapper>
   )
