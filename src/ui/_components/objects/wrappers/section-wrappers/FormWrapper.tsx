@@ -17,7 +17,6 @@ const Div = styled.div`
     justify-content: space-around;
 
     background-image: url("https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg");
-
 `
 
 const FormWrapper = ({ children }: {children: JSX.Element | JSX.Element[]}): JSX.Element => {

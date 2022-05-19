@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useTrans } from 'ui/_hooks/useTrans'
 import {
   Text,
@@ -7,7 +8,6 @@ import {
   FormWrapper,
   ContentWrapper,
   HeaderWrapper,
-  GoldButton,
   DefaultFormElementWrapper,
   SectionTitleWrapper,
   DefaultButton
@@ -18,10 +18,10 @@ export const Home = () => {
   const trans = useTrans()
 
   const charlas = [
-    {value: 'c1', text: 'Charla 1'},
-    {value: 'c2', text: 'Charla 2'},
-    {value: 'c3', text: 'Charla 3'}
-];
+    { value: 'c1', text: 'Charla 1' },
+    { value: 'c2', text: 'Charla 2' },
+    { value: 'c3', text: 'Charla 3' }
+  ]
 
   return (
     <ContentWrapper>
@@ -31,9 +31,7 @@ export const Home = () => {
         <CommonGoldInput value="nombre" />
         <CommonGoldInput value="email" />
         <BigGoldInput value="pregunta" />
-        <DefaultFormElementWrapper>
-          <GoldSelectBox title="Charla" options={charlas}/>
-        </DefaultFormElementWrapper>
+        <GoldSelectBox title="Charla" options={charlas} justifyContent='flex-start' />
         <DefaultButton>Click me!</DefaultButton>
       </FormWrapper>
     </ContentWrapper>
