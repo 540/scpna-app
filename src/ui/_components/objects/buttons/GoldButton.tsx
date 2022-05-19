@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import { Button } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
 import styled from '@emotion/styled'
 
 interface Props {
@@ -17,5 +16,5 @@ const StyledButton = styled(Button)`
 `
 
 export const GoldButton = ({ value = '' }: Props) => (
-    <StyledButton variant="contained"  size="small" endIcon={<SendIcon />}>{value}</StyledButton>
+    <StyledButton variant="contained"  size="small">{value}</StyledButton>
 )
