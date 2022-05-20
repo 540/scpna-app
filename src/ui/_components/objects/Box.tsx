@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { ReactNode } from 'react'
 import { Box as BaseBox } from '@mui/material'
 import { Color, Spacing, toColor, toSpacing } from 'ui/_styles'
@@ -21,7 +20,8 @@ export const Box = ({ children, width, height, backgroundColor = 'white', spacin
         typeof spacing === 'object'
           ? `${toSpacing(spacing.vertical)} ${toSpacing(spacing.horizontal)}`
           : toSpacing(spacing)
-    }}>
+    }}
+  >
     {children}
   </BaseBox>
 )

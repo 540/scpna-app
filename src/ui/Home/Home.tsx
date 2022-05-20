@@ -1,18 +1,14 @@
-/* eslint-disable prettier/prettier */
 import { useTrans } from 'ui/_hooks/useTrans'
 import {
-  Text,
   CommonGoldInput,
   BigGoldInput,
   GoldSelectBox,
   FormWrapper,
   ContentWrapper,
   HeaderWrapper,
-  DefaultFormElementWrapper,
   SectionTitleWrapper,
   DefaultButton
 } from 'ui/_components'
-import { AppBar } from '@mui/material'
 
 export const Home = () => {
   const trans = useTrans()
@@ -31,7 +27,7 @@ export const Home = () => {
         <CommonGoldInput value="nombre" />
         <CommonGoldInput value="email" />
         <BigGoldInput value="pregunta" />
-        <GoldSelectBox title="Charla" options={charlas} justifyContent='flex-start' />
+        <GoldSelectBox title="Charla" options={charlas} justifyContent="flex-start" />
         <DefaultButton>Click me!</DefaultButton>
       </FormWrapper>
     </ContentWrapper>
