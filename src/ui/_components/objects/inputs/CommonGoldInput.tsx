@@ -11,7 +11,6 @@ const StyledTextField = styled(TextField)({
   }
 })
 
-//will need to be refactored with the bigGoldInput box
 const OutlinedInputStyle = {
   borderRadius: '20px'
 }
