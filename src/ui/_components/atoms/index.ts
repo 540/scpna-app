@@ -1,0 +1,6 @@
+export { Text } from './Text'
+export { CommonGoldInput } from './inputs/CommonGoldInput'
+export { BigGoldInput } from './inputs/BigGoldInput'
+export { GoldSelectBox } from './inputs/GoldSelectBox'
+export { GoldButton } from './buttons/GoldButton'
+export { DefaultButton } from './buttons/DefaultButton'
