@@ -13,6 +13,7 @@ interface Props {
   fontFamily?: string
   fontSpacing?: FontSpacing
   fontHeight?: FontHeight
+  sx?: object
 }
 
 export const Text = ({
@@ -23,14 +24,16 @@ export const Text = ({
   color = 'text',
   fontFamily = '',
   fontSpacing = 'zero',
-  fontHeight = 'initial'
+  fontHeight = 'initial',
+  sx = {}
 }: Props) => (
   <Typography
     sx={{
       color: toColor(color),
       fontWeight: bold ? 'bold' : 'normal',
       letterSpacing: toFontSpacing(fontSpacing),
-      lineHeight: toFontHeight(fontHeight)
+      lineHeight: toFontHeight(fontHeight),
+      ...sx
     }}
     fontSize={toFontSize(size)}
     variant={variant}
