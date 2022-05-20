@@ -1,14 +1,21 @@
 import styled from '@emotion/styled'
-import { Text } from 'ui/_components/atoms'
+import { Text } from 'ui/_components/atoms/'
 
-const TitleWrapper = styled.div`
+const HeaderDiv = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 20%;
+  width: 100%;
+  border-radius: 0 0 27px 27px;
+  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero.jpg');
+  background-size: cover;
 `
 
-export const MainTitle = () => {
+export const Header = (): JSX.Element => {
   return (
-    <TitleWrapper>
+    <HeaderDiv>
       <Text
         variant="h1"
         color="primary"
@@ -30,7 +37,7 @@ export const MainTitle = () => {
       </Text>
       <Text variant="body1" color="white" size="medium" fontFamily="Monoton" sx={{ textAlign: 'center' }}>
         RETURNS
-      </Text>
-    </TitleWrapper>
+      </Text>{' '}
+    </HeaderDiv>
   )
 }

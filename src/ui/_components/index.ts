@@ -1,3 +1,3 @@
 export { DefaultFormElementWrapper, Box, Row } from './objects/'
-export { SectionTitle } from './molecules'
-export { Form, Header } from './organisms'
+export { SectionTitle, Header } from './molecules'
+export { Form } from './organisms'
