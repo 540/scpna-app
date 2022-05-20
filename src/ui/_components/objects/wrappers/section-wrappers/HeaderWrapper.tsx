@@ -1,8 +1,5 @@
-/* eslint-disable prettier/prettier */
 import styled from '@emotion/styled'
 import { Text } from 'ui/_components'
-
-import { colors } from '../../../../_styles'
 
 const HeaderDiv = styled.div`
   display: flex;
@@ -18,34 +15,34 @@ const HeaderDiv = styled.div`
   background-size: cover;
 `
 const TitleWrapper = styled.div`
-    padding-left: 10%;
-    flex: 8;
+  padding-left: 10%;
+  flex: 8;
 `
 
 const LeftContentWrapper = styled.div`
-    flex: 4;
-    height: 100%;
+  flex: 4;
+  height: 100%;
 `
 
 const ReturnsDiv = styled.div`
-    transform: rotate(-70deg);
+  transform: rotate(-70deg);
 `
 
 const HeaderWrapper = (): JSX.Element => {
   return (
     <HeaderDiv>
-        <LeftContentWrapper />
+      <LeftContentWrapper />
       <TitleWrapper>
-        <Text variant="h1" color="primary" size="xLarge" bold fontFamily='Basic'>
-            PAMPLONA
+        <Text variant="h1" color="primary" size="xLarge" bold fontFamily="Basic">
+          PAMPLONA
         </Text>
-        <Text variant="h1" color="primary" size="xLarge" fontFamily='Black Ops One'>
-            SOFTWARE CRAFTERS
+        <Text variant="h1" color="primary" size="xLarge" fontFamily="Black Ops One">
+          SOFTWARE CRAFTERS
         </Text>
       </TitleWrapper>
       <ReturnsDiv>
-        <Text variant="body1" color="white" size="medium" fontFamily='Monoton'>
-            RETURNS
+        <Text variant="body1" color="white" size="medium" fontFamily="Monoton">
+          RETURNS
         </Text>
       </ReturnsDiv>
     </HeaderDiv>
@@ -53,4 +50,3 @@ const HeaderWrapper = (): JSX.Element => {
 }
 
 export { HeaderWrapper }
-
