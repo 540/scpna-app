@@ -1,8 +1,9 @@
 import { Button } from '@mui/material'
 import styled from '@emotion/styled'
+import type { Children } from 'ui/_components/objects'
 
 interface Props {
-  children: JSX.Element | JSX.Element[] | string
+  children: Children
 }
 
 const StyledButton = styled(Button)`

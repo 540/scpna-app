@@ -1,13 +1,6 @@
 import styled from '@emotion/styled'
-import { FormButton } from '../molecules'
-import { BigFormInput } from '../molecules'
-import { SelectBox } from '../molecules'
-import { SmallFormInput } from '../molecules'
-
-type Option = {
-  value: string
-  text: string
-}
+import { FormButton, BigFormInput, SelectBox, SmallFormInput } from '../molecules'
+import type { SelectBoxOptions } from '../atoms'
 
 const FormWrapper = styled.div`
   display: flex;
@@ -25,7 +18,7 @@ const FormWrapper = styled.div`
   background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
-export const Form = ({ talks }: { talks: Array<Option> }) => {
+export const Form = ({ talks }: { talks: Array<SelectBoxOptions> }) => {
   return (
     <FormWrapper>
       <SmallFormInput value="nombre" />

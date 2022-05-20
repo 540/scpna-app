@@ -1,14 +1,9 @@
 import { DefaultFormElementWrapper } from '../../'
-import { GoldSelectBox } from '../../atoms'
-
-type Option = {
-  value: string
-  text: string
-}
+import { GoldSelectBox, SelectBoxOptions } from '../../atoms'
 
 interface Props {
   title?: string
-  options?: Array<Option>
+  options?: Array<SelectBoxOptions>
   justifyContent?: 'flex-start' | 'center' | 'flex-end'
 }
 

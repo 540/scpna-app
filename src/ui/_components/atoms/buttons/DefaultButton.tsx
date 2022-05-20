@@ -1,6 +1,7 @@
 import { Button } from '@mui/material'
 import styled from '@emotion/styled'
 import { DefaultFormElementWrapper } from '../../index'
+import type { Children } from 'ui/_components/objects'
 
 const DefaultButtonStyle = styled(Button)`
   display: inline-block;
@@ -12,7 +13,7 @@ const DefaultButtonStyle = styled(Button)`
   border-radius: 27px;
 `
 
-export const DefaultButton = ({ children }: { children: JSX.Element | JSX.Element[] | string }) => {
+export const DefaultButton = ({ children }: { children: Children }) => {
   return (
     <DefaultFormElementWrapper>
       <DefaultButtonStyle variant="contained">{children}</DefaultButtonStyle>

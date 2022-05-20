@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Text } from '../../atoms'
+import { Children } from 'ui/_components/objects'
 
 const Div = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ const Div = styled.div`
   justify-content: center;
 `
 
-export const SectionTitle = ({ children: title }: { children: JSX.Element }): JSX.Element => {
+export const SectionTitle = ({ children: title }: { children: Children }): JSX.Element => {
   return (
     <Div>
       <Text

@@ -3,14 +3,14 @@ import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
 import * as React from 'react'
 
-type Option = {
+export type SelectBoxOptions = {
   value: string
   text: string
 }
 
 interface Props {
   title?: string
-  options?: Array<Option>
+  options?: Array<SelectBoxOptions>
 }
 
 const StyledSelect = styled(Select)`
