@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { MainTitle, ReturnsTitle, SpaceFiller } from '../molecules/index'
+import { MainTitle } from '../molecules/index'
 
 const HeaderDiv = styled.div`
   display: flex;
@@ -18,9 +18,7 @@ const HeaderDiv = styled.div`
 export const Header = (): JSX.Element => {
   return (
     <HeaderDiv>
-      <SpaceFiller flex={4} />
       <MainTitle />
-      <ReturnsTitle />
     </HeaderDiv>
   )
 }
