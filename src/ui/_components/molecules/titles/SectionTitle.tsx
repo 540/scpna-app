@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Text } from 'ui/_components'
+import { Text } from '../../atoms'
 
 const Div = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ const Div = styled.div`
   justify-content: center;
 `
 
-const SectionTitleWrapper = ({ children: title }: { children: JSX.Element }): JSX.Element => {
+export const SectionTitle = ({ children: title }: { children: JSX.Element }): JSX.Element => {
   return (
     <Div>
       <Text
@@ -27,5 +27,3 @@ const SectionTitleWrapper = ({ children: title }: { children: JSX.Element }): JS
     </Div>
   )
 }
-
-export { SectionTitleWrapper }

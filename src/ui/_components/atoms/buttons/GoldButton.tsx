@@ -2,7 +2,7 @@ import { Button } from '@mui/material'
 import styled from '@emotion/styled'
 
 interface Props {
-  value?: string
+  children: JSX.Element | JSX.Element[] | string
 }
 
 const StyledButton = styled(Button)`
@@ -14,8 +14,8 @@ const StyledButton = styled(Button)`
   border-radius: 20px;
 `
 
-export const GoldButton = ({ value = '' }: Props) => (
+export const GoldButton = ({ children = '' }: Props) => (
   <StyledButton variant="contained" size="small">
-    {value}
+    {children}
   </StyledButton>
 )

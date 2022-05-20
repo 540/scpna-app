@@ -1,19 +1,24 @@
 import { useTrans } from 'ui/_hooks/useTrans'
-import {
-  CommonGoldInput,
-  BigGoldInput,
-  GoldSelectBox,
-  FormWrapper,
-  ContentWrapper,
-  HeaderWrapper,
-  SectionTitleWrapper,
-  DefaultButton
-} from 'ui/_components'
+import { Header, Form, SectionTitle } from 'ui/_components'
+import styled from '@emotion/styled'
+import { colors } from 'ui/_styles'
+
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: ${colors.primary};
+`
 
 export const Home = () => {
   const trans = useTrans()
 
-  const charlas = [
+  const talks = [
     { value: 'c1', text: 'Charla 1' },
     { value: 'c2', text: 'Charla 2' },
     { value: 'c3', text: 'Charla 3' }
@@ -21,15 +26,9 @@ export const Home = () => {
 
   return (
     <ContentWrapper>
-      <HeaderWrapper />
-      <SectionTitleWrapper>{trans('talks_section_title')}</SectionTitleWrapper>
-      <FormWrapper>
-        <CommonGoldInput value="nombre" />
-        <CommonGoldInput value="email" />
-        <BigGoldInput value="pregunta" />
-        <GoldSelectBox title="Charla" options={charlas} justifyContent="flex-start" />
-        <DefaultButton>Click me!</DefaultButton>
-      </FormWrapper>
+      <Header />
+      <SectionTitle>{trans('talks_section_title')}</SectionTitle>
+      <Form talks={talks} />
     </ContentWrapper>
   )
 }

@@ -1,0 +1,8 @@
+export { SmallFormInput } from './inputs/SmallFormInput'
+export { BigFormInput } from './inputs/BigFormInput'
+export { SelectBox } from './inputs/SelectBox'
+export { FormButton } from './buttons/FormButton'
+export { ReturnsTitle } from './titles/ReturnsTitle'
+export { MainTitle } from './titles/MainTitle'
+export { SectionTitle } from './titles/SectionTitle'
+export { SpaceFiller } from './fillers/SpaceFiller'
