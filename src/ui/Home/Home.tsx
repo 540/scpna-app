@@ -6,6 +6,7 @@ import React from 'react'
 import * as yup from 'yup'
 
 import { Formik } from 'formik'
+import { pushQuestion } from '../../database/database2'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -42,7 +43,8 @@ export const Home = () => {
       <Formik
         initialValues={{ name: '', email: '', talk: '0', question: '' }}
         onSubmit={(values, actions) => {
-          alert(JSON.stringify(values, null, 2))
+          // pushQuestion(values).then(res => console.log(res))
+          pushQuestion().then(res => console.log(res))
           actions.setSubmitting(false)
         }}
         validationSchema={validationSchema}
