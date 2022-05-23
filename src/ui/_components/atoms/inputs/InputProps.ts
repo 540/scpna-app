@@ -18,5 +18,5 @@ export type SelectBoxProps = {
   value?: string | number
   name?: string
   error?: string | boolean
-  onChange?: 
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
