@@ -2,8 +2,9 @@ import { Button } from '@mui/material'
 import styled from '@emotion/styled'
 import type { Children } from 'ui/_components/objects'
 
-interface Props {
+export type GoldButtonProps = {
   children: Children
+  onSubmit?: () => void
 }
 
 const StyledButton = styled(Button)`
@@ -15,8 +16,8 @@ const StyledButton = styled(Button)`
   border-radius: 20px;
 `
 
-export const GoldButton = ({ children = '' }: Props) => (
-  <StyledButton variant="contained" size="small">
+export const GoldButton = ({ children = '' }: GoldButtonProps) => (
+  <StyledButton type="submit" variant="contained" size="small">
     {children}
   </StyledButton>
 )

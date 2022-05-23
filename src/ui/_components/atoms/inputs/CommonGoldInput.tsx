@@ -1,10 +1,7 @@
 import { TextField } from '@mui/material'
 import { colors } from '../../../_styles/settings/colors'
 import styled from '@emotion/styled'
-
-export default interface Props {
-  value?: string
-}
+import { InputProps } from '../'
 
 const StyledTextField = styled(TextField)({
   width: '100%',
@@ -17,11 +14,15 @@ const OutlinedInputStyle = {
   borderRadius: '20px'
 }
 
-export const CommonGoldInput = ({ value = '' }: Props) => (
+export const CommonGoldInput = ({ value = '', name, label, onChange, error }: InputProps) => (
   <StyledTextField
-    label={value}
+    label={label}
     variant="outlined"
     InputLabelProps={{ style: { color: colors.primary } }}
     InputProps={{ style: OutlinedInputStyle }}
+    name={name}
+    value={value}
+    error={error ? true : false}
+    onChange={onChange}
   />
 )

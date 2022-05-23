@@ -2,7 +2,9 @@ import styled from '@emotion/styled'
 import { FormButton, BigFormInput, SelectBox, SmallFormInput } from '../molecules'
 import type { SelectBoxOptions } from '../atoms'
 
-const FormWrapper = styled.div`
+import { useFormikContext, Form as FormikForm, FormikProps } from 'formik'
+
+const FormWrapper = styled(FormikForm)`
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -19,12 +21,40 @@ const FormWrapper = styled.div`
 `
 
 export const Form = ({ talks }: { talks: Array<SelectBoxOptions> }) => {
+  const context: FormikProps<{ name: string; email: string; question: string; talk: string }> = useFormikContext()
+
   return (
     <FormWrapper>
-      <SmallFormInput value="nombre" />
-      <SmallFormInput value="email" />
-      <BigFormInput value="pregunta" />
-      <SelectBox title="Charla" options={talks} justifyContent="flex-start" />
+      <SmallFormInput
+        name="name"
+        error={context.errors.name}
+        value={context.values.name}
+        label="nombre"
+        onChange={context.handleChange}
+      />
+      <SmallFormInput
+        name="email"
+        error={context.errors.email}
+        value={context.values.email}
+        label="email"
+        onChange={context.handleChange}
+      />
+      <BigFormInput
+        name="question"
+        error={context.errors.question}
+        value={context.values.question}
+        label="pregunta"
+        onChange={context.handleChange}
+      />
+      <SelectBox
+        title="Charla"
+        options={talks}
+        error={context.errors.question}
+        value={context.values.talk}
+        onChange={context.handleChange}
+        justifyContent="flex-start"
+        name="talk"
+      />
       <FormButton>Click me!</FormButton>
     </FormWrapper>
   )

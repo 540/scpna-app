@@ -1,17 +1,8 @@
-import { MenuItem, Select, SelectChangeEvent } from '@mui/material'
+import { MenuItem, Select } from '@mui/material'
 import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
 import * as React from 'react'
-
-export type SelectBoxOptions = {
-  value: string
-  text: string
-}
-
-interface Props {
-  title?: string
-  options?: Array<SelectBoxOptions>
-}
+import { SelectBoxProps } from './InputProps'
 
 const StyledSelect = styled(Select)`
   color: ${colors.background};
@@ -21,17 +12,17 @@ const StyledSelect = styled(Select)`
   height: 80%;
 `
 
-export const GoldSelectBox = ({ title = 'Selecciona', options = [{ value: 'op1', text: 'Opción 1' }] }: Props) => {
-  const [option, setOption] = React.useState('')
-  const setLabel = option != '' ? option : 0
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setOption(event.target.value)
-  }
-
+export const GoldSelectBox = ({
+  title = 'Selecciona',
+  options = [{ value: 'op1', text: 'Opción 1' }],
+  value,
+  onChange,
+  name,
+  error
+}: SelectBoxProps) => {
   return (
-    <StyledSelect value={setLabel} onChange={event => handleChange(event as SelectChangeEvent)}>
-      <MenuItem value={0} disabled>
+    <StyledSelect name={name} value={value} onChange={onChange} error={error ? true : false}>
+      <MenuItem value={0} disabled style={{ display: 'none' }}>
         {title}
       </MenuItem>
       {options.map(item => {
