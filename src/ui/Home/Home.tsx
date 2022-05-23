@@ -2,6 +2,10 @@ import { useTrans } from 'ui/_hooks/useTrans'
 import { Header, Form, SectionTitle } from 'ui/_components'
 import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
+import React from 'react'
+import * as yup from 'yup'
+
+import { Formik } from 'formik'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -14,6 +18,12 @@ const ContentWrapper = styled.div`
 
   background-color: ${colors.primary};
 `
+
+const validationSchema = yup.object({
+  email: yup.string().email('Enter a valid email').required('Email is required!'),
+  nombre: yup.string().required('Name is required!'),
+  pregunta: yup.string().required('You have to write a question!')
+})
 
 export const Home = () => {
   const trans = useTrans()
@@ -28,7 +38,16 @@ export const Home = () => {
     <ContentWrapper>
       <Header />
       <SectionTitle>{trans('talks_section_title')}</SectionTitle>
-      <Form talks={talks} />
+      <Formik
+        initialValues={{ nombre: '', email: '', charla: '', pregunta: '' }}
+        onSubmit={(values, actions) => {
+          alert(JSON.stringify(values, null, 2))
+          actions.setSubmitting(false)
+        }}
+        validationSchema={validationSchema}
+      >
+        <Form talks={talks} />
+      </Formik>
     </ContentWrapper>
   )
 }
