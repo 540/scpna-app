@@ -1,10 +1,10 @@
-import { CommonGoldInput, InputProps } from '../../atoms/'
+import { CommonGoldInput, InputProps, ErrorDiv } from '../../atoms/'
 import { DefaultFormElementWrapper } from '../../'
 
-export const SmallFormInput = ({ value = '', name, onChange }: InputProps) => {
+export const SmallFormInput = ({ value = '', name, label, onChange, error }: InputProps) => {
   return (
     <DefaultFormElementWrapper>
-      <CommonGoldInput value={value} name={name} onChange={onChange} />
+      <CommonGoldInput value={value} name={name} label={label} onChange={onChange} error={error} />
     </DefaultFormElementWrapper>
   )
 }

@@ -21,8 +21,9 @@ const ContentWrapper = styled.div`
 
 const validationSchema = yup.object({
   email: yup.string().email('Enter a valid email').required('Email is required!'),
-  nombre: yup.string().required('Name is required!'),
-  pregunta: yup.string().required('You have to write a question!')
+  name: yup.string().required('Name is required!'),
+  talk: yup.string().oneOf(['c1', 'c2', 'c3'], 'You need to select an speech!'),
+  question: yup.string().required('You have to write a question!')
 })
 
 export const Home = () => {
@@ -39,12 +40,14 @@ export const Home = () => {
       <Header />
       <SectionTitle>{trans('talks_section_title')}</SectionTitle>
       <Formik
-        initialValues={{ nombre: '', email: '', charla: '', pregunta: '' }}
+        initialValues={{ name: '', email: '', talk: '0', question: '' }}
         onSubmit={(values, actions) => {
           alert(JSON.stringify(values, null, 2))
           actions.setSubmitting(false)
         }}
         validationSchema={validationSchema}
+        validateOnBlur={false}
+        validateOnChange={false}
       >
         <Form talks={talks} />
       </Formik>

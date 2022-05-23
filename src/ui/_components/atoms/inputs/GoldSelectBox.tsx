@@ -17,11 +17,12 @@ export const GoldSelectBox = ({
   options = [{ value: 'op1', text: 'Opción 1' }],
   value,
   onChange,
-  name
+  name,
+  error
 }: SelectBoxProps) => {
   return (
-    <StyledSelect name={name} value={value} onChange={onChange}>
-      <MenuItem value={0} disabled>
+    <StyledSelect name={name} value={value} onChange={onChange} error={error}>
+      <MenuItem value={0} disabled style={{ display: 'none' }}>
         {title}
       </MenuItem>
       {options.map(item => {

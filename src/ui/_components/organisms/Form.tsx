@@ -25,16 +25,35 @@ export const Form = ({ talks }: { talks: Array<SelectBoxOptions> }) => {
 
   return (
     <FormWrapper>
-      <SmallFormInput name="nombre" value={context.values.nombre} onChange={context.handleChange} />
-      <SmallFormInput name="email" value={context.values.email} onChange={context.handleChange} />
-      <BigFormInput name="pregunta" value={context.values.pregunta} onChange={context.handleChange} />
+      <SmallFormInput
+        name="name"
+        error={context.errors.name}
+        value={context.values.name}
+        label="nombre"
+        onChange={context.handleChange}
+      />
+      <SmallFormInput
+        name="email"
+        error={context.errors.email}
+        value={context.values.email}
+        label="email"
+        onChange={context.handleChange}
+      />
+      <BigFormInput
+        name="question"
+        error={context.errors.question}
+        value={context.values.question}
+        label="pregunta"
+        onChange={context.handleChange}
+        />
       <SelectBox
-        title="charla"
+        title="Charla"
         options={talks}
-        value={context.values.charla}
+        error={context.errors.question}
+        value={context.values.talk}
         onChange={context.handleChange}
         justifyContent="flex-start"
-        name="charla"
+        name="talk"
       />
       <FormButton>Click me!</FormButton>
     </FormWrapper>

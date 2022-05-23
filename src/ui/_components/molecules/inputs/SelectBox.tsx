@@ -1,5 +1,5 @@
 import { DefaultFormElementWrapper } from '../../'
-import { GoldSelectBox, SelectBoxOptions, SelectBoxProps } from '../../atoms'
+import { GoldSelectBox, SelectBoxProps } from '../../atoms'
 
 type Props = SelectBoxProps & { justifyContent?: 'flex-start' | 'center' | 'flex-end' }
 
@@ -9,11 +9,12 @@ export const SelectBox = ({
   justifyContent = 'center',
   value,
   onChange,
-  name
+  name,
+  error
 }: Props) => {
   return (
     <DefaultFormElementWrapper justifyContent={justifyContent}>
-      <GoldSelectBox title={title} options={options} value={value} onChange={onChange} name={name}/>
+      <GoldSelectBox title={title} options={options} value={value} onChange={onChange} name={name} error={error} />
     </DefaultFormElementWrapper>
   )
 }
