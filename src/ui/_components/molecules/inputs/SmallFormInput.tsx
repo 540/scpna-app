@@ -1,4 +1,4 @@
-import { CommonGoldInput, InputProps, ErrorDiv } from '../../atoms/'
+import { CommonGoldInput, InputProps } from '../../atoms/'
 import { DefaultFormElementWrapper } from '../../'
 
 export const SmallFormInput = ({ value = '', name, label, onChange, error }: InputProps) => {

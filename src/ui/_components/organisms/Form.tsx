@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { FormButton, BigFormInput, SelectBox, SmallFormInput } from '../molecules'
 import type { SelectBoxOptions } from '../atoms'
 
-import { useFormikContext, Form as FormikForm } from 'formik'
+import { useFormikContext, Form as FormikForm, FormikProps } from 'formik'
 
 const FormWrapper = styled(FormikForm)`
   display: flex;
@@ -21,7 +21,7 @@ const FormWrapper = styled(FormikForm)`
 `
 
 export const Form = ({ talks }: { talks: Array<SelectBoxOptions> }) => {
-  const context = useFormikContext()
+  const context: FormikProps<{ name: string; email: string; question: string; talk: string }> = useFormikContext()
 
   return (
     <FormWrapper>
@@ -45,7 +45,7 @@ export const Form = ({ talks }: { talks: Array<SelectBoxOptions> }) => {
         value={context.values.question}
         label="pregunta"
         onChange={context.handleChange}
-        />
+      />
       <SelectBox
         title="Charla"
         options={talks}

@@ -12,11 +12,13 @@ export type SelectBoxOptions = {
   text: string
 }
 
+import { SelectChangeEvent } from '@mui/material'
+
 export type SelectBoxProps = {
   title?: string
   options?: Array<SelectBoxOptions>
   value?: string | number
   name?: string
   error?: string | boolean
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: SelectChangeEvent<unknown>) => void
 }
