@@ -25,3 +25,47 @@ export async function loadTalks(): Promise<TalksType> {
     }
   })
 }
+
+export async function pushQuestion() {
+  let response = 200
+  try {
+    await notion.pages.create({
+      parent: { database_id: DATABASE_ID },
+      properties: {
+        Name: {
+          title: [
+            {
+              text: {
+                content: 'Miguel Puerta'
+              }
+            }
+          ]
+        },
+        Email: {
+          email: 'test@migulpuerta.com'
+        },
+        Speech: {
+          rich_text: [
+            {
+              text: {
+                content: 'Desarrollo frontend moderno'
+              }
+            }
+          ]
+        },
+        Question: {
+          rich_text: [
+            {
+              text: {
+                content: 'Pregunta'
+              }
+            }
+          ]
+        }
+      }
+    })
+  } catch (error) {
+    response = 400
+  }
+  return response
+}
