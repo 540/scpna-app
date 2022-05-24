@@ -2,11 +2,11 @@ import { useTrans } from 'ui/_hooks/useTrans'
 import { Header, Form, SectionTitle } from 'ui/_components'
 import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import * as yup from 'yup'
 
 import { Formik } from 'formik'
-import { pushQuestion } from '../../database/database2'
+import { loadTalks, TalksType } from '../../database/database'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -27,14 +27,8 @@ const validationSchema = yup.object({
   question: yup.string().required('You have to write a question!')
 })
 
-export const Home = () => {
+export const Home = ({ talks }: { talks: TalksType }) => {
   const trans = useTrans()
-
-  const talks = [
-    { value: 'c1', text: 'Charla 1' },
-    { value: 'c2', text: 'Charla 2' },
-    { value: 'c3', text: 'Charla 3' }
-  ]
 
   return (
     <ContentWrapper>
@@ -42,9 +36,7 @@ export const Home = () => {
       <SectionTitle>{trans('talks_section_title')}</SectionTitle>
       <Formik
         initialValues={{ name: '', email: '', talk: '0', question: '' }}
-        onSubmit={(values, actions) => {
-          // pushQuestion(values).then(res => console.log(res))
-          pushQuestion().then(res => console.log(res))
+        onSubmit={async (values, actions) => {
           actions.setSubmitting(false)
         }}
         validationSchema={validationSchema}

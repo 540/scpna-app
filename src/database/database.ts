@@ -1,16 +1,27 @@
-const { Client } = require('@notionhq/client')
-// require('dotenv').config()
+import { Client } from '@notionhq/client'
+require('dotenv').config()
 
-const notion = new Client({
-  auth: process.env.API_KEY,
-  logLevel: undefined
-})
-const DATABASE_ID = '7b490bc23d3746f6937091ea15f1f6bb'
+const notion = new Client({ auth: process.env.API_KEY })
 
-export default async (req, res) => {
+export type TalksType = { text: string; value: string }[]
+
+export async function loadTalks(): Promise<TalksType> {
+  const databaseId = process.env.TALKS_DATABASE_ID as string
   const response = await notion.databases.query({
-    database_id: DATABASE_ID
+    database_id: databaseId,
+    sorts: [
+      {
+        property: 'Name',
+        direction: 'ascending'
+      }
+    ]
   })
-
-  res.status(200).json({ response })
+  return response.results.map(result => {
+    return {
+      // @ts-ignore: Unreachable code error
+      text: result.properties.Name.title[0].plain_text,
+      // @ts-ignore: Unreachable code error
+      value: result.properties.Tag.rich_text[0].plain_text
+    }
+  })
 }
