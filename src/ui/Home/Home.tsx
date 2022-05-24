@@ -4,9 +4,9 @@ import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
 import React, { useState, useEffect } from 'react'
 import * as yup from 'yup'
-
+import axios from 'axios'
 import { Formik } from 'formik'
-import { loadTalks, TalksType } from '../../database/database'
+import { TalksType } from '../../database/database'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -27,8 +27,28 @@ const validationSchema = yup.object({
   question: yup.string().required('You have to write a question!')
 })
 
+type QuestionType = {
+  name: string
+  email: string
+  talk: string
+  question: string
+}
+
+export const pushQuestion = async (data: QuestionType) =>
+  fetch('/api/pushQuestion', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/jso'
+    }
+  })
+
 export const Home = ({ talks }: { talks: TalksType }) => {
   const trans = useTrans()
+  axios
+    .post('/api/pushQuestion', { name: 'david', email: 'aoeu@gmuae.com', talk: 'Pepito grillo', question: 'aoeua' })
+    .then(console.log)
+    .catch(console.log)
 
   return (
     <ContentWrapper>
@@ -36,7 +56,8 @@ export const Home = ({ talks }: { talks: TalksType }) => {
       <SectionTitle>{trans('talks_section_title')}</SectionTitle>
       <Formik
         initialValues={{ name: '', email: '', talk: '0', question: '' }}
-        onSubmit={async (values, actions) => {
+        onSubmit={(values, actions) => {
+          console.log(pushQuestion(values))
           actions.setSubmitting(false)
         }}
         validationSchema={validationSchema}
