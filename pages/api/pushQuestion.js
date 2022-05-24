@@ -1,5 +1,5 @@
-const { Client } = require('@notionhq/client')
-require('dotenv').config()
+import { Client } from '@notionhq/client'
+import 'dotenv/config'
 
 const notion = new Client({
   auth: process.env.API_KEY,
@@ -8,11 +8,8 @@ const notion = new Client({
 
 const DATABASE_ID = process.env.QUESTIONS_DATABASE
 
-export default async (req, res) => {
-  console.log('TYPEOF:')
-  console.log(typeof req.body)
-  console.log(req.body)
-  const { body } = req
+export default async function pushQuestion(req, res) {
+  const body = JSON.parse(req.body)
   let response = 200
   try {
     await notion.pages.create({

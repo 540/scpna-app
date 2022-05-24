@@ -31,6 +31,7 @@ export const Form = ({ talks }: { talks: Array<SelectBoxOptions> }) => {
         value={context.values.name}
         label="nombre"
         onChange={context.handleChange}
+        maxLength={20}
       />
       <SmallFormInput
         name="email"
@@ -38,6 +39,7 @@ export const Form = ({ talks }: { talks: Array<SelectBoxOptions> }) => {
         value={context.values.email}
         label="email"
         onChange={context.handleChange}
+        maxLength={40}
       />
       <BigFormInput
         name="question"
@@ -45,11 +47,12 @@ export const Form = ({ talks }: { talks: Array<SelectBoxOptions> }) => {
         value={context.values.question}
         label="pregunta"
         onChange={context.handleChange}
+        maxLength={100}
       />
       <SelectBox
         title="Charla"
         options={talks}
-        error={context.errors.question}
+        error={context.errors.talk}
         value={context.values.talk}
         onChange={context.handleChange}
         justifyContent="flex-start"

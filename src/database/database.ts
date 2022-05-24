@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Client } from '@notionhq/client'
-require('dotenv').config()
+import 'dotenv/config'
 
 const notion = new Client({ auth: process.env.API_KEY })
 

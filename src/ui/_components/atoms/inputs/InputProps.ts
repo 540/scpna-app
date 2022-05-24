@@ -5,6 +5,7 @@ export type InputProps = {
   label?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   error?: string | boolean
+  maxLength?: number
 }
 
 export type SelectBoxOptions = {
