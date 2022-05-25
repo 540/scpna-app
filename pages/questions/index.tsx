@@ -1,10 +1,10 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { TalksQuestions } from 'ui/Talks-Questions'
+import { QuestionsPage } from 'ui/Questions'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getTalksQuestions, TalksType } from '../../src/database/database'
 
 const TalksQuestionsPage: NextPage<{ talks: TalksType }> = ({ talks }: { talks: TalksType }) => (
-  <TalksQuestions talks={talks} />
+  <QuestionsPage talks={talks} />
 )
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
