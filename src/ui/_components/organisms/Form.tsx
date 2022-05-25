@@ -19,8 +19,6 @@ const FormWrapper = styled(FormikForm)`
   width: 100%;
   background-color: #242d2f;
 
-  border-radius: 27px 27px 0 0;
-
   padding: 30px 50px 40px 50px;
 
   justify-content: space-around;
