@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 const DefaultFormElementWrapper = styled.div<{ justifyContent?: 'flex-start' | 'flex-end' | 'center' }>`
-  padding: 20px;
+  padding: 20px 0px;
   display: flex;
   justify-content: ${props => props.justifyContent || 'center'};
   align-items: center;

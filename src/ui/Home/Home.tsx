@@ -4,8 +4,8 @@ import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
 import React from 'react'
 import * as yup from 'yup'
-
 import { Formik } from 'formik'
+import { TalksType } from '../../database/database'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -20,36 +20,86 @@ const ContentWrapper = styled.div`
 `
 
 const validationSchema = yup.object({
+  name: yup.string().trim().required('Name is required!'),
   email: yup.string().email('Enter a valid email').required('Email is required!'),
-  name: yup.string().required('Name is required!'),
-  talk: yup.string().oneOf(['c1', 'c2', 'c3'], 'You need to select an speech!'),
-  question: yup.string().required('You have to write a question!')
+  talk: yup.mixed().notOneOf(['0'], 'You need to select a speech!'),
+  question: yup.string().trim().required('You have to write a question!')
 })
 
-export const Home = () => {
+type QuestionType = {
+  name: string
+  email: string
+  talk: string
+  question: string
+}
+
+const pushQuestion = (data: QuestionType): Promise<number> => {
+  return fetch('/api/pushQuestion', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/jso'
+    }
+  }).then(res => res.json())
+}
+
+export const Home = ({ talks }: { talks: TalksType }) => {
+  const [formState, setFormState] = React.useState<'success' | 'error' | 'info'>('success')
+  const [formStateOpen, setFormStateOpen] = React.useState(false)
+  const [snackMessage, setSnackMessage] = React.useState('')
+
+  const setLoadingForm = () => {
+    setFormState('info')
+    setFormStateOpen(true)
+    setSnackMessage('Enviando...')
+  }
+  const setSuccessForm = () => {
+    setFormState('success')
+    setFormStateOpen(true)
+    setSnackMessage('Pregunta enviada correctamente')
+  }
+  const setErrorForm = () => {
+    setFormState('error')
+    setFormStateOpen(true)
+    setSnackMessage('¡Pregunta no enviada!')
+  }
+
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setFormStateOpen(false)
+  }
+
   const trans = useTrans()
-
-  const talks = [
-    { value: 'c1', text: 'Charla 1' },
-    { value: 'c2', text: 'Charla 2' },
-    { value: 'c3', text: 'Charla 3' }
-  ]
-
   return (
     <ContentWrapper>
       <Header />
       <SectionTitle>{trans('talks_section_title')}</SectionTitle>
       <Formik
         initialValues={{ name: '', email: '', talk: '0', question: '' }}
-        onSubmit={(values, actions) => {
-          alert(JSON.stringify(values, null, 2))
-          actions.setSubmitting(false)
+        onSubmit={async (values, { setSubmitting, resetForm }) => {
+          setLoadingForm()
+          const response = await pushQuestion(values)
+          setSubmitting(false)
+          if (response == 200) {
+            setSuccessForm()
+            resetForm({ values: { name: '', email: '', talk: '0', question: '' } })
+          } else {
+            setErrorForm()
+          }
         }}
         validationSchema={validationSchema}
         validateOnBlur={false}
         validateOnChange={false}
       >
-        <Form talks={talks} />
+        <Form
+          talks={talks}
+          formState={formState}
+          formStateOpen={formStateOpen}
+          snackMessage={snackMessage}
+          handleClose={handleClose}
+        />
       </Formik>
     </ContentWrapper>
   )
