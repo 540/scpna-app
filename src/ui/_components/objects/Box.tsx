@@ -20,7 +20,8 @@ export const Box = ({ children, width, height, backgroundColor = 'white', spacin
         typeof spacing === 'object'
           ? `${toSpacing(spacing.vertical)} ${toSpacing(spacing.horizontal)}`
           : toSpacing(spacing)
-    }}>
+    }}
+  >
     {children}
   </BaseBox>
 )
