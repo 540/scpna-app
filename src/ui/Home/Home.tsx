@@ -33,33 +33,73 @@ type QuestionType = {
   question: string
 }
 
-const pushQuestion = async (data: QuestionType) =>
-  fetch('/api/pushQuestion', {
+const pushQuestion = (data: QuestionType): Promise<number> => {
+  return fetch('/api/pushQuestion', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/jso'
     }
-  })
+  }).then(res => res.json())
+}
 
 export const Home = ({ talks }: { talks: TalksType }) => {
-  const trans = useTrans()
+  const [formState, setFormState] = React.useState<'success' | 'error' | 'info'>('success')
+  const [formStateOpen, setFormStateOpen] = React.useState(false)
+  const [snackMessage, setSnackMessage] = React.useState('')
 
+  const setLoadingForm = () => {
+    setFormState('info')
+    setFormStateOpen(true)
+    setSnackMessage('Enviando...')
+  }
+  const setSuccessForm = () => {
+    setFormState('success')
+    setFormStateOpen(true)
+    setSnackMessage('Pregunta enviada correctamente')
+  }
+  const setErrorForm = () => {
+    setFormState('error')
+    setFormStateOpen(true)
+    setSnackMessage('¡Pregunta no enviada!')
+  }
+
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setFormStateOpen(false)
+  }
+
+  const trans = useTrans()
   return (
     <ContentWrapper>
       <Header />
       <SectionTitle>{trans('talks_section_title')}</SectionTitle>
       <Formik
         initialValues={{ name: '', email: '', talk: '0', question: '' }}
-        onSubmit={(values, actions) => {
-          pushQuestion(values)
-          actions.setSubmitting(false)
+        onSubmit={async (values, { setSubmitting, resetForm }) => {
+          setLoadingForm()
+          const response = await pushQuestion(values)
+          setSubmitting(false)
+          if (response == 200) {
+            setSuccessForm()
+            resetForm({ values: { name: '', email: '', talk: '0', question: '' } })
+          } else {
+            setErrorForm()
+          }
         }}
         validationSchema={validationSchema}
         validateOnBlur={false}
         validateOnChange={false}
       >
-        <Form talks={talks} />
+        <Form
+          talks={talks}
+          formState={formState}
+          formStateOpen={formStateOpen}
+          snackMessage={snackMessage}
+          handleClose={handleClose}
+        />
       </Formik>
     </ContentWrapper>
   )

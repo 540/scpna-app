@@ -24,6 +24,7 @@ export const BigGoldInput = ({ value = '', name, label, onChange, error, maxLeng
     InputProps={{ style: OutlinedInputStyle }}
     inputProps={{ maxLength: maxLength ?? -1 }}
     name={name}
+    value={value}
     error={error ? true : false}
     onChange={onChange}
   />

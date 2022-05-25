@@ -7,8 +7,7 @@ import { SelectBoxProps } from './InputProps'
 const StyledSelect = styled(Select)`
   color: ${colors.background};
   background-color: ${colors.primary};
-  width: 50%;
-  max-width: 50%;
+  width: 70%;
   height: 80%;
 `
 
