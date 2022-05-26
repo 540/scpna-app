@@ -1,4 +1,5 @@
 export { Text } from './Text'
+export { Toast } from './Toast'
 export { CommonGoldInput } from './inputs/CommonGoldInput'
 export { BigGoldInput } from './inputs/BigGoldInput'
 export { GoldSelectBox } from './inputs/GoldSelectBox'

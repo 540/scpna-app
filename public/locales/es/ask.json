@@ -1,0 +1,11 @@
+{
+  "title": "Charlas",
+  "toast_sending": "Enviando...",
+  "toast_success": "Pregunta enviada correctamente",
+  "toast_error": "¡Pregunta no enviada!",
+  "label_name": "nombre",
+  "label_email": "email",
+  "label_question": "pregunta",
+  "label_talk": "Charla",
+  "label_button": "Enviar"
+}

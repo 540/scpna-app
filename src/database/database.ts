@@ -26,3 +26,40 @@ export async function loadTalks(): Promise<TalksType> {
     }
   })
 }
+
+export type QuestionsArrType = {
+  email: string
+  speech: string
+  name: string
+  question: string
+}[]
+
+export async function getQuestions(): Promise<QuestionsArrType> {
+  const databaseId = process.env.QUESTIONS_DATABASE as string
+  const { results } = await notion.databases.query({
+    database_id: databaseId,
+    sorts: [
+      {
+        property: 'Name',
+        direction: 'ascending'
+      }
+    ]
+  })
+  return results.map(result => {
+    return {
+      // @ts-ignore: Unreachable code error
+      email: result.properties.Email.email,
+      // @ts-ignore: Unreachable code error
+      speech: result.properties.Speech.rich_text[0].plain_text,
+      // @ts-ignore: Unreachable code error
+      name: result.properties.Name.title[0].plain_text,
+      // @ts-ignore: Unreachable code error
+      question: result.properties.Question.rich_text[0].plain_text
+    }
+  })
+}
+
+export type QuestionsAndTalksType = {
+  questions: QuestionsArrType
+  talks: TalksType
+}

@@ -1,7 +1,7 @@
 import { QuestionsPage } from './TalksQuestions'
-import { TalksType } from '../../database/database'
+import { QuestionsAndTalksType } from '../../database/database'
 import React from 'react'
 
-export const QuestionsPageController = ({ talks }: { talks: TalksType }) => {
-  return <QuestionsPage talks={talks} />
+export const QuestionsPageController = ({ talks, questions }: QuestionsAndTalksType) => {
+  return <QuestionsPage talks={talks} questions={questions} />
 }

@@ -47,21 +47,22 @@ export const Ask = ({ talks }: { talks: TalksType }) => {
   const [formState, setFormState] = React.useState<'success' | 'error' | 'info'>('success')
   const [formStateOpen, setFormStateOpen] = React.useState(false)
   const [snackMessage, setSnackMessage] = React.useState('')
+  const trans = useTrans('ask')
 
   const setLoadingForm = () => {
     setFormState('info')
     setFormStateOpen(true)
-    setSnackMessage('Enviando...')
+    setSnackMessage(trans('toast_sending'))
   }
   const setSuccessForm = () => {
     setFormState('success')
     setFormStateOpen(true)
-    setSnackMessage('Pregunta enviada correctamente')
+    setSnackMessage(trans('toast_success'))
   }
   const setErrorForm = () => {
     setFormState('error')
     setFormStateOpen(true)
-    setSnackMessage('¡Pregunta no enviada!')
+    setSnackMessage(trans('toast_error'))
   }
 
   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
@@ -71,11 +72,10 @@ export const Ask = ({ talks }: { talks: TalksType }) => {
     setFormStateOpen(false)
   }
 
-  const trans = useTrans()
   return (
     <ContentWrapper>
       <Header />
-      <SectionTitle>{trans('talks_section_title')}</SectionTitle>
+      <SectionTitle>{trans('title')}</SectionTitle>
       <Formik
         initialValues={{ name: '', email: '', talk: '0', question: '' }}
         onSubmit={async (values, { setSubmitting, resetForm }) => {

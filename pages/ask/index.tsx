@@ -7,7 +7,7 @@ const AskPage: NextPage<{ talks: TalksType }> = ({ talks }: { talks: TalksType }
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale!, ['common'])),
+    ...(await serverSideTranslations(locale!, ['common', 'ask'])),
     talks: await loadTalks()
   }
 })
