@@ -6,7 +6,7 @@ const HomePage: NextPage = () => <Home />
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale!, ['common', 'questions']))
+    ...(await serverSideTranslations(locale!, ['common']))
   }
 })
 

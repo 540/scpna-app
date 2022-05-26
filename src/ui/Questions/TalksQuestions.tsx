@@ -24,7 +24,7 @@ export const QuestionsPage = ({ talks, questions }: QuestionsAndTalksType) => {
   return (
     <ContentWrapper>
       <Header />
-      <SectionTitle>{trans('questions_section_title')}</SectionTitle>
+      <SectionTitle>{trans('title')}</SectionTitle>
       <QuestionSection talks={talks} questions={questions} />
     </ContentWrapper>
   )

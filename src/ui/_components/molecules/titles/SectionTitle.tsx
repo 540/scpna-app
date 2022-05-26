@@ -4,11 +4,9 @@ import { Children } from 'ui/_components/objects'
 
 const Div = styled.div`
   display: flex;
-
-  width: 100%;
-
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  width: 100%;
 `
 
 export const SectionTitle = ({ children: title }: { children: Children }): JSX.Element => {
@@ -21,6 +19,7 @@ export const SectionTitle = ({ children: title }: { children: Children }): JSX.E
         fontFamily="Inter"
         fontSpacing="negativeSmall"
         fontHeight="inherit"
+        sx={{ wordBreak: 'break-word' }}
         bold
       >
         {title}
