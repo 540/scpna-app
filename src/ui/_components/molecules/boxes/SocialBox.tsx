@@ -25,11 +25,11 @@ export const SocialBox = (): JSX.Element => {
     <RoundedDiv>
       <SocialIcons>
         <TwitterIcon
-          sx={{ fontSize: '40px', cursor: 'pointer' }}
+          sx={{ fontSize: '40px', cursor: 'pointer', marginRight: '10px' }}
           onClick={() => window.open('https://twitter.com', '_blank')}
         />
         <InstagramIcon
-          sx={{ fontSize: '40px', cursor: 'pointer' }}
+          sx={{ fontSize: '40px', cursor: 'pointer', marginRight: '10px' }}
           onClick={() => window.open('https://instagram.com', '_blank')}
         />
         <LinkedInIcon

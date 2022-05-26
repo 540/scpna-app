@@ -24,14 +24,14 @@ const Socials = styled.div`
 export const HomeLinks = ({}: {}) => {
   return (
     <HomeLinksWrapper>
-      <LinkGoldButton icon={<LiveHelpIcon />} link="/ask">
-        Haz una pregunta
+      <LinkGoldButton icon={<EventAvailableIcon sx={{ fontSize: '30px' }} />} link="/schedules">
+        Horario
       </LinkGoldButton>
-      <LinkGoldButton icon={<QuestionAnswerIcon />} link="/questions">
+      <LinkGoldButton icon={<QuestionAnswerIcon sx={{ fontSize: '30px' }} />} link="/questions">
         Ver preguntas
       </LinkGoldButton>
-      <LinkGoldButton icon={<EventAvailableIcon />} link="/schedules">
-        Horario
+      <LinkGoldButton icon={<LiveHelpIcon sx={{ fontSize: '30px' }} />} link="/ask">
+        Haz una pregunta
       </LinkGoldButton>
       <Socials>
         <SocialBox />
