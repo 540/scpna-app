@@ -3,6 +3,7 @@ import { Header, SectionTitle } from 'ui/_components'
 import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
 import React from 'react'
+import { HomeLinks } from '../_components/organisms'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -37,7 +38,9 @@ export const Home = () => {
     <ContentWrapper>
       <Header />
       <SectionTitle>Home</SectionTitle>
-      <PagesSection />
+      <PagesSection>
+        <HomeLinks />
+      </PagesSection>
     </ContentWrapper>
   )
 }
