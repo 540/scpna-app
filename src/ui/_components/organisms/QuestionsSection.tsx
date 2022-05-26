@@ -4,6 +4,7 @@ import { SelectBox } from '../molecules'
 import React from 'react'
 import { QuestionsAndTalksType } from 'src/database/database'
 import { Toast } from '../atoms'
+import { useTrans } from 'ui/_hooks/useTrans'
 
 const QuestionSectionWrapper = styled.div`
   display: flex;
@@ -23,6 +24,8 @@ const SelectBoxWrapper = styled.div`
 `
 
 export const QuestionSection = ({ talks, questions }: QuestionsAndTalksType) => {
+  const commonTrans = useTrans()
+  const questionsTrans = useTrans('questions')
   const [talk, setTalk] = React.useState<string>('0')
   const [toastOpen, setToastOpen] = React.useState(false)
   const [questionsContent, setQuestionsContent] = React.useState<React.ReactElement[]>([])
@@ -61,7 +64,7 @@ export const QuestionSection = ({ talks, questions }: QuestionsAndTalksType) => 
     <QuestionSectionWrapper>
       <SelectBoxWrapper>
         <SelectBox
-          title="Charla"
+          title={commonTrans('talkInputDefaultText')}
           options={talks}
           value={talk}
           onChange={e => setTalk(e.target.value as string)}
@@ -73,7 +76,7 @@ export const QuestionSection = ({ talks, questions }: QuestionsAndTalksType) => 
         questionsContent
       ) : (
         <Toast
-          content={`Ninguna pregunta aún para la charla ${talk}`}
+          content={questionsTrans('noTalks', { talk })}
           toastOpen={toastOpen}
           handleToastClose={handleToastClose}
           severity="info"

@@ -7,6 +7,7 @@ import { useFormikContext, Form as FormikForm, FormikProps } from 'formik'
 import Snackbar from '@mui/material/Snackbar'
 import MuiAlert, { AlertProps } from '@mui/material/Alert'
 import { SelectChangeEvent } from '@mui/material'
+import { useTrans } from 'ui/_hooks/useTrans'
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
@@ -40,6 +41,7 @@ export const Form = ({
   handleClose: (event?: React.SyntheticEvent | Event, reason?: string) => void
 }) => {
   const context: FormikProps<{ name: string; email: string; question: string; talk: string }> = useFormikContext()
+  const trans = useTrans('ask')
 
   const checkValues = (
     e: React.ChangeEvent<any> | SelectChangeEvent<string>,
@@ -57,7 +59,7 @@ export const Form = ({
         name="name"
         error={context.errors.name}
         value={context.values.name}
-        label="nombre"
+        label={trans('label_name')}
         onChange={e => checkValues(e, 'name')}
         maxLength={20}
       />
@@ -65,7 +67,7 @@ export const Form = ({
         name="email"
         error={context.errors.email}
         value={context.values.email}
-        label="email"
+        label={trans('label_email')}
         onChange={e => checkValues(e, 'email')}
         maxLength={40}
       />
@@ -73,12 +75,12 @@ export const Form = ({
         name="question"
         error={context.errors.question}
         value={context.values.question}
-        label="pregunta"
+        label={trans('label_question')}
         onChange={e => checkValues(e, 'question')}
         maxLength={100}
       />
       <SelectBox
-        title="Charla"
+        title={trans('label_talk')}
         options={talks}
         error={context.errors.talk}
         value={context.values.talk}
@@ -86,7 +88,7 @@ export const Form = ({
         justifyContent="flex-start"
         name="talk"
       />
-      <FormButton>Enviar</FormButton>
+      <FormButton>{trans('label_button')}</FormButton>
       <Snackbar open={formStateOpen} autoHideDuration={3000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={formState} sx={{ width: '100%' }}>
           {snackMessage}
