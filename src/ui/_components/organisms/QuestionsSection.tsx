@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
-import { QuestionBox } from 'ui/_components/molecules/questions/QuestionBox'
-import { SelectBox } from '../molecules'
+import { SelectBox, QuestionBox } from '../molecules'
 import React from 'react'
 import { QuestionsAndTalksType } from 'src/database/database'
 import { Toast } from '../atoms'
