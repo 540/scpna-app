@@ -9,7 +9,7 @@ const TalksQuestionsPage: NextPage<QuestionsAndTalksType> = ({ talks, questions 
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale!, ['common'])),
+    ...(await serverSideTranslations(locale!, ['common', 'questions'])),
     talks: await loadTalks(),
     questions: await getQuestions()
   }

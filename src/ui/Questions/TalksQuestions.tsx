@@ -19,12 +19,12 @@ const ContentWrapper = styled.div`
 `
 
 export const QuestionsPage = ({ talks, questions }: QuestionsAndTalksType) => {
-  const trans = useTrans()
+  const trans = useTrans('questions')
 
   return (
     <ContentWrapper>
       <Header />
-      <SectionTitle>Preguntas</SectionTitle>
+      <SectionTitle>{trans('questions_section_title')}</SectionTitle>
       <QuestionSection talks={talks} questions={questions} />
     </ContentWrapper>
   )
