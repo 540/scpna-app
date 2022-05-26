@@ -76,7 +76,7 @@ export const QuestionSection = ({ talks, questions }: QuestionsAndTalksType) => 
         questionsContent
       ) : (
         <Toast
-          content={questionsTrans('noTalks', { talk })}
+          content={questionsTrans('noTalks')}
           toastOpen={toastOpen}
           handleToastClose={handleToastClose}
           severity="info"
