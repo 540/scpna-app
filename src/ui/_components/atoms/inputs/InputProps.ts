@@ -20,6 +20,6 @@ export type SelectBoxProps = {
   options?: Array<SelectBoxOptions>
   value?: string | number
   name?: string
-  error?: string | boolean
   onChange?: (e: SelectChangeEvent<unknown>) => void
+  error?: string | boolean
 }
