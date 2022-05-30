@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
 import { AgendaArrType } from 'src/database/database'
 import { TalkCard } from 'ui/_components/molecules'
-import { AgendaModal } from 'ui/_components/objects/AgendaModal'
+import { AgendaModal } from 'ui/_components/organisms/AgendaModal'
 
 const ContentWrapper = styled.div`
   display: flex;
