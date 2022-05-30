@@ -16,7 +16,7 @@ const ContentWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  background-color: ${colors.primary};
+  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
 const validationSchema = yup.object({

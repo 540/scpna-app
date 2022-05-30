@@ -14,6 +14,7 @@ const TalkWrapper = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 `
 
 const CardWrapper = styled.div`
@@ -58,9 +59,6 @@ const InfoDiv = styled.div`
 `
 
 const TimeDiv = styled.div`
-  border-color: white;
-  border-width: 1px;
-  border-style: solid;
   margin-right: 10px;
   padding-left: 5px;
   padding-right: 5px;
@@ -71,16 +69,22 @@ export const TalkCard = ({ talk, speaker, time, image, onInfoClick }: TalkCardPr
   return (
     <TalkCardWrapper>
       <TalkWrapper>
-        <Text bold sx={{ textAlign: 'center' }}>
+        <Text bold sx={{ textAlign: 'center' }} color="white">
           {talk}
         </Text>
       </TalkWrapper>
       <CardWrapper>
         <Avatar variant="square" sx={{ height: '100px', width: '100px' }} src={image} />
         <ContentWrapper>
-          <SpeakerSection>{speaker}</SpeakerSection>
+          <SpeakerSection>
+            <Text bold>{speaker}</Text>
+          </SpeakerSection>
           <InfoDiv>
-            <TimeDiv>{time}</TimeDiv>
+            <TimeDiv>
+              <Text bold color="white">
+                {time}
+              </Text>
+            </TimeDiv>
             <GoldButton padding="5px 10px" onClick={onInfoClick}>
               Info
             </GoldButton>

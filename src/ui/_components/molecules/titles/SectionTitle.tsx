@@ -1,12 +1,15 @@
 import styled from '@emotion/styled'
 import { Text } from '../../atoms'
 import { Children } from 'ui/_components/objects'
+import { colors } from 'ui/_styles'
 
 const Div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  padding: 0 20px;
+  border-radius: 10px;
+  background-color: ${colors.primary};
 `
 
 export const SectionTitle = ({ children: title }: { children: Children }): JSX.Element => {

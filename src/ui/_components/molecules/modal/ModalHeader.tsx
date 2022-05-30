@@ -30,7 +30,7 @@ export const ModalHeader = ({ agenda, selectedSpeaker, onClose }: ModalHeaderTyp
           fontSize: '30px',
           cursor: 'pointer',
           marginRight: '10px',
-          color: colors.primary,
+          color: colors.white,
           backgroundColor: colors.background,
           borderRadius: '50%'
         }}
@@ -47,7 +47,7 @@ export const ModalHeader = ({ agenda, selectedSpeaker, onClose }: ModalHeaderTyp
           backgroundColor: colors.background,
           width: 'fit-content',
           padding: '0 20px',
-          borderColor: colors.primary,
+          borderColor: colors.white,
           borderTopStyle: 'solid',
           borderRightStyle: 'solid',
           borderWidth: '3px'

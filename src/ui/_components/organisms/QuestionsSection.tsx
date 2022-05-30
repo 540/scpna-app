@@ -15,8 +15,6 @@ const QuestionSectionWrapper = styled.div`
 
   justify-content: flex-start;
   align-items: center;
-
-  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 const SelectBoxWrapper = styled.div`
   width: 100%;

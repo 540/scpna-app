@@ -2,7 +2,6 @@ import React from 'react'
 import { Header, SectionTitle } from 'ui/_components'
 import { useTrans } from 'ui/_hooks/useTrans'
 import styled from '@emotion/styled'
-import { colors } from 'ui/_styles'
 import { AgendaArrType } from 'src/database/database'
 import { TalkCard } from 'ui/_components/molecules'
 import { AgendaModal } from 'ui/_components/organisms/AgendaModal'
@@ -16,7 +15,7 @@ const ContentWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  background-color: ${colors.primary};
+  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
 const TalksSectionWrapper = styled.div`
@@ -25,12 +24,10 @@ const TalksSectionWrapper = styled.div`
   flex-direction: column;
   width: 100%;
 
-  padding: 30px 30px 40px 30px;
+  padding: 30px 0px 40px 0px;
 
   justify-content: flex-start;
   align-items: center;
-
-  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
 export const Agenda = ({ agenda }: { agenda: AgendaArrType }) => {

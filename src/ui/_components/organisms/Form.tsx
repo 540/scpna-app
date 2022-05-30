@@ -18,13 +18,10 @@ const FormWrapper = styled(FormikForm)`
   flex: 1;
   flex-direction: column;
   width: 100%;
-  background-color: #242d2f;
 
   padding: 30px 50px 40px 50px;
 
   justify-content: space-around;
-
-  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
 export const Form = ({

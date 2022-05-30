@@ -8,8 +8,6 @@ const HeaderDiv = styled.div`
   align-items: center;
   min-height: 20%;
   width: 100%;
-  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero.jpg');
-  background-size: cover;
 `
 
 export const Header = (): JSX.Element => {
