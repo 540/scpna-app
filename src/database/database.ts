@@ -22,7 +22,7 @@ export async function loadTalks(): Promise<TalksType> {
       // @ts-ignore: Unreachable code error
       text: result.properties.Name.title[0].plain_text,
       // @ts-ignore: Unreachable code error
-      value: result.properties.Tag.rich_text[0].plain_text
+      value: result.properties.Id.rich_text[0].plain_text
     }
   })
 }
@@ -35,7 +35,7 @@ export type QuestionsArrType = {
 }[]
 
 export async function getQuestions(): Promise<QuestionsArrType> {
-  const databaseId = process.env.QUESTIONS_DATABASE as string
+  const databaseId = process.env.QUESTIONS_DATABASE_ID as string
   const { results } = await notion.databases.query({
     database_id: databaseId,
     sorts: [
