@@ -57,8 +57,17 @@ const InfoDiv = styled.div`
   color: white;
 `
 
-type TalkCardProps = { talk: string; speaker: string; time: string; image: string }
-export const TalkCard = ({ talk, speaker, time, image }: TalkCardProps) => {
+const TimeDiv = styled.div`
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  margin-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+`
+
+type TalkCardProps = { talk: string; speaker: string; time: string; image: string; onInfoClick: () => void }
+export const TalkCard = ({ talk, speaker, time, image, onInfoClick }: TalkCardProps) => {
   return (
     <TalkCardWrapper>
       <TalkWrapper>
@@ -71,8 +80,10 @@ export const TalkCard = ({ talk, speaker, time, image }: TalkCardProps) => {
         <ContentWrapper>
           <SpeakerSection>{speaker}</SpeakerSection>
           <InfoDiv>
-            <div>{time}</div>
-            <GoldButton padding="5px 10px">Info</GoldButton>
+            <TimeDiv>{time}</TimeDiv>
+            <GoldButton padding="5px 10px" onClick={onInfoClick}>
+              Info
+            </GoldButton>
           </InfoDiv>
         </ContentWrapper>
       </CardWrapper>

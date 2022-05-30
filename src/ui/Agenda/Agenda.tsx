@@ -3,8 +3,9 @@ import { Header, SectionTitle } from 'ui/_components'
 import { useTrans } from 'ui/_hooks/useTrans'
 import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
-import { TalksType } from 'src/database/database'
+import { AgendaArrType } from 'src/database/database'
 import { TalkCard } from 'ui/_components/molecules'
+import { AgendaModal } from 'ui/_components/objects/AgendaModal'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -32,29 +33,33 @@ const TalksSectionWrapper = styled.div`
   background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
-export const Agenda = ({ talks }: { talks: TalksType }) => {
+export const Agenda = ({ agenda }: { agenda: AgendaArrType }) => {
   const trans = useTrans('agenda')
+  const [modalOpen, setModalOpen] = React.useState(false)
+  const [selectedSpeaker, setSelectedSpeaker] = React.useState(0)
 
   return (
     <ContentWrapper>
       <Header />
       <SectionTitle>{trans('title')}</SectionTitle>
-
       <TalksSectionWrapper>
-        <TalkCard talk="Como mejorar JS" speaker={'Adri'} time={'15:30 - 17:20'} image="images/adri.jpeg" />
-        <TalkCard
-          talk="De la innovación al desastre"
-          speaker={'Diana'}
-          time={'18:00 - 20:00'}
-          image="images/diana.jpeg"
-        />
-        <TalkCard
-          talk="Como optimizar código"
-          speaker={'Fernando Díaz'}
-          time={'20:30 - 22:00'}
-          image="images/fernando.jpeg"
-        />
+        {agenda.map((item, index) => {
+          return (
+            <TalkCard
+              key={item.id}
+              talk={item.title}
+              speaker={item.name}
+              time={item.time}
+              image={item.image}
+              onInfoClick={() => {
+                setSelectedSpeaker(index)
+                setModalOpen(true)
+              }}
+            />
+          )
+        })}
       </TalksSectionWrapper>
+      <AgendaModal {...{ modalOpen, agenda, selectedSpeaker }} onClose={() => setModalOpen(false)} />
     </ContentWrapper>
   )
 }

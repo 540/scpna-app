@@ -1,6 +1,6 @@
 import { Agenda } from './Agenda'
-import { TalksType } from 'src/database/database'
+import { AgendaArrType } from 'src/database/database'
 
-export const AgendaController = ({ talks }: { talks: TalksType }) => {
-  return <Agenda talks={talks} />
+export const AgendaController = ({ agenda }: { agenda: AgendaArrType }) => {
+  return <Agenda agenda={agenda} />
 }

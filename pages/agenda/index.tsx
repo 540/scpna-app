@@ -1,14 +1,16 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { Agenda } from 'ui/Agenda'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { loadTalks, TalksType } from '../../src/database/database'
+import { getAgenda, AgendaArrType } from '../../src/database/database'
 
-const AgendaPage: NextPage<{ talks: TalksType }> = ({ talks }: { talks: TalksType }) => <Agenda talks={talks} />
+const AgendaPage: NextPage<{ agenda: AgendaArrType }> = ({ agenda }: { agenda: AgendaArrType }) => (
+  <Agenda agenda={agenda} />
+)
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale!, ['common', 'agenda'])),
-    talks: await loadTalks()
+    agenda: await getAgenda()
   }
 })
 

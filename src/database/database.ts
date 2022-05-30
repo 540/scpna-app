@@ -63,3 +63,46 @@ export type QuestionsAndTalksType = {
   questions: QuestionsArrType
   talks: TalksType
 }
+
+export type AgendaArrType = {
+  id: string
+  image: string
+  description: string
+  title: string
+  time: string
+  linkedIn: string
+  twitter: string
+  name: string
+}[]
+
+export async function getAgenda(): Promise<AgendaArrType> {
+  const databaseId = process.env.AGENDA_DATABASE as string
+  const { results } = await notion.databases.query({
+    database_id: databaseId,
+    sorts: [
+      {
+        property: 'Name',
+        direction: 'ascending'
+      }
+    ]
+  })
+  return results.map(result => {
+    return {
+      id: result.id,
+      // @ts-ignore: Unreachable code error
+      description: result.properties.Description.rich_text[0].plain_text,
+      // @ts-ignore: Unreachable code error
+      title: result.properties.Title.rich_text[0].plain_text,
+      // @ts-ignore: Unreachable code error
+      time: result.properties.Time.rich_text[0].plain_text,
+      // @ts-ignore: Unreachable code error
+      linkedIn: result.properties.LinkedIn.url,
+      // @ts-ignore: Unreachable code error
+      twitter: result.properties.Twitter.url,
+      // @ts-ignore: Unreachable code error
+      name: result.properties.Name.title[0].plain_text,
+      // @ts-ignore: Unreachable code error
+      image: result.properties.Image.rich_text[0].plain_text
+    }
+  })
+}

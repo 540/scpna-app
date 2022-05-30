@@ -6,6 +6,7 @@ export type GoldButtonProps = {
   children: Children
   onSubmit?: () => void
   padding?: string
+  onClick?: (() => void) | null
 }
 
 const StyledButton = styled(Button)<{ padding?: string }>`
@@ -14,8 +15,17 @@ const StyledButton = styled(Button)<{ padding?: string }>`
   border-radius: 20px;
 `
 
-export const GoldButton = ({ children = '', padding }: GoldButtonProps) => (
-  <StyledButton type="submit" variant="contained" size="small" padding={padding}>
-    {children}
-  </StyledButton>
-)
+type AlternativeProps = { type: 'button' | 'submit'; onClick?: () => void }
+export const GoldButton = ({ children = '', padding, onClick = null }: GoldButtonProps) => {
+  let alternativeProps: AlternativeProps
+  if (onClick) {
+    alternativeProps = { type: 'button', onClick }
+  } else {
+    alternativeProps = { type: 'submit' }
+  }
+  return (
+    <StyledButton variant="contained" size="small" padding={padding} {...alternativeProps}>
+      {children}
+    </StyledButton>
+  )
+}
