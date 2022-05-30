@@ -27,7 +27,7 @@ export default async function pushQuestion(req, res) {
         Email: {
           email: body.email
         },
-        Speech: {
+        Talk: {
           rich_text: [
             {
               text: {

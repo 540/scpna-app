@@ -4,6 +4,7 @@ import { colors } from '../../../_styles/settings/colors'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import { SocialLinks } from './SocialLinksProps'
 
 const RoundedDiv = styled.div`
   border-radius: 25px;
@@ -19,22 +20,21 @@ const SocialIcons = styled.div`
   margin-bottom: 10px;
   color: ${colors.primary};
 `
-
-export const SocialBox = (): JSX.Element => {
+export const SocialBox = ({ links }: { links: SocialLinks }) => {
   return (
     <RoundedDiv>
       <SocialIcons>
         <TwitterIcon
           sx={{ fontSize: '40px', cursor: 'pointer', marginRight: '10px' }}
-          onClick={() => window.open('https://twitter.com', '_blank')}
+          onClick={() => window.open(links.twitter, '_blank')}
         />
         <InstagramIcon
           sx={{ fontSize: '40px', cursor: 'pointer', marginRight: '10px' }}
-          onClick={() => window.open('https://instagram.com', '_blank')}
+          onClick={() => window.open(links.instagram, '_blank')}
         />
         <LinkedInIcon
           sx={{ fontSize: '40px', cursor: 'pointer' }}
-          onClick={() => window.open('https://linkedin.com', '_blank')}
+          onClick={() => window.open(links.linkedIn, '_blank')}
         />
       </SocialIcons>
     </RoundedDiv>

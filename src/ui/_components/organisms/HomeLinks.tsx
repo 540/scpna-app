@@ -4,6 +4,7 @@ import LiveHelpIcon from '@mui/icons-material/LiveHelp'
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer'
 import EventAvailableIcon from '@mui/icons-material/EventAvailable'
 import { SocialBox } from '../../_components/molecules/'
+import { SocialLinks } from '../molecules/boxes/SocialLinksProps'
 
 const HomeLinksWrapper = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const Socials = styled.div`
   margin-top: 2%;
 `
 
-export const HomeLinks = ({}: {}) => {
+export const HomeLinks = ({ links }: { links: SocialLinks }) => {
   return (
     <HomeLinksWrapper>
       <LinkGoldButton icon={<EventAvailableIcon sx={{ fontSize: '30px' }} />} link="/schedules">
@@ -34,7 +35,7 @@ export const HomeLinks = ({}: {}) => {
         Haz una pregunta
       </LinkGoldButton>
       <Socials>
-        <SocialBox />
+        <SocialBox links={links} />
       </Socials>
     </HomeLinksWrapper>
   )

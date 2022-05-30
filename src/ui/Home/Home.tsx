@@ -31,6 +31,12 @@ const PagesSection = styled.div`
   background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
+const socialLinks = {
+  twitter: 'https://twitter.com/540deg',
+  linkedIn: 'https://www.linkedin.com/company/540-degrees',
+  instagram: 'https://www.instagram.com/540deg'
+}
+
 export const Home = () => {
   const trans = useTrans()
 
@@ -39,7 +45,7 @@ export const Home = () => {
       <Header />
       <SectionTitle>Home</SectionTitle>
       <PagesSection>
-        <HomeLinks />
+        <HomeLinks links={socialLinks} />
       </PagesSection>
     </ContentWrapper>
   )

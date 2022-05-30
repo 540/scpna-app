@@ -29,7 +29,7 @@ export async function loadTalks(): Promise<TalksType> {
 
 export type QuestionsArrType = {
   email: string
-  speech: string
+  talk: string
   name: string
   question: string
 }[]
@@ -50,7 +50,7 @@ export async function getQuestions(): Promise<QuestionsArrType> {
       // @ts-ignore: Unreachable code error
       email: result.properties.Email.email,
       // @ts-ignore: Unreachable code error
-      speech: result.properties.Speech.rich_text[0].plain_text,
+      talk: result.properties.Talk.rich_text[0].plain_text,
       // @ts-ignore: Unreachable code error
       name: result.properties.Name.title[0].plain_text,
       // @ts-ignore: Unreachable code error
