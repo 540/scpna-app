@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Client } from '@notionhq/client'
 import 'dotenv/config'
 
@@ -18,12 +17,13 @@ export async function loadTalks(): Promise<TalksType> {
     ]
   })
   return response.results.map(result => {
-    return {
-      // @ts-ignore: Unreachable code error
-      text: result.properties.Name.title[0].plain_text,
-      // @ts-ignore: Unreachable code error
-      value: result.properties.Tag.rich_text[0].plain_text
+    if ('properties' in result && 'title' in result.properties.Name && 'rich_text' in result.properties.Tag) {
+      return {
+        text: result.properties.Name.title[0].plain_text,
+        value: result.properties.Tag.rich_text[0].plain_text
+      }
     }
+    return { text: 'Empty row', value: 'Empty row' }
   })
 }
 
@@ -46,16 +46,21 @@ export async function getQuestions(): Promise<QuestionsArrType> {
     ]
   })
   return results.map(result => {
-    return {
-      // @ts-ignore: Unreachable code error
-      email: result.properties.Email.email,
-      // @ts-ignore: Unreachable code error
-      speech: result.properties.Speech.rich_text[0].plain_text,
-      // @ts-ignore: Unreachable code error
-      name: result.properties.Name.title[0].plain_text,
-      // @ts-ignore: Unreachable code error
-      question: result.properties.Question.rich_text[0].plain_text
+    if (
+      'properties' in result &&
+      'title' in result.properties.Name &&
+      'rich_text' in result.properties.Speech &&
+      'email' in result.properties.Email &&
+      'rich_text' in result.properties.Question
+    ) {
+      return {
+        email: result.properties.Email.email as string,
+        speech: result.properties.Speech.rich_text[0].plain_text,
+        name: result.properties.Name.title[0].plain_text,
+        question: result.properties.Question.rich_text[0].plain_text
+      }
     }
+    return { email: 'Empty row', speech: 'Empty row', name: 'Empty row', question: 'Empty row' }
   })
 }
 
@@ -87,22 +92,36 @@ export async function getAgenda(): Promise<AgendaArrType> {
     ]
   })
   return results.map(result => {
+    if (
+      'properties' in result &&
+      'title' in result.properties.Name &&
+      'rich_text' in result.properties.Description &&
+      'rich_text' in result.properties.Title &&
+      'rich_text' in result.properties.Time &&
+      'rich_text' in result.properties.Image &&
+      'url' in result.properties.LinkedIn &&
+      'url' in result.properties.Twitter
+    ) {
+      return {
+        id: result.id,
+        description: result.properties.Description.rich_text[0].plain_text,
+        title: result.properties.Title.rich_text[0].plain_text,
+        time: result.properties.Time.rich_text[0].plain_text,
+        linkedIn: result.properties.LinkedIn.url as string,
+        twitter: result.properties.Twitter.url as string,
+        name: result.properties.Name.title[0].plain_text,
+        image: result.properties.Image.rich_text[0].plain_text
+      }
+    }
     return {
-      id: result.id,
-      // @ts-ignore: Unreachable code error
-      description: result.properties.Description.rich_text[0].plain_text,
-      // @ts-ignore: Unreachable code error
-      title: result.properties.Title.rich_text[0].plain_text,
-      // @ts-ignore: Unreachable code error
-      time: result.properties.Time.rich_text[0].plain_text,
-      // @ts-ignore: Unreachable code error
-      linkedIn: result.properties.LinkedIn.url,
-      // @ts-ignore: Unreachable code error
-      twitter: result.properties.Twitter.url,
-      // @ts-ignore: Unreachable code error
-      name: result.properties.Name.title[0].plain_text,
-      // @ts-ignore: Unreachable code error
-      image: result.properties.Image.rich_text[0].plain_text
+      id: 'Empty row',
+      description: 'Empty row',
+      title: 'Empty row',
+      time: 'Empty row',
+      linkedIn: 'Empty row',
+      twitter: 'Empty row',
+      name: 'Empty row',
+      image: 'Empty row'
     }
   })
 }
