@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Text } from 'ui/_components/atoms'
-import { AgendaArrType } from 'src/database/database'
+import { AgendaArrType } from 'src/database'
 
 const ModalDescriptionStyle = styled.div`
   width: 100%;

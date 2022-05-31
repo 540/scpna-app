@@ -1,4 +1,4 @@
-import { QuestionsAndTalksType } from '../../database/database'
+import { QuestionsAndTalksType } from '../../database'
 import { useTrans } from 'ui/_hooks/useTrans'
 import { Header, SectionTitle } from 'ui/_components'
 import styled from '@emotion/styled'

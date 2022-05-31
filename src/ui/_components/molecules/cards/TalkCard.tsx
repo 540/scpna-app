@@ -64,7 +64,13 @@ const TimeDiv = styled.div`
   padding-right: 5px;
 `
 
-type TalkCardProps = { talk: string; speaker: string; time: string; image: string; onInfoClick: () => void }
+type TalkCardProps = {
+  talk: string
+  speaker: string
+  time: string
+  image: string
+  onInfoClick: () => void
+}
 export const TalkCard = ({ talk, speaker, time, image, onInfoClick }: TalkCardProps) => {
   return (
     <TalkCardWrapper>

@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { colors } from 'ui/_styles'
 import { Text } from 'ui/_components/atoms'
-import { AgendaArrType } from 'src/database/database'
+import { AgendaArrType } from 'src/database'
 
 const ModalHeaderStyle = styled.div<{ backgroundImage?: string }>`
   display: flex;

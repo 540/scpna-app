@@ -5,7 +5,7 @@ import { colors } from 'ui/_styles'
 import React from 'react'
 import * as yup from 'yup'
 import { Formik } from 'formik'
-import { TalksType } from '../../database/database'
+import { TalksType } from '../../database'
 
 const ContentWrapper = styled.div`
   display: flex;

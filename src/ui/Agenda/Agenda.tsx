@@ -2,7 +2,7 @@ import React from 'react'
 import { Header, SectionTitle } from 'ui/_components'
 import { useTrans } from 'ui/_hooks/useTrans'
 import styled from '@emotion/styled'
-import { AgendaArrType } from 'src/database/database'
+import { AgendaArrType } from 'src/database'
 import { TalkCard } from 'ui/_components/molecules'
 import { AgendaModal } from 'ui/_components/organisms/AgendaModal'
 
@@ -35,6 +35,10 @@ export const Agenda = ({ agenda }: { agenda: AgendaArrType }) => {
   const [modalOpen, setModalOpen] = React.useState(false)
   const [selectedSpeaker, setSelectedSpeaker] = React.useState(0)
 
+  const onQuestionsView = (talkId: string) => {
+    window.open(`/questions?talk=${talkId}`)
+  }
+
   return (
     <ContentWrapper>
       <Header />
@@ -56,7 +60,7 @@ export const Agenda = ({ agenda }: { agenda: AgendaArrType }) => {
           )
         })}
       </TalksSectionWrapper>
-      <AgendaModal {...{ modalOpen, agenda, selectedSpeaker }} onClose={() => setModalOpen(false)} />
+      <AgendaModal {...{ modalOpen, agenda, selectedSpeaker, onQuestionsView }} onClose={() => setModalOpen(false)} />
     </ContentWrapper>
   )
 }

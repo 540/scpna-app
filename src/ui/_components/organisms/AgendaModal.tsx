@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Modal } from '@mui/material'
 import { ModalHeader, ModalDescription, ModalFooter } from 'ui/_components/molecules'
-import { AgendaArrType } from 'src/database/database'
+import { AgendaArrType } from 'src/database'
 
 const ModalWrapper = styled.div`
   position: absolute;
@@ -20,15 +20,16 @@ type AgendaModalProps = {
   agenda: AgendaArrType
   selectedSpeaker: number
   onClose: () => void
+  onQuestionsView: (talkId: string) => void
 }
 
-export const AgendaModal = ({ modalOpen, agenda, selectedSpeaker, onClose }: AgendaModalProps) => {
+export const AgendaModal = ({ modalOpen, agenda, selectedSpeaker, onClose, onQuestionsView }: AgendaModalProps) => {
   return (
     <Modal open={modalOpen} onClose={onClose}>
       <ModalWrapper>
         <ModalHeader {...{ agenda, selectedSpeaker, onClose }} />
         <ModalDescription {...{ agenda, selectedSpeaker }} />
-        <ModalFooter {...{ agenda, selectedSpeaker }} />
+        <ModalFooter {...{ agenda, selectedSpeaker, onQuestionsView }} />
       </ModalWrapper>
     </Modal>
   )

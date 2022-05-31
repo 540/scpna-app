@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { QuestionsPage } from 'ui/Questions'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { getQuestions, loadTalks, QuestionsAndTalksType } from '../../src/database/database'
+import { getQuestions, getTalks, QuestionsAndTalksType } from '../../src/database'
 
 const TalksQuestionsPage: NextPage<QuestionsAndTalksType> = ({ talks, questions }: QuestionsAndTalksType) => (
   <QuestionsPage talks={talks} questions={questions} />
@@ -10,7 +10,7 @@ const TalksQuestionsPage: NextPage<QuestionsAndTalksType> = ({ talks, questions 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale!, ['common', 'questions'])),
-    talks: await loadTalks(),
+    talks: await getTalks(),
     questions: await getQuestions()
   }
 })

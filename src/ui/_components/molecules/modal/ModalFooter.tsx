@@ -4,7 +4,7 @@ import { colors } from 'ui/_styles'
 
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import { AgendaArrType } from 'src/database/database'
+import { AgendaArrType } from 'src/database'
 
 const ModalFooterStyle = styled.div`
   display: flex;
@@ -25,8 +25,9 @@ const SocialIcons = styled.div`
 type ModalFooterTypes = {
   agenda: AgendaArrType
   selectedSpeaker: number
+  onQuestionsView: (talkId: string) => void
 }
-export const ModalFooter = ({ agenda, selectedSpeaker }: ModalFooterTypes) => {
+export const ModalFooter = ({ agenda, selectedSpeaker, onQuestionsView }: ModalFooterTypes) => {
   return (
     <ModalFooterStyle>
       <SocialIcons>
@@ -39,7 +40,7 @@ export const ModalFooter = ({ agenda, selectedSpeaker }: ModalFooterTypes) => {
           onClick={() => window.open(agenda[selectedSpeaker].twitter, '_blank')}
         />
       </SocialIcons>
-      <FooterButton>Ver preguntas</FooterButton>
+      <FooterButton onClick={() => onQuestionsView(agenda[selectedSpeaker].talkId)}>Ver preguntas</FooterButton>
     </ModalFooterStyle>
   )
 }

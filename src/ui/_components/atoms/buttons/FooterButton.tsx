@@ -12,6 +12,10 @@ const FooterButtonStyle = styled(Button)`
   color: ${colors.background};
 `
 
-export const FooterButton = ({ children }: { children: Children }) => {
-  return <FooterButtonStyle variant="contained">{children}</FooterButtonStyle>
+export const FooterButton = ({ children, onClick }: { children: Children; onClick: () => void }) => {
+  return (
+    <FooterButtonStyle variant="contained" onClick={onClick}>
+      {children}
+    </FooterButtonStyle>
+  )
 }
