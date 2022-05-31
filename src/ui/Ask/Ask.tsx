@@ -22,7 +22,7 @@ const ContentWrapper = styled.div`
 const validationSchema = yup.object({
   name: yup.string().trim().required('Name is required!'),
   email: yup.string().email('Enter a valid email').required('Email is required!'),
-  talk: yup.mixed().notOneOf(['0'], 'You need to select a speech!'),
+  talk: yup.mixed().notOneOf(['0'], 'You need to select a talk!'),
   question: yup.string().trim().required('You have to write a question!')
 })
 

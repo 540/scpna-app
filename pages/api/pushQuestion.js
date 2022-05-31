@@ -6,7 +6,7 @@ const notion = new Client({
   logLevel: undefined
 })
 
-const DATABASE_ID = process.env.QUESTIONS_DATABASE
+const DATABASE_ID = process.env.QUESTIONS_DATABASE_ID
 
 export default async function pushQuestion(req, res) {
   const body = JSON.parse(req.body)
@@ -27,7 +27,7 @@ export default async function pushQuestion(req, res) {
         Email: {
           email: body.email
         },
-        Speech: {
+        Talk: {
           rich_text: [
             {
               text: {

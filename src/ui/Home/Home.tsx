@@ -1,6 +1,7 @@
 import { Header, SectionTitle } from 'ui/_components'
 import styled from '@emotion/styled'
 import React from 'react'
+import { HomeLinks } from '../_components/organisms'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -21,12 +22,20 @@ const PagesSection = styled.div`
   justify-content: space-around;
 `
 
+const socialLinks = {
+  twitter: 'https://twitter.com/540deg',
+  linkedIn: 'https://www.linkedin.com/company/540-degrees',
+  instagram: 'https://www.instagram.com/540deg'
+}
+
 export const Home = () => {
   return (
     <ContentWrapper>
       <Header />
       <SectionTitle>Home</SectionTitle>
-      <PagesSection />
+      <PagesSection>
+        <HomeLinks links={socialLinks} />
+      </PagesSection>
     </ContentWrapper>
   )
 }
