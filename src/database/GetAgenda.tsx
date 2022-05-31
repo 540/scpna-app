@@ -15,6 +15,7 @@ type AgendaParseType = {
     Twitter: { url: string }
   }
 }
+
 const parseAgendaProps = (result: AgendaParseType) => {
   return {
     id: result.id,
