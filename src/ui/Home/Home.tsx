@@ -1,4 +1,3 @@
-import { useTrans } from 'ui/_hooks/useTrans'
 import { Header, SectionTitle } from 'ui/_components'
 import styled from '@emotion/styled'
 import React from 'react'
@@ -23,8 +22,6 @@ const PagesSection = styled.div`
 `
 
 export const Home = () => {
-  const trans = useTrans()
-
   return (
     <ContentWrapper>
       <Header />
