@@ -7,7 +7,7 @@ export type TalksType = { text: string; value: string }[]
 
 export type QuestionsArrType = {
   email: string
-  speech: string
+  talkId: string
   name: string
   question: string
 }[]

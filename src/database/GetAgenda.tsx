@@ -10,7 +10,7 @@ type AgendaParseType = {
     Title: { rich_text: { plain_text: string }[] }
     Time: { rich_text: { plain_text: string }[] }
     Image: { rich_text: { plain_text: string }[] }
-    TalkTag: { rich_text: { plain_text: string }[] }
+    TalkId: { rich_text: { plain_text: string }[] }
     LinkedIn: { url: string }
     Twitter: { url: string }
   }
@@ -23,7 +23,7 @@ const parseAgendaProps = (result: AgendaParseType) => {
     title: result.properties.Title.rich_text[0].plain_text,
     time: result.properties.Time.rich_text[0].plain_text,
     image: result.properties.Image.rich_text[0].plain_text,
-    talkId: result.properties.TalkTag.rich_text[0].plain_text,
+    talkId: result.properties.TalkId.rich_text[0].plain_text,
     name: result.properties.Name.title[0].plain_text,
     linkedIn: result.properties.LinkedIn.url,
     twitter: result.properties.Twitter.url
@@ -53,7 +53,7 @@ const verifyAgendaValues = (result: any) => {
     'rich_text' in result.properties.Title &&
     'rich_text' in result.properties.Time &&
     'rich_text' in result.properties.Image &&
-    'rich_text' in result.properties.TalkTag &&
+    'rich_text' in result.properties.TalkId &&
     'url' in result.properties.LinkedIn &&
     'url' in result.properties.Twitter
   )

@@ -51,7 +51,7 @@ export const QuestionSection = ({ talks, questions }: QuestionsAndTalksType) => 
         return []
       }
 
-      const filteredQuestions = questions.filter(question => question.talk === talk)
+      const filteredQuestions = questions.filter(question => question.talkId === talk)
       return filteredQuestions.map(({ name, question }) => (
         <QuestionBox key={`${name}${question}`} author={name} content={question} />
       ))
