@@ -1,6 +1,6 @@
 import type { FormikHelpers } from 'formik'
 
-export * from './FormStateType'
+export type FormStateType = 'success' | 'error' | 'info'
 
 type Values = { name: string; email: string; talk: string; question: string }
 

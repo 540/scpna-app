@@ -4,5 +4,6 @@ import { useTrans } from 'ui/_hooks/useTrans'
 
 export const HomeController = () => {
   const trans = useTrans('home')
+
   return <Home trans={trans} />
 }
