@@ -1,5 +1,5 @@
-import { DefaultFormElementWrapper } from '../../index'
-import { BigGoldInput, InputProps } from '../../atoms'
+import { DefaultFormElementWrapper } from '../../_components/index'
+import { BigGoldInput, InputProps } from '../../_components/atoms'
 
 export const BigFormInput = ({ value = '', name, label, onChange, error, maxLength }: InputProps) => {
   return (

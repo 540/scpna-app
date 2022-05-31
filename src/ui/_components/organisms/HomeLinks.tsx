@@ -25,7 +25,7 @@ const Socials = styled.div`
 export const HomeLinks = ({ links }: { links: SocialLinks }) => {
   return (
     <HomeLinksWrapper>
-      <LinkGoldButton icon={<EventAvailableIcon sx={{ fontSize: '30px' }} />} link="/schedules">
+      <LinkGoldButton icon={<EventAvailableIcon sx={{ fontSize: '30px' }} />} link="/agenda">
         Horario
       </LinkGoldButton>
       <LinkGoldButton icon={<QuestionAnswerIcon sx={{ fontSize: '30px' }} />} link="/questions">

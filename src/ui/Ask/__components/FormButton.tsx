@@ -1,5 +1,5 @@
-import { DefaultFormElementWrapper } from '../../'
-import { GoldButton, GoldButtonProps } from '../../atoms'
+import { DefaultFormElementWrapper } from '../../_components'
+import { GoldButton, GoldButtonProps } from '../../_components/atoms'
 
 export const FormButton = ({ children }: GoldButtonProps) => {
   return (

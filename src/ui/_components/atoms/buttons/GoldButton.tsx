@@ -5,19 +5,27 @@ import type { Children } from 'ui/_components/objects'
 export type GoldButtonProps = {
   children: Children
   onSubmit?: () => void
+  padding?: string
+  onClick?: (() => void) | null
 }
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(Button)<{ padding?: string }>`
   width: fit-content;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: ${props => (props.padding ? props.padding : '10px 30px')};
   border-radius: 20px;
 `
 
-export const GoldButton = ({ children = '' }: GoldButtonProps) => (
-  <StyledButton type="submit" variant="contained" size="small">
-    {children}
-  </StyledButton>
-)
+type AlternativeProps = { type: 'button' | 'submit'; onClick?: () => void }
+export const GoldButton = ({ children = '', padding, onClick = null }: GoldButtonProps) => {
+  let alternativeProps: AlternativeProps
+  if (onClick) {
+    alternativeProps = { type: 'button', onClick }
+  } else {
+    alternativeProps = { type: 'submit' }
+  }
+  return (
+    <StyledButton variant="contained" size="small" padding={padding} {...alternativeProps}>
+      {children}
+    </StyledButton>
+  )
+}

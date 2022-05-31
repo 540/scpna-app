@@ -1,11 +1,11 @@
 import { useTrans } from 'ui/_hooks/useTrans'
-import { Header, Form, SectionTitle } from 'ui/_components'
+import { Header, SectionTitle } from 'ui/_components'
+import { Form } from './__components/Form'
 import styled from '@emotion/styled'
-import { colors } from 'ui/_styles'
 import React from 'react'
 import * as yup from 'yup'
 import { Formik } from 'formik'
-import { TalksType } from '../../database/database'
+import { TalksType } from '../../database'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const ContentWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  background-color: ${colors.primary};
+  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
 const validationSchema = yup.object({

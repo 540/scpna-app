@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { FormButton, BigFormInput, SelectBox, SmallFormInput } from '../molecules'
-import type { SelectBoxOptions } from '../atoms'
+
+import type { SelectBoxOptions } from 'ui/_components/atoms'
+import { SelectBox } from 'ui/_components/molecules'
+import { useTrans } from 'ui/_hooks/useTrans'
+
+import { SmallFormInput } from './SmallFormInput'
+import { BigFormInput } from './BigFormInput'
+import { FormButton } from './FormButton'
 import { useFormikContext, Form as FormikForm, FormikProps } from 'formik'
 
-import Snackbar from '@mui/material/Snackbar'
+import { SelectChangeEvent, Snackbar } from '@mui/material'
 import MuiAlert, { AlertProps } from '@mui/material/Alert'
-import { SelectChangeEvent } from '@mui/material'
-import { useTrans } from 'ui/_hooks/useTrans'
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
@@ -18,13 +22,10 @@ const FormWrapper = styled(FormikForm)`
   flex: 1;
   flex-direction: column;
   width: 100%;
-  background-color: #242d2f;
 
   padding: 30px 50px 40px 50px;
 
   justify-content: space-around;
-
-  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
 export const Form = ({

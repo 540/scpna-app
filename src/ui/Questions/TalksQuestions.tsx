@@ -1,10 +1,9 @@
-import { QuestionsAndTalksType } from '../../database/database'
+import { QuestionsAndTalksType } from '../../database'
 import { useTrans } from 'ui/_hooks/useTrans'
 import { Header, SectionTitle } from 'ui/_components'
 import styled from '@emotion/styled'
-import { colors } from 'ui/_styles'
 import React from 'react'
-import { QuestionSection } from 'ui/_components/organisms/QuestionsSection'
+import { QuestionSection } from './__components/QuestionsSection'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -15,7 +14,7 @@ const ContentWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  background-color: ${colors.primary};
+  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
 export const QuestionsPage = ({ talks, questions }: QuestionsAndTalksType) => {
