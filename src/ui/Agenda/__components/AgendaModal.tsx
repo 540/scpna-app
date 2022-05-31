@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 import { Modal } from '@mui/material'
-import { ModalHeader, ModalDescription, ModalFooter } from 'ui/_components/molecules'
+import { ModalHeader } from './ModalHeader'
+import { ModalDescription } from './ModalDescription'
+import { ModalFooter } from './ModalFooter'
 import { AgendaArrType } from 'src/database'
 
 const ModalWrapper = styled.div`

@@ -27,7 +27,7 @@ export const ModalDescription = ({ agenda, selectedSpeaker }: ModalDescriptionTy
       >
         {agenda[selectedSpeaker].title}
       </Text>
-      <Text color="white" size="base" bold fontFamily="Basic">
+      <Text color="white" size="base" bold fontFamily="Basic" sx={{ paddingLeft: '10px' }}>
         {agenda[selectedSpeaker].description}
       </Text>
     </ModalDescriptionStyle>

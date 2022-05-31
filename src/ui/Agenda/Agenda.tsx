@@ -4,7 +4,7 @@ import { useTrans } from 'ui/_hooks/useTrans'
 import styled from '@emotion/styled'
 import { AgendaArrType } from 'src/database'
 import { TalkCard } from 'ui/_components/molecules'
-import { AgendaModal } from 'ui/_components/organisms/AgendaModal'
+import { AgendaModal } from 'ui/Agenda/__components/AgendaModal'
 
 const ContentWrapper = styled.div`
   display: flex;

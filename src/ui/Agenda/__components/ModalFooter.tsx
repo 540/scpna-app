@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { FooterButton } from 'ui/_components/atoms'
+import { FooterButton } from './FooterButton'
 import { colors } from 'ui/_styles'
 
 import TwitterIcon from '@mui/icons-material/Twitter'
