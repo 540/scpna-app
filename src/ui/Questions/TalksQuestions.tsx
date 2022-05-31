@@ -3,7 +3,7 @@ import { useTrans } from 'ui/_hooks/useTrans'
 import { Header, SectionTitle } from 'ui/_components'
 import styled from '@emotion/styled'
 import React from 'react'
-import { QuestionSection } from 'ui/_components/organisms/QuestionsSection'
+import { QuestionSection } from './__components/QuestionsSection'
 
 const ContentWrapper = styled.div`
   display: flex;

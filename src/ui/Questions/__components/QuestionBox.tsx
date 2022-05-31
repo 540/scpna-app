@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
+
 const QuestionContent = styled.div`
   word-break: break-word;
   color: ${colors.primary};

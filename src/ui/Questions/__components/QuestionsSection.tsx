@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
-import { SelectBox, QuestionBox } from '../molecules'
+import { SelectBox } from '../../_components/molecules'
+import { QuestionBox } from './QuestionBox'
 import React from 'react'
 import { QuestionsAndTalksType } from 'src/database'
-import { Toast } from '../atoms'
+import { Toast } from '../../_components/atoms'
 import { useTrans } from 'ui/_hooks/useTrans'
 
 import { useRouter } from 'next/router'
