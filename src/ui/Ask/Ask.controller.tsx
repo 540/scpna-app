@@ -1,7 +1,75 @@
 import { Ask } from './Ask'
 import React from 'react'
 import { TalksType } from 'src/database'
+import { useTrans } from 'ui/_hooks/useTrans'
+import { FormStateType, OnFormikSubmit, QuestionType } from './types/'
+
+const pushQuestion = (data: QuestionType): Promise<number> => {
+  return fetch('/api/pushQuestion', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/jso'
+    }
+  }).then(res => res.json())
+}
 
 export const AskController = ({ talks }: { talks: TalksType }) => {
-  return <Ask talks={talks} />
+  const trans = useTrans('ask')
+
+  const [formState, setFormState] = React.useState<FormStateType>('success')
+  const [formStateOpen, setFormStateOpen] = React.useState(false)
+  const [snackMessage, setSnackMessage] = React.useState('')
+
+  const initialValues = { name: '', email: '', talk: '0', question: '' }
+
+  const setLoadingForm = () => {
+    setFormState('info')
+    setFormStateOpen(true)
+    setSnackMessage(trans('toast_sending'))
+  }
+  const setSuccessForm = () => {
+    setFormState('success')
+    setFormStateOpen(true)
+    setSnackMessage(trans('toast_success'))
+  }
+  const setErrorForm = () => {
+    setFormState('error')
+    setFormStateOpen(true)
+    setSnackMessage(trans('toast_error'))
+  }
+
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setFormStateOpen(false)
+  }
+
+  const onFormSubmit: OnFormikSubmit = async (values, { setSubmitting, resetForm }) => {
+    setLoadingForm()
+    const response = await pushQuestion(values)
+    setSubmitting(false)
+    if (response == 200) {
+      setSuccessForm()
+      resetForm({ values: { name: '', email: '', talk: '0', question: '' } })
+    } else {
+      setErrorForm()
+    }
+  }
+
+  return (
+    <Ask
+      {...{
+        talks,
+        trans,
+        initialValues,
+        formState,
+        formStateOpen,
+        snackMessage,
+        handleClose,
+        onFormSubmit
+      }}
+    />
+  )
 }

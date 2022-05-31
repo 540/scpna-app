@@ -1,9 +1,9 @@
 import { QuestionsAndTalksType } from '../../database'
-import { useTrans } from 'ui/_hooks/useTrans'
 import { Header, SectionTitle } from 'ui/_components'
 import styled from '@emotion/styled'
 import React from 'react'
-import { QuestionSection } from './__components/QuestionsSection'
+import { QuestionSection } from './_components/QuestionsSection'
+import { TransType } from 'ui/_hooks/useTrans'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -17,9 +17,7 @@ const ContentWrapper = styled.div`
   background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
 
-export const QuestionsPage = ({ talks, questions }: QuestionsAndTalksType) => {
-  const trans = useTrans('questions')
-
+export const QuestionsPage = ({ talks, questions, trans }: QuestionsAndTalksType & { trans: TransType }) => {
   return (
     <ContentWrapper>
       <Header />

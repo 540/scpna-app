@@ -1,6 +1,8 @@
 import { Home } from './Home'
 import React from 'react'
+import { useTrans } from 'ui/_hooks/useTrans'
 
 export const HomeController = () => {
-  return <Home />
+  const trans = useTrans('home')
+  return <Home trans={trans} />
 }

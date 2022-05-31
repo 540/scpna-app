@@ -1,7 +1,10 @@
+import React from 'react'
 import { QuestionsPage } from './TalksQuestions'
 import { QuestionsAndTalksType } from '../../database'
-import React from 'react'
+import { useTrans } from 'ui/_hooks/useTrans'
 
 export const QuestionsPageController = ({ talks, questions }: QuestionsAndTalksType) => {
-  return <QuestionsPage talks={talks} questions={questions} />
+  const trans = useTrans('questions')
+
+  return <QuestionsPage {...{ talks, questions, trans }} />
 }
