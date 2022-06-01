@@ -1,4 +1,5 @@
 export { DefaultFormElementWrapper } from './wrappers/DefaultFormElementWrapper'
+export { ErrorFormElementWrapper } from './wrappers/ErrorFormElementWrapper'
 export { Box } from './Box'
 export { Row } from './Row'
 export type { ReactNode as Children } from 'react'

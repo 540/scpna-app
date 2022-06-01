@@ -83,7 +83,7 @@ export const QuestionSection = ({ talks, questions }: QuestionsAndTalksType) => 
           options={talks}
           value={talk}
           onChange={e => setTalk(e.target.value as string)}
-          justifyContent="flex-end"
+          alignItems="flex-end"
           name="talk"
         />
       </SelectBoxWrapper>

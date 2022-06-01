@@ -1,9 +1,10 @@
-import { CommonGoldInput, InputProps } from '../../_components/atoms'
-import { DefaultFormElementWrapper } from '../../_components'
+import { CommonGoldInput, ErrorDiv, InputProps } from '../../_components/atoms'
+import { ErrorFormElementWrapper } from '../../_components'
+import { ErrorMessage } from 'formik'
 
 export const SmallFormInput = ({ value = '', name, label, onChange, error, maxLength }: InputProps) => {
   return (
-    <DefaultFormElementWrapper>
+    <ErrorFormElementWrapper>
       <CommonGoldInput
         value={value}
         name={name}
@@ -12,6 +13,7 @@ export const SmallFormInput = ({ value = '', name, label, onChange, error, maxLe
         error={error}
         maxLength={maxLength}
       />
-    </DefaultFormElementWrapper>
+      <ErrorMessage name={name as string}>{msg => <ErrorDiv>{msg}</ErrorDiv>}</ErrorMessage>
+    </ErrorFormElementWrapper>
   )
 }

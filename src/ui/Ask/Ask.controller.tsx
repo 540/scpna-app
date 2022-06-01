@@ -3,6 +3,7 @@ import React from 'react'
 import { TalksType } from 'src/database'
 import { useTrans } from 'ui/_hooks/useTrans'
 import { FormStateType, OnFormikSubmit, QuestionType } from './types/'
+import * as yup from 'yup'
 
 const pushQuestion = (data: QuestionType): Promise<number> => {
   return fetch('/api/pushQuestion', {
@@ -16,6 +17,13 @@ const pushQuestion = (data: QuestionType): Promise<number> => {
 
 export const AskController = ({ talks }: { talks: TalksType }) => {
   const trans = useTrans('ask')
+
+  const validationSchema = yup.object({
+    name: yup.string().trim().required(trans('error_name_required')),
+    email: yup.string().email(trans('error_email_invalid')).required(trans('error_email_required')),
+    question: yup.string().trim().required(trans('error_question_required')),
+    talk: yup.mixed().notOneOf(['0'], trans('error_talk_required'))
+  })
 
   const [formState, setFormState] = React.useState<FormStateType>('success')
   const [formStateOpen, setFormStateOpen] = React.useState(false)
@@ -67,7 +75,8 @@ export const AskController = ({ talks }: { talks: TalksType }) => {
         formStateOpen,
         snackMessage,
         handleClose,
-        onFormSubmit
+        onFormSubmit,
+        validationSchema
       }}
     />
   )

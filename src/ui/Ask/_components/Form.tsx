@@ -74,7 +74,7 @@ export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClos
         error={context.errors.talk}
         value={context.values.talk}
         onChange={e => checkValues(e as SelectChangeEvent<string>, 'talk')}
-        justifyContent="flex-start"
+        alignItems="flex-start"
         name="talk"
       />
       <FormButton>{trans('label_button')}</FormButton>

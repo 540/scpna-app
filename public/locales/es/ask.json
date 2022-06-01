@@ -7,5 +7,11 @@
   "label_email": "email",
   "label_question": "pregunta",
   "label_talk": "Charla",
-  "label_button": "Enviar"
+  "label_button": "Enviar",
+  "error_name_required": "El nombre es obligatorio",
+  "error_email_invalid": "Email inválido, prueba de nuevo",
+  "error_email_required": "El email es obligatorio",
+
+  "error_talk_required": "Selecciona una charla",
+  "error_question_required": "¡Escribe una pregunta!"
 }
