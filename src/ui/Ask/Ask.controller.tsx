@@ -46,10 +46,9 @@ export const AskController = ({ talks }: { talks: TalksType }) => {
     setFormStateOpen(false)
   }
 
-  const onFormSubmit: OnFormikSubmit = async (values, { setSubmitting, resetForm }) => {
+  const onFormSubmit: OnFormikSubmit = async (values, { resetForm }) => {
     setLoadingForm()
     const response = await pushQuestion(values)
-    setSubmitting(false)
     if (response == 200) {
       setSuccessForm()
       resetForm({ values: { name: '', email: '', talk: '0', question: '' } })
