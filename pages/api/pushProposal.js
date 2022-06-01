@@ -49,7 +49,7 @@ export default async function pushQuestion(req, res) {
           rich_text: [
             {
               text: {
-                content: body.personName
+                content: body.name
               }
             }
           ]
@@ -58,13 +58,13 @@ export default async function pushQuestion(req, res) {
           rich_text: [
             {
               text: {
-                content: body.personSurname
+                content: body.last_name
               }
             }
           ]
         },
         ProjectorNeeded: {
-          checkbox: body.projector_needed
+          checkbox: body.projector
         }
       }
     })

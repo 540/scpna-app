@@ -1,5 +1,6 @@
 import { queryDatabase } from './QueryDatabase'
 import { QuestionsArrType } from './types'
+import 'dotenv/config'
 
 export async function getQuestions(): Promise<QuestionsArrType> {
   const databaseId = process.env.QUESTIONS_DATABASE_ID as string

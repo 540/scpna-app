@@ -1,21 +1,9 @@
 import React from 'react'
-import { Header, SectionTitle } from 'ui/_components'
+import { Header, SectionTitle, ContentWrapper } from 'ui/_components'
 import styled from '@emotion/styled'
 import { TalkCard } from './_components/TalkCard'
 import { AgendaModal } from 'ui/Agenda/_components/AgendaModal'
 import { AgendaProps } from './types'
-
-const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-
-  align-items: center;
-  justify-content: space-between;
-
-  background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
-`
 
 const TalksSectionWrapper = styled.div`
   display: flex;

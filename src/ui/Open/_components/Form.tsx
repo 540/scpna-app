@@ -1,14 +1,16 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { SelectBox, BigFormInput, SmallFormInput, FormButton } from 'ui/_components/molecules'
+import { SmallFormInput, FormButton, BigFormInput } from 'ui/_components/molecules'
 import { useTrans } from 'ui/_hooks/useTrans'
 
 import { useFormikContext, Form as FormikForm, FormikProps } from 'formik'
 
 import { SelectChangeEvent, Snackbar } from '@mui/material'
 import MuiAlert, { AlertProps } from '@mui/material/Alert'
-import { FormProps } from '../types'
+
+import { MainFormProps } from 'ui/_hooks/useForm'
+import { OpenDataType } from '../types'
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
@@ -25,13 +27,13 @@ const FormWrapper = styled(FormikForm)`
   justify-content: space-around;
 `
 
-export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClose }: FormProps) => {
-  const context: FormikProps<{ name: string; email: string; question: string; talk: string }> = useFormikContext()
-  const trans = useTrans('ask')
+export const Form = ({ formState, formStateOpen, snackMessage, handleClose }: MainFormProps) => {
+  const context: FormikProps<OpenDataType> = useFormikContext()
+  const trans = useTrans('open')
 
   const checkValues = (
     e: React.ChangeEvent<any> | SelectChangeEvent<string>,
-    field: 'name' | 'email' | 'question' | 'talk'
+    field: 'name' | 'email' | 'title' | 'description' | 'last_name' | 'duration'
   ) => {
     context.handleChange(e)
     if (context.errors[field]) {
@@ -42,12 +44,36 @@ export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClos
   return (
     <FormWrapper>
       <SmallFormInput
+        name="title"
+        error={context.errors.title}
+        value={context.values.title}
+        label={trans('label_talk-title')}
+        onChange={e => checkValues(e, 'title')}
+        maxLength={20}
+      />
+      <BigFormInput
+        name="description"
+        error={context.errors.description}
+        value={context.values.description}
+        label={trans('label_description')}
+        onChange={e => checkValues(e, 'description')}
+        maxLength={20}
+      />
+      <SmallFormInput
         name="name"
         error={context.errors.name}
         value={context.values.name}
         label={trans('label_name')}
         onChange={e => checkValues(e, 'name')}
         maxLength={20}
+      />
+      <SmallFormInput
+        name="last_name"
+        error={context.errors.last_name}
+        value={context.values.last_name}
+        label={trans('label_last-name')}
+        onChange={e => checkValues(e, 'last_name')}
+        maxLength={100}
       />
       <SmallFormInput
         name="email"
@@ -57,22 +83,13 @@ export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClos
         onChange={e => checkValues(e, 'email')}
         maxLength={40}
       />
-      <BigFormInput
-        name="question"
-        error={context.errors.question}
-        value={context.values.question}
-        label={trans('label_question')}
-        onChange={e => checkValues(e, 'question')}
-        maxLength={100}
-      />
-      <SelectBox
-        title={trans('label_talk')}
-        options={talks}
-        error={context.errors.talk}
-        value={context.values.talk}
-        onChange={e => checkValues(e as SelectChangeEvent<string>, 'talk')}
-        alignItems="flex-start"
-        name="talk"
+      <SmallFormInput
+        name="duration"
+        error={context.errors.duration}
+        value={context.values.duration}
+        label={trans('label_duration')}
+        onChange={e => checkValues(e, 'duration')}
+        maxLength={40}
       />
       <FormButton>{trans('label_button')}</FormButton>
       <Snackbar open={formStateOpen} autoHideDuration={3000} onClose={handleClose}>

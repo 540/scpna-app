@@ -1,4 +1,7 @@
 export { SelectBox } from './inputs/SelectBox'
+export { BigFormInput } from './inputs/BigFormInput'
+export { FormButton } from './inputs/FormButton'
+export { SmallFormInput } from './inputs/SmallFormInput'
 export { Header } from './titles/Header'
 export { SectionTitle } from './titles/SectionTitle'
 export { SocialBox } from './boxes/SocialBox'
