@@ -1,4 +1,7 @@
 import type { FormikHelpers } from 'formik'
+import type { TransType } from 'ui/_hooks/useTrans'
+import type { SelectBoxOptions } from 'ui/_components/atoms'
+import type { TalksType } from '../../../database'
 
 export type FormStateType = 'success' | 'error' | 'info'
 
@@ -12,3 +15,21 @@ export type QuestionType = {
   talk: string
   question: string
 }
+
+type CommonFormAndAskProps = {
+  formState: FormStateType
+  formStateOpen: boolean
+  snackMessage: string
+  handleClose: (event?: React.SyntheticEvent | Event, reason?: string) => void
+}
+
+export type FormProps = {
+  talks: Array<SelectBoxOptions>
+} & CommonFormAndAskProps
+
+export type AskProps = {
+  trans: TransType
+  talks: TalksType
+  initialValues: { name: string; email: string; talk: string; question: string }
+  onFormSubmit: OnFormikSubmit
+} & CommonFormAndAskProps

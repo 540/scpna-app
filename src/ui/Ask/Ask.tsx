@@ -4,9 +4,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 import * as yup from 'yup'
 import { Formik } from 'formik'
-import { TalksType } from '../../database'
-import type { TransType } from 'ui/_hooks/useTrans'
-import { FormStateType, OnFormikSubmit } from './types'
+import { AskProps } from './types'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -36,16 +34,7 @@ export const Ask = ({
   snackMessage,
   handleClose,
   onFormSubmit
-}: {
-  trans: TransType
-  talks: TalksType
-  initialValues: { name: string; email: string; talk: string; question: string }
-  formState: FormStateType
-  formStateOpen: boolean
-  snackMessage: string
-  handleClose: (event?: React.SyntheticEvent | Event, reason?: string) => void
-  onFormSubmit: OnFormikSubmit
-}) => {
+}: AskProps) => {
   return (
     <ContentWrapper>
       <Header />
