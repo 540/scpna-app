@@ -2,8 +2,9 @@ import { Ask } from './Ask'
 import React from 'react'
 import { TalksType } from 'src/database'
 import { useTrans } from 'ui/_hooks/useTrans'
-import { FormStateType, OnFormikSubmit, QuestionType } from './types/'
+import { QuestionType, Values } from './types/'
 import * as yup from 'yup'
+import { useForm } from 'ui/_hooks/useForm'
 
 const pushQuestion = (data: QuestionType): Promise<number> => {
   return fetch('/api/pushQuestion', {
@@ -25,45 +26,19 @@ export const AskController = ({ talks }: { talks: TalksType }) => {
     talk: yup.mixed().notOneOf(['0'], trans('error_talk_required'))
   })
 
-  const [formState, setFormState] = React.useState<FormStateType>('success')
-  const [formStateOpen, setFormStateOpen] = React.useState(false)
-  const [snackMessage, setSnackMessage] = React.useState('')
-
   const initialValues = { name: '', email: '', talk: '0', question: '' }
 
-  const setLoadingForm = () => {
-    setFormState('info')
-    setFormStateOpen(true)
-    setSnackMessage(trans('toast_sending'))
-  }
-  const setSuccessForm = () => {
-    setFormState('success')
-    setFormStateOpen(true)
-    setSnackMessage(trans('toast_success'))
-  }
-  const setErrorForm = () => {
-    setFormState('error')
-    setFormStateOpen(true)
-    setSnackMessage(trans('toast_error'))
+  const message = {
+    sending: trans('toast_sending'),
+    success: trans('toast_success'),
+    error: trans('toast_error')
   }
 
-  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') {
-      return
-    }
-    setFormStateOpen(false)
-  }
-
-  const onFormSubmit: OnFormikSubmit = async (values, { resetForm }) => {
-    setLoadingForm()
-    const response = await pushQuestion(values)
-    if (response == 200) {
-      setSuccessForm()
-      resetForm({ values: { name: '', email: '', talk: '0', question: '' } })
-    } else {
-      setErrorForm()
-    }
-  }
+  const { formState, formStateOpen, snackMessage, handleClose, onFormSubmit } = useForm<Values>({
+    message,
+    asyncFunc: pushQuestion,
+    resetFormProps: initialValues
+  })
 
   return (
     <Ask
