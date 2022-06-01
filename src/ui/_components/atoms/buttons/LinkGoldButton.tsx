@@ -2,7 +2,6 @@ import { Button } from '@mui/material'
 import styled from '@emotion/styled'
 import type { Children } from 'ui/_components/objects'
 import AbcIcon from '@mui/icons-material/Abc'
-import { SvgIconComponent } from '@mui/icons-material'
 
 const LinkButtonStyle = styled(Button)`
   display: flex;
