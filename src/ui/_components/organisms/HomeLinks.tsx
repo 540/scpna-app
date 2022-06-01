@@ -5,6 +5,7 @@ import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer'
 import EventAvailableIcon from '@mui/icons-material/EventAvailable'
 import { SocialBox } from '../../_components/molecules/'
 import { SocialLinks } from '../molecules/boxes/SocialLinksProps'
+import { TransType } from 'ui/_hooks/useTrans'
 
 const HomeLinksWrapper = styled.div`
   display: flex;
@@ -22,17 +23,19 @@ const Socials = styled.div`
   margin-top: 2%;
 `
 
-export const HomeLinks = ({ links }: { links: SocialLinks }) => {
+const commonSx = { fontSize: '30px' }
+
+export const HomeLinks = ({ links, trans }: { links: SocialLinks; trans: TransType }) => {
   return (
     <HomeLinksWrapper>
-      <LinkGoldButton icon={<EventAvailableIcon sx={{ fontSize: '30px' }} />} link="/agenda">
-        Horario
+      <LinkGoldButton icon={<EventAvailableIcon sx={commonSx} />} link="/agenda">
+        {trans('agenda_section')}
       </LinkGoldButton>
-      <LinkGoldButton icon={<QuestionAnswerIcon sx={{ fontSize: '30px' }} />} link="/questions">
-        Ver preguntas
+      <LinkGoldButton icon={<QuestionAnswerIcon sx={commonSx} />} link="/questions">
+        {trans('questions_section')}
       </LinkGoldButton>
-      <LinkGoldButton icon={<LiveHelpIcon sx={{ fontSize: '30px' }} />} link="/ask">
-        Haz una pregunta
+      <LinkGoldButton icon={<LiveHelpIcon sx={commonSx} />} link="/ask">
+        {trans('ask_section')}
       </LinkGoldButton>
       <Socials>
         <SocialBox links={links} />

@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { Avatar } from '@mui/material'
 import { GoldButton, Text } from 'ui/_components/atoms'
 import { colors } from 'ui/_styles'
+import { TalkCardProps } from '../types'
 
 const TalkCardWrapper = styled.div`
   display: flex;
@@ -64,13 +65,6 @@ const TimeDiv = styled.div`
   padding-right: 5px;
 `
 
-type TalkCardProps = {
-  talk: string
-  speaker: string
-  time: string
-  image: string
-  onInfoClick: () => void
-}
 export const TalkCard = ({ talk, speaker, time, image, onInfoClick }: TalkCardProps) => {
   return (
     <TalkCardWrapper>

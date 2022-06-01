@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import type { SelectBoxOptions } from 'ui/_components/atoms'
 import { SelectBox } from 'ui/_components/molecules'
 import { useTrans } from 'ui/_hooks/useTrans'
 
@@ -12,6 +11,7 @@ import { useFormikContext, Form as FormikForm, FormikProps } from 'formik'
 
 import { SelectChangeEvent, Snackbar } from '@mui/material'
 import MuiAlert, { AlertProps } from '@mui/material/Alert'
+import { FormProps } from '../types'
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
@@ -28,19 +28,7 @@ const FormWrapper = styled(FormikForm)`
   justify-content: space-around;
 `
 
-export const Form = ({
-  talks,
-  formState,
-  formStateOpen,
-  snackMessage,
-  handleClose
-}: {
-  talks: Array<SelectBoxOptions>
-  formState: 'success' | 'error' | 'info'
-  formStateOpen: boolean
-  snackMessage: string
-  handleClose: (event?: React.SyntheticEvent | Event, reason?: string) => void
-}) => {
+export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClose }: FormProps) => {
   const context: FormikProps<{ name: string; email: string; question: string; talk: string }> = useFormikContext()
   const trans = useTrans('ask')
 

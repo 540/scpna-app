@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { colors } from 'ui/_styles'
 import { Text } from 'ui/_components/atoms'
-import { AgendaArrType } from 'src/database'
+import { ModalHeaderTypes } from '../types'
 
 const ModalHeaderStyle = styled.div<{ backgroundImage?: string }>`
   display: flex;
@@ -17,12 +17,7 @@ const ModalHeaderStyle = styled.div<{ backgroundImage?: string }>`
   background-image: url(${props => (props.backgroundImage ? props.backgroundImage : 'null')});
 `
 
-type ModalHeaderTypes = {
-  agenda: AgendaArrType
-  selectedSpeaker: number
-  onClose: () => void
-}
-export const ModalHeader = ({ agenda, selectedSpeaker, onClose }: ModalHeaderTypes) => {
+export const ModalHeader = ({ agenda, selectedSpeaker, closeModal }: ModalHeaderTypes) => {
   return (
     <ModalHeaderStyle backgroundImage={agenda[selectedSpeaker].image}>
       <ArrowBackIcon
@@ -34,7 +29,7 @@ export const ModalHeader = ({ agenda, selectedSpeaker, onClose }: ModalHeaderTyp
           backgroundColor: colors.background,
           borderRadius: '50%'
         }}
-        onClick={onClose}
+        onClick={closeModal}
       />
       <Text
         variant="h1"
