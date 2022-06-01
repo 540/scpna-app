@@ -5,7 +5,7 @@ import React from 'react'
 import * as yup from 'yup'
 import { Formik } from 'formik'
 import { TalksType } from '../../database'
-import { TransType } from 'ui/_hooks/useTrans'
+import type { TransType } from 'ui/_hooks/useTrans'
 import { FormStateType, OnFormikSubmit } from './types'
 
 const ContentWrapper = styled.div`

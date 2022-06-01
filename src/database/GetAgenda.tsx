@@ -71,5 +71,6 @@ const getAgendaValues = ({ results }: QueryDatabaseResponse) => {
 export async function getAgenda(): Promise<AgendaArrType> {
   const databaseId = process.env.AGENDA_DATABASE as string
   const response = await queryDatabase(databaseId)
+
   return getAgendaValues(response)
 }

@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import styled from '@emotion/styled'
-import type { Children } from 'ui/_components/objects'
 import { colors } from 'ui/_styles'
+import { FooterButtonProps } from '../types'
 
 const FooterButtonStyle = styled(Button)`
   display: flex;
@@ -12,7 +12,7 @@ const FooterButtonStyle = styled(Button)`
   color: ${colors.background};
 `
 
-export const FooterButton = ({ children, onClick }: { children: Children; onClick: () => void }) => {
+export const FooterButton = ({ children, onClick }: FooterButtonProps) => {
   return (
     <FooterButtonStyle variant="contained" onClick={onClick}>
       {children}

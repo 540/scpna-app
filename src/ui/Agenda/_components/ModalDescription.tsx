@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Text } from 'ui/_components/atoms'
-import { AgendaArrType } from 'src/database'
+import { ModalDescriptionTypes } from '../types'
 
 const ModalDescriptionStyle = styled.div`
   width: 100%;
@@ -10,10 +10,6 @@ const ModalDescriptionStyle = styled.div`
   overflow: auto;
 `
 
-type ModalDescriptionTypes = {
-  agenda: AgendaArrType
-  selectedSpeaker: number
-}
 export const ModalDescription = ({ agenda, selectedSpeaker }: ModalDescriptionTypes) => {
   return (
     <ModalDescriptionStyle>

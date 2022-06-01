@@ -1,10 +1,9 @@
 import React from 'react'
 import { Header, SectionTitle } from 'ui/_components'
-import { useTrans } from 'ui/_hooks/useTrans'
 import styled from '@emotion/styled'
-import { AgendaArrType } from 'src/database'
-import { TalkCard } from 'ui/_components/molecules'
+import { TalkCard } from './_components/TalkCard'
 import { AgendaModal } from 'ui/Agenda/_components/AgendaModal'
+import { AgendaProps } from './types'
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -30,15 +29,15 @@ const TalksSectionWrapper = styled.div`
   align-items: center;
 `
 
-export const Agenda = ({ agenda }: { agenda: AgendaArrType }) => {
-  const trans = useTrans('agenda')
-  const [modalOpen, setModalOpen] = React.useState(false)
-  const [selectedSpeaker, setSelectedSpeaker] = React.useState(0)
-
-  const onQuestionsView = (talkId: string) => {
-    window.open(`/questions?talk=${talkId}`)
-  }
-
+export const Agenda = ({
+  agenda,
+  trans,
+  modalOpen,
+  selectedSpeaker,
+  openQuestions,
+  closeModal,
+  onInfoClick
+}: AgendaProps) => {
   return (
     <ContentWrapper>
       <Header />
@@ -52,15 +51,12 @@ export const Agenda = ({ agenda }: { agenda: AgendaArrType }) => {
               speaker={item.name}
               time={item.time}
               image={item.image}
-              onInfoClick={() => {
-                setSelectedSpeaker(index)
-                setModalOpen(true)
-              }}
+              onInfoClick={() => onInfoClick(index)}
             />
           )
         })}
       </TalksSectionWrapper>
-      <AgendaModal {...{ modalOpen, agenda, selectedSpeaker, onQuestionsView }} onClose={() => setModalOpen(false)} />
+      <AgendaModal {...{ modalOpen, agenda, selectedSpeaker, openQuestions }} closeModal={closeModal} />
     </ContentWrapper>
   )
 }
