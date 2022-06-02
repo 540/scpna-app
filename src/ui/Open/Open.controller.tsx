@@ -9,12 +9,30 @@ export const OpenController = () => {
   const trans = useTrans('open')
 
   const validationSchema = yup.object({
-    title: yup.string().trim().required(trans('error_talk-title_required')),
-    description: yup.string().trim().required(trans('error_description_required')),
-    duration: yup.string().trim().required(trans('error_duration_required')),
-    projector: yup.string().trim().required(trans('error_projector_required')),
-    fullName: yup.string().trim().required(trans('error_fullName_required')),
-    email: yup.string().email(trans('error_email_invalid')).required(trans('error_email_required'))
+    title: yup
+      .string()
+      .trim()
+      .required(trans('error_required_male_femenine', { fieldName: trans('label_talk-title') })),
+    description: yup
+      .string()
+      .trim()
+      .required(trans('error_required_female', { fieldName: trans('label_description') })),
+    duration: yup
+      .string()
+      .trim()
+      .required(trans('error_required_female', { fieldName: trans('label_duration') })),
+    projector: yup
+      .string()
+      .trim()
+      .required(trans('error_required_male', { fieldName: `campo del ${trans('label_projector')}` })),
+    fullName: yup
+      .string()
+      .trim()
+      .required(trans('error_required_male', { fieldName: trans('label_fullName') })),
+    email: yup
+      .string()
+      .email(trans('error_incorrect_male', { fieldName: trans('label_email') }))
+      .required(trans('error_required_male', { fieldName: trans('label_email') }))
   })
 
   const initialValues: OpenDataType = {
