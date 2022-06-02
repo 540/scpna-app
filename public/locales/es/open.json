@@ -3,8 +3,8 @@
   "toast_sending": "Enviando...",
   "toast_success": "Propuesta enviada correctamente",
   "toast_error": "Propuesta no enviada!",
-  "label_name": "nombre",
-  "label_last-name": "apellido",
+
+  "label_fullName": "nombre completo",
   "label_email": "email",
   "label_talk-title": "título de la charla",
   "label_description": "descripción",
@@ -12,15 +12,18 @@
   "label_projector": "proyector",
   "label_button": "Enviar propuesta",
 
+  "label_afirmation": "si",
+  "label_negation": "no",
+
   "error_required_male": "El {{fieldName}} es obligatorio",
   "error_required_femenine": "La {{fieldName}} es obligatoria",
   "error_required_male_femenine": "El {{fieldName}} es obligatoria",
 
-  "error_name_required": "El nombre es obligatorio",
+  "error_fullName_required": "El nombre es obligatorio",
   "error_email_invalid": "Email inválido, prueba de nuevo",
   "error_email_required": "El email es obligatorio",
-  "error_last-name_required": "El apellido es obligatorio",
   "error_talk-title_required": "El título es obligatorio",
   "error_description_required": "La descripción es obligatoria",
-  "error_duration_required": "La duración es obligatoria"
+  "error_duration_required": "La duración es obligatoria",
+  "error_projector_required": "El campo del proyector es obligatoria"
 }

@@ -1,9 +1,6 @@
 import type { TransType } from 'ui/_hooks/useTrans'
-import type { SelectBoxOptions } from 'ui/_components/atoms'
 import type { TalksType } from '../../../database'
-import { FormContainerProps, FormStateType } from 'ui/_hooks/useForm'
-
-export type Values = { name: string; email: string; talk: string; question: string }
+import type { FormContainerProps, MainFormProps } from 'ui/_hooks/useForm'
 
 export type QuestionType = {
   name: string
@@ -13,14 +10,10 @@ export type QuestionType = {
 }
 
 export type FormProps = {
-  talks: Array<SelectBoxOptions>
-  formState: FormStateType
-  formStateOpen: boolean
-  snackMessage: string
-  handleClose: (event?: React.SyntheticEvent | Event, reason?: string) => void
-}
+  talks: TalksType
+} & MainFormProps
 
 export type AskProps = {
   trans: TransType
   talks: TalksType
-} & FormContainerProps<Values>
+} & FormContainerProps<QuestionType>

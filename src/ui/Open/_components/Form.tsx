@@ -11,6 +11,8 @@ import MuiAlert, { AlertProps } from '@mui/material/Alert'
 
 import { MainFormProps } from 'ui/_hooks/useForm'
 import { OpenDataType } from '../types'
+import { RadioOptions } from '.'
+import { RadioContentType } from './RadioOptions'
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
@@ -27,13 +29,23 @@ const FormWrapper = styled(FormikForm)`
   justify-content: space-around;
 `
 
-export const Form = ({ formState, formStateOpen, snackMessage, handleClose }: MainFormProps) => {
+export const Form = ({
+  formState,
+  formStateOpen,
+  snackMessage,
+  handleClose,
+  durationValues,
+  projectorValues
+}: MainFormProps & {
+  durationValues: RadioContentType
+  projectorValues: RadioContentType
+}) => {
   const context: FormikProps<OpenDataType> = useFormikContext()
   const trans = useTrans('open')
 
   const checkValues = (
     e: React.ChangeEvent<any> | SelectChangeEvent<string>,
-    field: 'name' | 'email' | 'title' | 'description' | 'last_name' | 'duration'
+    field: 'fullName' | 'email' | 'title' | 'description' | 'duration' | 'projector'
   ) => {
     context.handleChange(e)
     if (context.errors[field]) {
@@ -60,20 +72,12 @@ export const Form = ({ formState, formStateOpen, snackMessage, handleClose }: Ma
         maxLength={20}
       />
       <SmallFormInput
-        name="name"
-        error={context.errors.name}
-        value={context.values.name}
-        label={trans('label_name')}
-        onChange={e => checkValues(e, 'name')}
+        name="fullName"
+        error={context.errors.fullName}
+        value={context.values.fullName}
+        label={trans('label_fullName')}
+        onChange={e => checkValues(e, 'fullName')}
         maxLength={20}
-      />
-      <SmallFormInput
-        name="last_name"
-        error={context.errors.last_name}
-        value={context.values.last_name}
-        label={trans('label_last-name')}
-        onChange={e => checkValues(e, 'last_name')}
-        maxLength={100}
       />
       <SmallFormInput
         name="email"
@@ -83,13 +87,23 @@ export const Form = ({ formState, formStateOpen, snackMessage, handleClose }: Ma
         onChange={e => checkValues(e, 'email')}
         maxLength={40}
       />
-      <SmallFormInput
+      <RadioOptions
+        name="projector"
+        error={context.errors.projector}
+        formValue={context.values.projector}
+        formLabel={trans('label_projector')}
+        onChange={e => checkValues(e, 'projector')}
+        radioValues={projectorValues}
+        required
+      />
+      <RadioOptions
         name="duration"
         error={context.errors.duration}
-        value={context.values.duration}
-        label={trans('label_duration')}
+        formValue={context.values.duration}
+        formLabel={trans('label_duration')}
         onChange={e => checkValues(e, 'duration')}
-        maxLength={40}
+        radioValues={durationValues}
+        required
       />
       <FormButton>{trans('label_button')}</FormButton>
       <Snackbar open={formStateOpen} autoHideDuration={3000} onClose={handleClose}>

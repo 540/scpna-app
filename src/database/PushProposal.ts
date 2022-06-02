@@ -1,6 +1,6 @@
-import { OpenDataType } from 'ui/Open/types'
+import { OpenServerDataType } from 'ui/Open/types'
 
-export const pushProposal = (data: OpenDataType): Promise<number> => {
+export const pushProposal = (data: OpenServerDataType): Promise<number> => {
   return fetch('/api/pushProposal', {
     method: 'POST',
     body: JSON.stringify(data),

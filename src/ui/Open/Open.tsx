@@ -3,7 +3,7 @@ import { ContentWrapper, Header, SectionTitle } from 'ui/_components'
 import { FormContainerProps } from 'ui/_hooks/useForm'
 import { TransType } from 'ui/_hooks/useTrans'
 import { OpenDataType } from './types'
-import { Form } from './_components'
+import { Form, RadioContentType } from './_components'
 
 export const Open = ({
   trans,
@@ -13,8 +13,14 @@ export const Open = ({
   handleClose,
   onFormSubmit,
   validationSchema,
-  initialValues
-}: FormContainerProps<OpenDataType, Omit<OpenDataType, 'projector'>> & { trans: TransType }) => {
+  initialValues,
+  durationValues,
+  projectorValues
+}: FormContainerProps<OpenDataType, Omit<OpenDataType, 'projector'>> & {
+  trans: TransType
+  durationValues: RadioContentType
+  projectorValues: RadioContentType
+}) => {
   return (
     <ContentWrapper>
       <Header />
@@ -31,6 +37,8 @@ export const Open = ({
           formStateOpen={formStateOpen}
           snackMessage={snackMessage}
           handleClose={handleClose}
+          durationValues={durationValues}
+          projectorValues={projectorValues}
         />
       </Formik>
     </ContentWrapper>

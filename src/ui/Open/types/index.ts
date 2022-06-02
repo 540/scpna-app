@@ -1,9 +1,17 @@
 export type OpenDataType = {
   title: string
   description: string
+  projector: string
+  duration: string
+  fullName: string
+  email: string
+}
+
+export type OpenServerDataType = {
+  title: string
+  description: string
   projector: boolean
   duration: string
-  name: string
-  last_name: string
+  fullName: string
   email: string
 }

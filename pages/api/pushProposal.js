@@ -45,20 +45,11 @@ export default async function pushQuestion(req, res) {
             }
           ]
         },
-        Name: {
+        FullName: {
           rich_text: [
             {
               text: {
-                content: body.name
-              }
-            }
-          ]
-        },
-        Surname: {
-          rich_text: [
-            {
-              text: {
-                content: body.last_name
+                content: body.fullName
               }
             }
           ]
