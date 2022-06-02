@@ -42,16 +42,21 @@ export const Form = ({
 }) => {
   const context: FormikProps<OpenDataType> = useFormikContext()
   const trans = useTrans('open')
+  const { values } = context
+  const fieldRef = React.useRef('')
+  const { validateField } = context
 
   const checkValues = (
     e: React.ChangeEvent<any> | SelectChangeEvent<string>,
     field: 'fullName' | 'email' | 'title' | 'description' | 'duration' | 'projector'
   ) => {
     context.handleChange(e)
-    if (context.errors[field]) {
-      context.validateField(field)
-    }
+    fieldRef.current = field
   }
+
+  React.useEffect(() => {
+    validateField(fieldRef.current)
+  }, [values, validateField])
 
   return (
     <FormWrapper>
