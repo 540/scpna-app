@@ -1,6 +1,21 @@
 import React from 'react'
-import { FormStateType } from 'ui/Ask/types'
 import type { FormikHelpers } from 'formik'
+import type { SchemaOf } from 'yup'
+
+export type FormStateType = 'success' | 'error' | 'info'
+
+export type MainFormProps = {
+  formState: FormStateType
+  formStateOpen: boolean
+  snackMessage: string
+  handleClose: (event?: React.SyntheticEvent | Event, reason?: string) => void
+}
+
+export type FormContainerProps<FullValues, SchemaValues = FullValues> = {
+  initialValues: FullValues
+  onFormSubmit: OnFormikSubmit<FullValues>
+  validationSchema: SchemaOf<SchemaValues>
+} & MainFormProps
 
 type useFormProps<Values> = {
   message: { success: string; sending: string; error: string }

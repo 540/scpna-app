@@ -1,0 +1,24 @@
+{
+  "title": "Open",
+  "toast_sending": "Enviando...",
+  "toast_success": "Propuesta enviada correctamente",
+  "toast_error": "Propuesta no enviada!",
+
+  "label_fullName": "nombre completo",
+  "label_email": "email",
+  "label_talk-title": "título de la charla",
+  "label_description": "descripción",
+  "label_duration": "duración",
+  "label_projector": "proyector",
+  "label_button": "Enviar propuesta",
+
+  "label_afirmation": "si",
+  "label_negation": "no",
+
+  "error_required_male": "El {{fieldName}} es obligatorio",
+  "error_required_female": "La {{fieldName}} es obligatoria",
+  "error_required_male_femenine": "El {{fieldName}} es obligatoria",
+  
+  "error_incorrect_male": "El {{fieldName}} es incorrecto",
+  "error_incorrect_female": "La {{fieldName}} es incorrecta"
+}

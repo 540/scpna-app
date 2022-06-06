@@ -1,12 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { SelectBox } from 'ui/_components/molecules'
+import { SelectBox, BigFormInput, SmallFormInput, FormButton } from 'ui/_components/molecules'
 import { useTrans } from 'ui/_hooks/useTrans'
 
-import { SmallFormInput } from './SmallFormInput'
-import { BigFormInput } from './BigFormInput'
-import { FormButton } from './FormButton'
 import { useFormikContext, Form as FormikForm, FormikProps } from 'formik'
 
 import { SelectChangeEvent, Snackbar } from '@mui/material'

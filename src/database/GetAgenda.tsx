@@ -1,6 +1,7 @@
 import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints'
 import { queryDatabase } from './QueryDatabase'
 import { AgendaArrType } from './types'
+import 'dotenv/config'
 
 type AgendaParseType = {
   id: string

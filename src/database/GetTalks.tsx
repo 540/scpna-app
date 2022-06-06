@@ -1,5 +1,6 @@
 import { queryDatabase } from './QueryDatabase'
 import { TalksType } from './types'
+import 'dotenv/config'
 
 export async function getTalks(): Promise<TalksType> {
   const databaseId = process.env.TALKS_DATABASE_ID as string
