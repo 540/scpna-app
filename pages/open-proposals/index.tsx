@@ -6,7 +6,7 @@ const OpenProposalsPage: NextPage = () => <OpenProposals />
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale!, ['common', 'open']))
+    ...(await serverSideTranslations(locale!, ['common', 'openProposals']))
   }
 })
 
