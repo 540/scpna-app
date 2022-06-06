@@ -1,5 +1,6 @@
 export { DefaultFormElementWrapper } from './wrappers/DefaultFormElementWrapper'
 export { ErrorFormElementWrapper } from './wrappers/ErrorFormElementWrapper'
+export { CardSectionWrapper } from './wrappers/CardSectionWrapper'
 export { ContentWrapper } from './wrappers/ContentWrapper'
 export { Box } from './Box'
 export { Row } from './Row'

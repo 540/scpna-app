@@ -1,21 +1,9 @@
 import React from 'react'
 import { Header, SectionTitle, ContentWrapper } from 'ui/_components'
-import styled from '@emotion/styled'
-import { TalkCard } from './_components/TalkCard'
+import { CommonCard } from '../_components/molecules/'
 import { AgendaModal } from 'ui/Agenda/_components/AgendaModal'
 import { AgendaProps } from './types'
-
-const TalksSectionWrapper = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  width: 100%;
-
-  padding: 30px 0px 40px 0px;
-
-  justify-content: flex-start;
-  align-items: center;
-`
+import { CardSectionWrapper } from 'ui/_components/objects'
 
 export const Agenda = ({
   agenda,
@@ -30,10 +18,10 @@ export const Agenda = ({
     <ContentWrapper>
       <Header />
       <SectionTitle>{trans('title')}</SectionTitle>
-      <TalksSectionWrapper>
+      <CardSectionWrapper>
         {agenda.map((item, index) => {
           return (
-            <TalkCard
+            <CommonCard
               key={item.id}
               talk={item.title}
               speaker={item.name}
@@ -43,7 +31,7 @@ export const Agenda = ({
             />
           )
         })}
-      </TalksSectionWrapper>
+      </CardSectionWrapper>
       <AgendaModal {...{ modalOpen, agenda, selectedSpeaker, openQuestions }} closeModal={closeModal} />
     </ContentWrapper>
   )

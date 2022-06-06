@@ -25,14 +25,6 @@ export type ModalFooterTypes = {
   openQuestions: (talkId: string) => void
 } & ModalDescriptionTypes
 
-export type TalkCardProps = {
-  talk: string
-  speaker: string
-  time: string
-  image: string
-  onInfoClick: () => void
-}
-
 export type AgendaProps = {
   trans: TransType
   modalOpen: boolean

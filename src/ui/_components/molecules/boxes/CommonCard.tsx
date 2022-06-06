@@ -2,20 +2,19 @@ import styled from '@emotion/styled'
 import { Avatar } from '@mui/material'
 import { GoldButton, Text } from 'ui/_components/atoms'
 import { colors } from 'ui/_styles'
-import { TalkCardProps } from '../types'
 
-const TalkCardWrapper = styled.div`
+const CommonCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20px 0px;
 `
 
 const TalkWrapper = styled.div`
-  display; flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
+display; flex;
+width: 100%;
+justify-content: center;
+align-items: center;
+margin-bottom: 10px;
 `
 
 const CardWrapper = styled.div`
@@ -51,9 +50,9 @@ const SpeakerSection = styled.div`
   border-bottom-style: solid;
 `
 
-const InfoDiv = styled.div`
+const InfoDiv = styled.div<{ hasTime: boolean }>`
   display: flex;
-  justify-content: space-between;
+  justify-content: ${props => (props.hasTime ? 'space-between' : 'center')};
   align-items: center;
   padding: 10px;
   color: white;
@@ -65,9 +64,17 @@ const TimeDiv = styled.div`
   padding-right: 5px;
 `
 
-export const TalkCard = ({ talk, speaker, time, image, onInfoClick }: TalkCardProps) => {
+export type CommonCardProps = {
+  talk: string
+  speaker: string
+  time?: string
+  image: string
+  onInfoClick: () => void
+}
+
+export const CommonCard = ({ talk, speaker, time, image, onInfoClick }: CommonCardProps) => {
   return (
-    <TalkCardWrapper>
+    <CommonCardWrapper>
       <TalkWrapper>
         <Text bold sx={{ textAlign: 'center' }} color="white">
           {talk}
@@ -79,18 +86,20 @@ export const TalkCard = ({ talk, speaker, time, image, onInfoClick }: TalkCardPr
           <SpeakerSection>
             <Text bold>{speaker}</Text>
           </SpeakerSection>
-          <InfoDiv>
-            <TimeDiv>
-              <Text bold color="white">
-                {time}
-              </Text>
-            </TimeDiv>
+          <InfoDiv hasTime={time ? true : false}>
+            {time ? (
+              <TimeDiv>
+                <Text bold color="white">
+                  {time}
+                </Text>
+              </TimeDiv>
+            ) : null}
             <GoldButton padding="5px 10px" onClick={onInfoClick}>
               Info
             </GoldButton>
           </InfoDiv>
         </ContentWrapper>
       </CardWrapper>
-    </TalkCardWrapper>
+    </CommonCardWrapper>
   )
 }
