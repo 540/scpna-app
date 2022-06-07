@@ -3,7 +3,7 @@ import { QuestionsPage } from 'ui/Questions'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getQuestions, getTalks, QuestionsAndTalksType } from '../../src/database'
 
-const TalksQuestionsPage: NextPage<QuestionsAndTalksType> = ({ talks, questions }: QuestionsAndTalksType) => (
+const TalksQuestionsPage: NextPage<QuestionsAndTalksType> = ({ talks, questions }) => (
   <QuestionsPage talks={talks} questions={questions} />
 )
 

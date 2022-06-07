@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { GoldButton, Text } from 'ui/_components/atoms'
+import { Text } from 'ui/_components/atoms'
 import { colors } from 'ui/_styles'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
