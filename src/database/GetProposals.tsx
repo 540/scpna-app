@@ -19,7 +19,6 @@ export async function getVotedProposals(): Promise<VotedProposalsType> {
 
 export type GetAllProposalsType = { key: string; description: string; fullName: string; title: string }[]
 export async function getAllProposals(): Promise<GetAllProposalsType> {
-  //get the voted proposal
   const databaseId = process.env.OPEN_SPACE_DATABASE_ID as string
   const { results } = await queryDatabase(databaseId)
   return results.map(result => {

@@ -1,4 +1,5 @@
 {
   "title": "Propuestas Open",
-  "noProposals": "No hay ninguna propuesta aún, ¡sé el primero!"
+  "noProposals": "No hay ninguna propuesta aún, ¡sé el primero!",
+  "noMoreVotes": "¡Max {{maxVotes}} votos!"
 }
