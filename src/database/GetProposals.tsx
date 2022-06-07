@@ -1,12 +1,13 @@
 import { queryDatabase } from './QueryDatabase'
 import 'dotenv/config'
 
+type ResultsType = { properties: { Tags: { relation: { id: string }[] } } }[]
 export type VotedProposalsType = { [s: string]: number }
 export async function getVotedProposals(): Promise<VotedProposalsType> {
   const databaseId = process.env.PROPOSAL_VOTES_DATABASE_ID as string
   const allProposals = await getAllProposals()
 
-  const { results } = await queryDatabase(databaseId)
+  const { results } = (await queryDatabase(databaseId)) as unknown as { results: ResultsType }
   const proposalsNumber: VotedProposalsType = {}
   const allVotes: string[][] = results.map(result =>
     result.properties.Tags.relation.map((elem: { id: string }) => elem.id)

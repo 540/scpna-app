@@ -15,7 +15,6 @@ export const OpenProposals = ({ trans, votedProposals, allProposals }: { trans: 
       setClickedCards(clickedCards.filter(elem => elem !== key2))
     }
   }
-  console.log(allProposals)
 
   return (
     <ContentWrapper>
