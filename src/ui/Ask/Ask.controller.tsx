@@ -2,19 +2,10 @@ import { Ask } from './Ask'
 import React from 'react'
 import { TalksType } from 'src/database'
 import { useTrans } from 'ui/_hooks/useTrans'
-import { QuestionType, Values } from './types/'
+import { QuestionType } from './types/'
 import * as yup from 'yup'
 import { useForm } from 'ui/_hooks/useForm'
-
-const pushQuestion = (data: QuestionType): Promise<number> => {
-  return fetch('/api/pushQuestion', {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/jso'
-    }
-  }).then(res => res.json())
-}
+import { pushQuestion } from 'src/database/'
 
 export const AskController = ({ talks }: { talks: TalksType }) => {
   const trans = useTrans('ask')
@@ -34,7 +25,7 @@ export const AskController = ({ talks }: { talks: TalksType }) => {
     error: trans('toast_error')
   }
 
-  const { formState, formStateOpen, snackMessage, handleClose, onFormSubmit } = useForm<Values>({
+  const { formState, formStateOpen, snackMessage, handleClose, onFormSubmit } = useForm<QuestionType>({
     message,
     asyncFunc: pushQuestion,
     resetFormProps: initialValues

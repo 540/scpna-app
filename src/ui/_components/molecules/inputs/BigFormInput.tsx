@@ -1,5 +1,5 @@
-import { ErrorFormElementWrapper } from '../../_components/index'
-import { BigGoldInput, ErrorDiv, InputProps } from '../../_components/atoms'
+import { ErrorFormElementWrapper } from '../../index'
+import { BigGoldInput, ErrorDiv, InputProps } from '../../atoms'
 import { ErrorMessage } from 'formik'
 
 export const BigFormInput = ({ value = '', name, label, onChange, error, maxLength }: InputProps) => {

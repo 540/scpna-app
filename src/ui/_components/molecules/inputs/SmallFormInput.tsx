@@ -1,5 +1,5 @@
-import { CommonGoldInput, ErrorDiv, InputProps } from '../../_components/atoms'
-import { ErrorFormElementWrapper } from '../../_components'
+import { CommonGoldInput, ErrorDiv, InputProps } from '../../atoms'
+import { ErrorFormElementWrapper } from '../..'
 import { ErrorMessage } from 'formik'
 
 export const SmallFormInput = ({ value = '', name, label, onChange, error, maxLength }: InputProps) => {
