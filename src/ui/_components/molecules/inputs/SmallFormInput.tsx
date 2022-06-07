@@ -1,6 +1,5 @@
-import { CommonGoldInput, ErrorDiv, InputProps } from '../../atoms'
+import { CommonGoldInput, InputProps } from '../../atoms'
 import { ErrorFormElementWrapper } from '../..'
-import { ErrorMessage } from 'formik'
 
 export const SmallFormInput = ({ value = '', name, label, onChange, error, maxLength }: InputProps) => {
   return (
@@ -13,7 +12,6 @@ export const SmallFormInput = ({ value = '', name, label, onChange, error, maxLe
         error={error}
         maxLength={maxLength}
       />
-      <ErrorMessage name={name as string}>{msg => <ErrorDiv>{msg}</ErrorDiv>}</ErrorMessage>
     </ErrorFormElementWrapper>
   )
 }

@@ -1,4 +1,4 @@
-import type { AgendaArrType } from 'src/database'
+import type { AgendaArrType } from 'src/database/types'
 import { Children } from 'ui/_components/objects'
 import type { TransType } from 'ui/_hooks/useTrans'
 

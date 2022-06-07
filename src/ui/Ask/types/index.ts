@@ -1,5 +1,5 @@
 import type { TransType } from 'ui/_hooks/useTrans'
-import type { TalksType } from '../../../database'
+import type { TalksType } from '../../../database/types'
 import type { FormContainerProps, MainFormProps } from 'ui/_hooks/useForm'
 
 export type QuestionType = {

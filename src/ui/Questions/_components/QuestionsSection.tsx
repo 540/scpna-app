@@ -1,9 +1,9 @@
+import React from 'react'
 import styled from '@emotion/styled'
+import { Toast } from '../../_components/atoms'
 import { SelectBox } from '../../_components/molecules'
 import { QuestionBox } from './QuestionBox'
-import React from 'react'
-import { QuestionsAndTalksType } from 'src/database'
-import { Toast } from '../../_components/atoms'
+import { QuestionsAndTalksType } from 'src/database/types'
 import { useTrans } from 'ui/_hooks/useTrans'
 
 import { useRouter } from 'next/router'

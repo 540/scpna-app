@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { SelectBox, BigFormInput, SmallFormInput, FormButton } from 'ui/_components/molecules'
+import { SelectBoxFormik, BigFormInputFormik, SmallFormInputFormik, FormButton } from 'ui/_components/molecules'
 import { useTrans } from 'ui/_hooks/useTrans'
 
 import { useFormikContext, Form as FormikForm, FormikProps } from 'formik'
@@ -41,7 +41,7 @@ export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClos
 
   return (
     <FormWrapper>
-      <SmallFormInput
+      <SmallFormInputFormik
         name="name"
         error={context.errors.name}
         value={context.values.name}
@@ -49,7 +49,7 @@ export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClos
         onChange={e => checkValues(e, 'name')}
         maxLength={20}
       />
-      <SmallFormInput
+      <SmallFormInputFormik
         name="email"
         error={context.errors.email}
         value={context.values.email}
@@ -57,7 +57,7 @@ export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClos
         onChange={e => checkValues(e, 'email')}
         maxLength={40}
       />
-      <BigFormInput
+      <BigFormInputFormik
         name="question"
         error={context.errors.question}
         value={context.values.question}
@@ -65,7 +65,7 @@ export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClos
         onChange={e => checkValues(e, 'question')}
         maxLength={100}
       />
-      <SelectBox
+      <SelectBoxFormik
         title={trans('label_talk')}
         options={talks}
         error={context.errors.talk}

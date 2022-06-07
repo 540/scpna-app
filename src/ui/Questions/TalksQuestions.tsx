@@ -1,4 +1,4 @@
-import { QuestionsAndTalksType } from '../../database'
+import { QuestionsAndTalksType } from '../../database/types'
 import { Header, SectionTitle, ContentWrapper } from 'ui/_components'
 import React from 'react'
 import { QuestionSection } from './_components/QuestionsSection'

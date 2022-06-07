@@ -1,7 +1,8 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { QuestionsPage } from 'ui/Questions'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { getQuestions, getTalks, QuestionsAndTalksType } from '../../src/database'
+import { getQuestions, getTalks } from '../../src/database'
+import { QuestionsAndTalksType } from '../../src/database/types'
 
 const TalksQuestionsPage: NextPage<QuestionsAndTalksType> = ({ talks, questions }: QuestionsAndTalksType) => (
   <QuestionsPage talks={talks} questions={questions} />

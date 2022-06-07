@@ -1,9 +1,10 @@
+import { ErrorMessage } from 'formik'
 import { ErrorFormElementWrapper } from '../../'
-import { GoldSelectBox, SelectBoxProps } from '../../atoms'
+import { ErrorDiv, GoldSelectBox, SelectBoxProps } from '../../atoms'
 
 type Props = SelectBoxProps & { alignItems?: 'flex-start' | 'center' | 'flex-end' }
 
-export const SelectBox = ({
+export const SelectBoxFormik = ({
   title = 'Selecciona',
   options = [{ value: 'op1', text: 'Opcion 1' }],
   alignItems = 'center',
@@ -15,6 +16,7 @@ export const SelectBox = ({
   return (
     <ErrorFormElementWrapper alignItems={alignItems}>
       <GoldSelectBox title={title} options={options} value={value} onChange={onChange} name={name} error={error} />
+      <ErrorMessage name={name as string}>{msg => <ErrorDiv>{msg}</ErrorDiv>}</ErrorMessage>
     </ErrorFormElementWrapper>
   )
 }

@@ -1,7 +1,8 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { Agenda } from 'ui/Agenda'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { getAgenda, AgendaArrType } from '../../src/database'
+import { getAgenda } from '../../src/database'
+import { AgendaArrType } from '../../src/database/types'
 
 const AgendaPage: NextPage<{ agenda: AgendaArrType }> = ({ agenda }: { agenda: AgendaArrType }) => (
   <Agenda agenda={agenda} />
