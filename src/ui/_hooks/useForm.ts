@@ -29,6 +29,14 @@ export const useForm = <Values>({ message, asyncFunc, resetFormProps }: useFormP
   const [formState, setFormState] = React.useState<FormStateType>('success')
   const [formStateOpen, setFormStateOpen] = React.useState(false)
   const [snackMessage, setSnackMessage] = React.useState('')
+  const [displayError, setDisplayError] = React.useState(false)
+
+  const handleFormSubmit = (contextSubmit: () => void) => {
+    if (!displayError) {
+      setDisplayError(true)
+    }
+    contextSubmit()
+  }
 
   const setLoadingForm = () => {
     setFormState('info')
@@ -55,14 +63,19 @@ export const useForm = <Values>({ message, asyncFunc, resetFormProps }: useFormP
 
   const onFormSubmit: OnFormikSubmit<Values> = async (values, { resetForm }) => {
     setLoadingForm()
-    const response = await asyncFunc(values)
-    if (response == 200) {
-      setSuccessForm()
-      resetForm({ values: resetFormProps })
-    } else {
+    try {
+      const response = await asyncFunc(values)
+      if (response == 200) {
+        setSuccessForm()
+        resetForm({ values: resetFormProps })
+        setDisplayError(false)
+      } else {
+        setErrorForm()
+      }
+    } catch (e) {
       setErrorForm()
     }
   }
 
-  return { formState, formStateOpen, snackMessage, handleClose, onFormSubmit }
+  return { formState, formStateOpen, snackMessage, handleClose, onFormSubmit, displayError, handleFormSubmit }
 }

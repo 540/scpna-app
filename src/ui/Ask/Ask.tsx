@@ -13,26 +13,16 @@ export const Ask = ({
   snackMessage,
   handleClose,
   onFormSubmit,
-  validationSchema
+  validationSchema,
+  displayError,
+  handleFormSubmit
 }: AskProps) => {
   return (
     <ContentWrapper>
       <Header />
       <SectionTitle>{trans('title')}</SectionTitle>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={onFormSubmit}
-        validationSchema={validationSchema}
-        validateOnBlur={false}
-        validateOnChange={false}
-      >
-        <Form
-          talks={talks}
-          formState={formState}
-          formStateOpen={formStateOpen}
-          snackMessage={snackMessage}
-          handleClose={handleClose}
-        />
+      <Formik onSubmit={onFormSubmit} {...{ initialValues, validationSchema }} validateOnBlur={false}>
+        <Form {...{ talks, formState, formStateOpen, snackMessage, handleClose, displayError, handleFormSubmit }} />
       </Formik>
     </ContentWrapper>
   )

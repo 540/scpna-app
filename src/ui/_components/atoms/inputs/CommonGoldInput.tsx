@@ -14,16 +14,18 @@ const OutlinedInputStyle = {
   borderRadius: '20px'
 }
 
-export const CommonGoldInput = ({ value = '', name, label, onChange, error, maxLength }: InputProps) => (
-  <StyledTextField
-    label={label}
-    variant="outlined"
-    InputLabelProps={{ style: { color: colors.primary } }}
-    InputProps={{ style: OutlinedInputStyle }}
-    inputProps={{ maxLength: maxLength ?? -1 }}
-    name={name}
-    value={value}
-    error={error ? true : false}
-    onChange={onChange}
-  />
-)
+export const CommonGoldInput = ({ value = '', name, label, onChange, error, maxLength, displayError }: InputProps) => {
+  return (
+    <StyledTextField
+      label={label}
+      variant="outlined"
+      InputLabelProps={{ style: { color: colors.primary } }}
+      InputProps={{ style: OutlinedInputStyle }}
+      inputProps={{ maxLength: maxLength ?? -1 }}
+      name={name}
+      value={value}
+      error={error && displayError ? true : false}
+      onChange={onChange}
+    />
+  )
+}

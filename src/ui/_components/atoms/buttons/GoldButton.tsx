@@ -4,7 +4,6 @@ import type { Children } from 'ui/_components/objects'
 
 export type GoldButtonProps = {
   children: Children
-  onSubmit?: () => void
   padding?: string
   onClick?: (() => void) | null
 }

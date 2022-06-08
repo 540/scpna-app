@@ -14,7 +14,7 @@ const OutlinedInputStyle = {
   borderRadius: '20px'
 }
 
-export const BigGoldInput = ({ value = '', name, label, onChange, error, maxLength }: InputProps) => (
+export const BigGoldInput = ({ value = '', name, label, onChange, error, maxLength, displayError }: InputProps) => (
   <StyledTextField
     label={label}
     variant="outlined"
@@ -25,7 +25,7 @@ export const BigGoldInput = ({ value = '', name, label, onChange, error, maxLeng
     inputProps={{ maxLength: maxLength ?? -1 }}
     name={name}
     value={value}
-    error={error ? true : false}
+    error={error && displayError ? true : false}
     onChange={onChange}
   />
 )

@@ -11,11 +11,20 @@ export const SelectBoxFormik = ({
   value,
   onChange,
   name,
-  error
+  error,
+  displayError
 }: Props) => {
   return (
     <ErrorFormElementWrapper alignItems={alignItems}>
-      <GoldSelectBox title={title} options={options} value={value} onChange={onChange} name={name} error={error} />
+      <GoldSelectBox
+        title={title}
+        options={options}
+        value={value}
+        onChange={onChange}
+        name={name}
+        error={error}
+        displayError={displayError}
+      />
       <ErrorMessage name={name as string}>{msg => <ErrorDiv>{msg}</ErrorDiv>}</ErrorMessage>
     </ErrorFormElementWrapper>
   )

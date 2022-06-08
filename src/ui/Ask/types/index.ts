@@ -9,11 +9,17 @@ export type QuestionType = {
   question: string
 }
 
+type DisplayErrorUtils = {
+  displayError: boolean
+  handleFormSubmit: (fn: () => void) => void
+}
+
 export type FormProps = {
   talks: TalksType
-} & MainFormProps
-
+} & MainFormProps &
+  DisplayErrorUtils
 export type AskProps = {
   trans: TransType
   talks: TalksType
-} & FormContainerProps<QuestionType>
+} & FormContainerProps<QuestionType> &
+  DisplayErrorUtils

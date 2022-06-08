@@ -1,6 +1,7 @@
 import React from 'react'
 export type InputProps = {
   value?: string
+  displayError?: boolean
   name?: string
   label?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -22,4 +23,5 @@ export type SelectBoxProps = {
   name?: string
   onChange?: (e: SelectChangeEvent<unknown>) => void
   error?: string | boolean
+  displayError?: boolean
 }

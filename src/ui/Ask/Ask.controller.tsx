@@ -34,11 +34,12 @@ export const AskController = ({ talks }: { talks: TalksType }) => {
     error: trans('toast_error')
   }
 
-  const { formState, formStateOpen, snackMessage, handleClose, onFormSubmit } = useForm<QuestionType>({
-    message,
-    asyncFunc: pushQuestion,
-    resetFormProps: initialValues
-  })
+  const { formState, formStateOpen, snackMessage, handleClose, onFormSubmit, displayError, handleFormSubmit } =
+    useForm<QuestionType>({
+      message,
+      asyncFunc: pushQuestion,
+      resetFormProps: initialValues
+    })
 
   return (
     <Ask
@@ -51,7 +52,9 @@ export const AskController = ({ talks }: { talks: TalksType }) => {
         snackMessage,
         handleClose,
         onFormSubmit,
-        validationSchema
+        validationSchema,
+        displayError,
+        handleFormSubmit
       }}
     />
   )

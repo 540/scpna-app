@@ -6,7 +6,7 @@ import { useTrans } from 'ui/_hooks/useTrans'
 
 import { useFormikContext, Form as FormikForm, FormikProps } from 'formik'
 
-import { SelectChangeEvent, Snackbar } from '@mui/material'
+import { Snackbar } from '@mui/material'
 import MuiAlert, { AlertProps } from '@mui/material/Alert'
 import { FormProps } from '../types'
 
@@ -25,19 +25,17 @@ const FormWrapper = styled(FormikForm)`
   justify-content: space-around;
 `
 
-export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClose }: FormProps) => {
+export const Form = ({
+  talks,
+  formState,
+  formStateOpen,
+  snackMessage,
+  handleClose,
+  displayError,
+  handleFormSubmit
+}: FormProps) => {
   const context: FormikProps<{ name: string; email: string; question: string; talk: string }> = useFormikContext()
   const trans = useTrans('ask')
-
-  const checkValues = (
-    e: React.ChangeEvent<any> | SelectChangeEvent<string>,
-    field: 'name' | 'email' | 'question' | 'talk'
-  ) => {
-    context.handleChange(e)
-    if (context.errors[field]) {
-      context.validateField(field)
-    }
-  }
 
   return (
     <FormWrapper>
@@ -46,35 +44,39 @@ export const Form = ({ talks, formState, formStateOpen, snackMessage, handleClos
         error={context.errors.name}
         value={context.values.name}
         label={trans('label_name')}
-        onChange={e => checkValues(e, 'name')}
+        onChange={context.handleChange}
         maxLength={20}
+        displayError={displayError}
       />
       <SmallFormInputFormik
         name="email"
         error={context.errors.email}
         value={context.values.email}
         label={trans('label_email')}
-        onChange={e => checkValues(e, 'email')}
+        onChange={context.handleChange}
         maxLength={40}
+        displayError={displayError}
       />
       <BigFormInputFormik
         name="question"
         error={context.errors.question}
         value={context.values.question}
         label={trans('label_question')}
-        onChange={e => checkValues(e, 'question')}
+        onChange={context.handleChange}
         maxLength={100}
+        displayError={displayError}
       />
       <SelectBoxFormik
         title={trans('label_talk')}
         options={talks}
         error={context.errors.talk}
         value={context.values.talk}
-        onChange={e => checkValues(e as SelectChangeEvent<string>, 'talk')}
+        onChange={context.handleChange}
         alignItems="flex-start"
         name="talk"
+        displayError={displayError}
       />
-      <FormButton>{trans('label_button')}</FormButton>
+      <FormButton onClick={() => handleFormSubmit(context.handleSubmit)}>{trans('label_button')}</FormButton>
       <Snackbar open={formStateOpen} autoHideDuration={3000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={formState} sx={{ width: '100%' }}>
           {snackMessage}

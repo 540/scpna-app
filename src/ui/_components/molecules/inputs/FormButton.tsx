@@ -1,10 +1,10 @@
 import { DefaultFormElementWrapper } from '../..'
 import { GoldButton, GoldButtonProps } from '../../atoms'
 
-export const FormButton = ({ children }: GoldButtonProps) => {
+export const FormButton = ({ children, onClick }: GoldButtonProps) => {
   return (
     <DefaultFormElementWrapper>
-      <GoldButton>{children}</GoldButton>
+      <GoldButton onClick={onClick}>{children}</GoldButton>
     </DefaultFormElementWrapper>
   )
 }

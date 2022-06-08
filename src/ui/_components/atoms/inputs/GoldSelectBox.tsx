@@ -17,10 +17,11 @@ export const GoldSelectBox = ({
   value,
   onChange,
   name,
-  error
+  error,
+  displayError
 }: SelectBoxProps) => {
   return (
-    <StyledSelect name={name} value={value} onChange={onChange} error={error ? true : false}>
+    <StyledSelect name={name} value={value} onChange={onChange} error={error && displayError ? true : false}>
       <MenuItem value={0} disabled style={{ display: 'none' }}>
         {title}
       </MenuItem>
