@@ -16,11 +16,9 @@ const HomeLinksWrapper = styled.div`
 
 const Socials = styled.div`
   display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto 0 auto;
   width: 190px;
   max-width: 190px;
-  margin-top: 20px;
 `
 
 const commonSx = { fontSize: '30px' }
