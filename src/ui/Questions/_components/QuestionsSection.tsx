@@ -14,7 +14,7 @@ const QuestionSectionWrapper = styled.div`
   flex-direction: column;
   width: 100%;
 
-  padding: 30px 30px 40px 30px;
+  padding: 30px 0px 40px 0px;
 
   justify-content: flex-start;
   align-items: center;
