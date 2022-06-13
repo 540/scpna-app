@@ -1,12 +1,10 @@
-import { Header, SectionTitle, ContentWrapper } from 'ui/_components'
+import { Header, ContentWrapper } from 'ui/_components'
 import styled from '@emotion/styled'
 import React from 'react'
 import { HomeLinks } from '../_components/organisms'
-import { TransType } from 'ui/_hooks/useTrans'
 
 const PagesSection = styled.div`
   display: flex;
-  flex: 1;
   flex-direction: column;
   width: 100%;
   padding: 30px 50px 40px 50px;
@@ -19,13 +17,12 @@ const socialLinks = {
   instagram: 'https://www.instagram.com/540deg'
 }
 
-export const Home = ({ trans }: { trans: TransType }) => {
+export const Home = () => {
   return (
     <ContentWrapper>
       <Header />
-      <SectionTitle>{trans('title')}</SectionTitle>
       <PagesSection>
-        <HomeLinks links={socialLinks} trans={trans} />
+        <HomeLinks links={socialLinks} />
       </PagesSection>
     </ContentWrapper>
   )
