@@ -21,6 +21,7 @@ const QuestionSectionWrapper = styled.div`
 `
 const SelectBoxWrapper = styled.div`
   width: 100%;
+  padding-right: 20px;
 `
 
 export const QuestionSection = ({ talks, questions }: QuestionsAndTalksType) => {
