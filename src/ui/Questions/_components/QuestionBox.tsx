@@ -14,7 +14,6 @@ const QuestionAuthor = styled.div`
   width: 100%;
   color: ${colors.white};
   padding: 20px;
-
   min-height: 20%;
 `
 

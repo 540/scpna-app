@@ -19,12 +19,12 @@ const socialLinks = {
   instagram: 'https://www.instagram.com/540deg'
 }
 
-export const Home = ({ trans }: { trans: TransType }) => {
+export const Home = () => {
   return (
     <ContentWrapper>
       <Header />
       <PagesSection>
-        <HomeLinks links={socialLinks} trans={trans} />
+        <HomeLinks links={socialLinks} />
       </PagesSection>
     </ContentWrapper>
   )

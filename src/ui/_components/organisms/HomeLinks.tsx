@@ -5,7 +5,7 @@ import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer'
 import EventAvailableIcon from '@mui/icons-material/EventAvailable'
 import { SocialBox } from '../../_components/molecules/'
 import { SocialLinks } from '../molecules/boxes/SocialLinksProps'
-import { TransType } from 'ui/_hooks/useTrans'
+import { useTrans } from 'ui/_hooks/useTrans'
 
 const HomeLinksWrapper = styled.div`
   display: flex;
@@ -23,7 +23,9 @@ const Socials = styled.div`
 
 const commonSx = { fontSize: '30px' }
 
-export const HomeLinks = ({ links, trans }: { links: SocialLinks; trans: TransType }) => {
+export const HomeLinks = ({ links }: { links: SocialLinks }) => {
+  const trans = useTrans('home')
+
   return (
     <HomeLinksWrapper>
       <LinkGoldButton icon={<EventAvailableIcon sx={commonSx} />} link="/agenda">
