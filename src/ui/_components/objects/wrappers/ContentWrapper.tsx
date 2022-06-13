@@ -7,7 +7,7 @@ export const ContentWrapper = styled.div`
   min-height: 100%;
 
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   background-image: url('https://pamplonaswcraft.com/assets/images/bg-hero-xs.jpg');
 `
