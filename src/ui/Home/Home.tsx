@@ -1,4 +1,4 @@
-import { Header, SectionTitle, ContentWrapper } from 'ui/_components'
+import { Header, ContentWrapper } from 'ui/_components'
 import styled from '@emotion/styled'
 import React from 'react'
 import { HomeLinks } from '../_components/organisms'
@@ -23,7 +23,6 @@ export const Home = ({ trans }: { trans: TransType }) => {
   return (
     <ContentWrapper>
       <Header />
-      <SectionTitle>{trans('title')}</SectionTitle>
       <PagesSection>
         <HomeLinks links={socialLinks} trans={trans} />
       </PagesSection>

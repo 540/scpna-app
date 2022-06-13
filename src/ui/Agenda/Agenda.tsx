@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, SectionTitle, ContentWrapper } from 'ui/_components'
+import { Header, ContentWrapper } from 'ui/_components'
 import styled from '@emotion/styled'
 import { TalkCard } from './_components/TalkCard'
 import { AgendaModal } from 'ui/Agenda/_components/AgendaModal'
@@ -17,19 +17,10 @@ const TalksSectionWrapper = styled.div`
   align-items: center;
 `
 
-export const Agenda = ({
-  agenda,
-  trans,
-  modalOpen,
-  selectedSpeaker,
-  openQuestions,
-  closeModal,
-  onInfoClick
-}: AgendaProps) => {
+export const Agenda = ({ agenda, modalOpen, selectedSpeaker, openQuestions, closeModal, onInfoClick }: AgendaProps) => {
   return (
     <ContentWrapper>
       <Header />
-      <SectionTitle>{trans('title')}</SectionTitle>
       <TalksSectionWrapper>
         {agenda.map((item, index) => {
           return (

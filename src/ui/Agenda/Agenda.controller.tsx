@@ -1,10 +1,8 @@
 import React from 'react'
 import { Agenda } from './Agenda'
 import { AgendaArrType } from './types'
-import { useTrans } from 'ui/_hooks/useTrans'
 
 export const AgendaController = ({ agenda }: { agenda: AgendaArrType }) => {
-  const trans = useTrans('agenda')
   const [modalOpen, setModalOpen] = React.useState(false)
   const [selectedSpeaker, setSelectedSpeaker] = React.useState(0)
 
@@ -18,5 +16,5 @@ export const AgendaController = ({ agenda }: { agenda: AgendaArrType }) => {
     setModalOpen(true)
   }
 
-  return <Agenda {...{ agenda, trans, modalOpen, selectedSpeaker, openQuestions, closeModal, onInfoClick }} />
+  return <Agenda {...{ agenda, modalOpen, selectedSpeaker, openQuestions, closeModal, onInfoClick }} />
 }
