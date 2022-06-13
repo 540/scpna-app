@@ -20,7 +20,7 @@ const Socials = styled.div`
   margin-right: auto;
   width: 190px;
   max-width: 190px;
-  margin-top: 2%;
+  margin-top: 20px;
 `
 
 const commonSx = { fontSize: '30px' }
