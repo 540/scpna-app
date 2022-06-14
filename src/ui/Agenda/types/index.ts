@@ -1,6 +1,5 @@
 import type { AgendaArrType } from 'src/database/types'
 import { Children } from 'ui/_components/objects'
-import type { TransType } from 'ui/_hooks/useTrans'
 
 export { AgendaArrType }
 
@@ -34,7 +33,6 @@ export type TalkCardProps = {
 }
 
 export type AgendaProps = {
-  trans: TransType
   modalOpen: boolean
   openQuestions: (talkId: string) => void
   closeModal: () => void

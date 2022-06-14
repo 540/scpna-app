@@ -22,7 +22,7 @@ const FormWrapper = styled(FormikForm)`
 
   padding: 30px 50px 40px 50px;
 
-  justify-content: space-around;
+  justify-content: flex-start;
 `
 
 export const Form = ({

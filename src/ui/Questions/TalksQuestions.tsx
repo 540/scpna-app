@@ -1,14 +1,12 @@
 import { QuestionsAndTalksType } from '../../database/types'
-import { Header, SectionTitle, ContentWrapper } from 'ui/_components'
+import { Header, ContentWrapper } from 'ui/_components'
 import React from 'react'
 import { QuestionSection } from './_components/QuestionsSection'
-import { TransType } from 'ui/_hooks/useTrans'
 
-export const QuestionsPage = ({ talks, questions, trans }: QuestionsAndTalksType & { trans: TransType }) => {
+export const QuestionsPage = ({ talks, questions }: QuestionsAndTalksType) => {
   return (
     <ContentWrapper>
       <Header />
-      <SectionTitle>{trans('title')}</SectionTitle>
       <QuestionSection talks={talks} questions={questions} />
     </ContentWrapper>
   )

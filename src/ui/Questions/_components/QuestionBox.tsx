@@ -1,39 +1,31 @@
 import styled from '@emotion/styled'
 import { colors } from 'ui/_styles'
+import { css } from '@emotion/css'
 
 const QuestionContent = styled.div`
   word-break: break-word;
-  color: ${colors.primary};
-  padding: 20px 30px;
+  color: ${colors.white};
+  padding: 20px;
 `
 
 const QuestionAuthor = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding-right: 5%;
-  padding-left: 5%;
-  color: ${colors.primary};
-  padding: 20px;
-
-  border-bottom-width: 3px;
-  border-bottom-color: ${colors.white};
-  border-bottom-style: solid;
-  min-height: 20%;
+  width: fit-content;
+  padding: 0 20px;
+  margin: 10px 20px;
+  height: fit-content;
+  color: ${colors.background};
 `
 
-const QuestionWrapper = styled.div`
+const QuestionBoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   flex: 1;
   overflow: auto;
-  background-color: ${colors.background};
-  border-color: ${colors.primary};
-  border-width: 3px;
-  border-style: solid;
-  border-radius: 25px;
   max-height: 35%;
   margin: 20px 0;
 `
@@ -41,9 +33,27 @@ const QuestionWrapper = styled.div`
 type QuestionBoxProps = { author: string; content: string }
 export const QuestionBox = ({ author, content }: QuestionBoxProps) => {
   return (
-    <QuestionWrapper>
-      <QuestionAuthor>{author}</QuestionAuthor>
+    <QuestionBoxWrapper>
+      <QuestionAuthor
+        className={css({
+          zIndex: 1,
+          ':after': {
+            content: '""',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: -1,
+            backgroundColor: colors.primary,
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            transform: 'skew(-20deg)'
+          }
+        })}
+      >
+        {author}
+      </QuestionAuthor>
       <QuestionContent>{content}</QuestionContent>
-    </QuestionWrapper>
+    </QuestionBoxWrapper>
   )
 }
