@@ -1,6 +1,5 @@
-import React from 'react'
 import type { FormikHelpers } from 'formik'
-import type { SchemaOf } from 'yup'
+import { SchemaOf } from 'yup'
 
 export type FormStateType = 'success' | 'error' | 'info'
 
@@ -25,41 +24,21 @@ type useFormProps<Values> = {
 
 type OnFormikSubmit<Values> = (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
 
-export const useForm = <Values>({ message, asyncFunc, resetFormProps }: useFormProps<Values>) => {
-  const [formState, setFormState] = React.useState<FormStateType>('success')
-  const [formStateOpen, setFormStateOpen] = React.useState(false)
-  const [snackMessage, setSnackMessage] = React.useState('')
-  const [displayError, setDisplayError] = React.useState(false)
+export const useForm = <Values>({ asyncFunc, resetFormProps }: useFormProps<Values>) => {
+  const formState = 'success' as FormStateType
+  const formStateOpen = false
+  const snackMessage = ''
+  const displayError = false
 
   const handleFormSubmit = (contextSubmit: () => void) => {
-    if (!displayError) {
-      setDisplayError(true)
-    }
     contextSubmit()
   }
 
-  const setLoadingForm = () => {
-    setFormState('info')
-    setFormStateOpen(true)
-    setSnackMessage(message.sending)
-  }
-  const setSuccessForm = () => {
-    setFormState('success')
-    setFormStateOpen(true)
-    setSnackMessage(message.success)
-  }
-  const setErrorForm = () => {
-    setFormState('error')
-    setFormStateOpen(true)
-    setSnackMessage(message.error)
-  }
+  const setLoadingForm = jest.fn()
+  const setSuccessForm = jest.fn()
+  const setErrorForm = jest.fn()
 
-  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') {
-      return
-    }
-    setFormStateOpen(false)
-  }
+  const handleClose = jest.fn()
 
   const onFormSubmit: OnFormikSubmit<Values> = async (values, { resetForm }) => {
     setLoadingForm()
@@ -68,7 +47,6 @@ export const useForm = <Values>({ message, asyncFunc, resetFormProps }: useFormP
       if (response == 200) {
         setSuccessForm()
         resetForm({ values: resetFormProps })
-        setDisplayError(false)
       } else {
         setErrorForm()
       }
