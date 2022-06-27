@@ -1,6 +1,7 @@
-import { fireEvent, render, screen, within, waitFor } from '@testing-library/react'
+import { render, screen, within, waitFor, waitForElementToBeRemoved } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import AskPage from '../../pages/ask'
+import '@testing-library/jest-dom'
 
 describe('form', () => {
   const talks = [
@@ -10,7 +11,6 @@ describe('form', () => {
   ]
 
   it('select displays properties on click', async () => {
-    //cleanup is done for us
     render(<AskPage talks={talks} />)
     const select = screen.getByRole('button', { name: /t-label_talk/i })
 
@@ -25,35 +25,23 @@ describe('form', () => {
   })
 
   it('choose option from select', async () => {
-    //cleanup is done for us
     render(<AskPage talks={talks} />)
     const select = screen.getByRole('button', { name: /t-label_talk/i })
 
     await userEvent.click(select)
     const listBox = screen.getByRole('listbox')
 
-    const options = within(listBox).getAllByRole('option')
+    const option = within(listBox).getAllByRole('option')
 
-    fireEvent(
-      options[2],
-      new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true
-      })
-    )
+    await userEvent.click(option[2])
 
+    await waitForElementToBeRemoved(listBox)
     await waitFor(() => {
-      expect(select.textContent).toBe('Opcion 3')
+      expect(select.textContent).toBe(talks[2].text)
     })
   })
 
-  it.todo('form is filled properly', async () => {
-    const talks = [
-      { text: 'Opcion 1', value: 'v1' },
-      { text: 'Opcion 2', value: 'v2' },
-      { text: 'Opcion 3', value: 'v3' }
-    ]
-
+  it('form is filled properly', async () => {
     render(<AskPage talks={talks} />)
 
     const arbitraryName = 'I am the name'
@@ -62,13 +50,13 @@ describe('form', () => {
 
     const nameInput = screen.getByRole('textbox', {
       name: /t-label_name/i
-    })
+    }) as HTMLInputElement
     const emailInput = screen.getByRole('textbox', {
       name: /t-label_email/i
-    })
+    }) as HTMLInputElement
     const questionInput = screen.getByRole('textbox', {
       name: /t-label_question/i
-    })
+    }) as HTMLInputElement
     const select = screen.getByRole('button', { name: /t-label_talk/i })
 
     await userEvent.type(nameInput, arbitraryName)
@@ -78,8 +66,15 @@ describe('form', () => {
 
     const listBox = screen.getByRole('listbox')
 
-    //on hold until we are able to select an option from the select
+    const option = within(listBox).getAllByRole('option')
 
+    await userEvent.click(option[2])
+
+    await waitForElementToBeRemoved(listBox)
+
+    await waitFor(() => {
+      expect(select.textContent).toBe(talks[2].text)
+    })
     expect(nameInput.value).toBe(arbitraryName)
     expect(emailInput.value).toBe(arbitraryEmail)
     expect(questionInput.value).toBe(arbitraryQuestion)
