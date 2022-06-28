@@ -7,6 +7,7 @@ import { QuestionType } from 'ui/Ask/types'
 import * as yup from 'yup'
 import { Ask } from 'ui/Ask/Ask'
 import { useTrans } from 'ui/_hooks/useTrans'
+
 describe('form tests', () => {
   const talks = [
     { text: 'Opcion 1', value: 'v1' },
